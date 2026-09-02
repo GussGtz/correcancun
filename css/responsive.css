@@ -36,10 +36,14 @@
 
   .header-plans span { display: none; }
 
+  .widget__header { flex-wrap: wrap; align-items: center; gap: var(--sp-s) var(--sp-m); }
+  .widget__header .link-arrow { font-size: var(--fs-body-s); }
+
   .hero__list { grid-template-rows: none; }
   .teams-grid__list { grid-template-columns: repeat(2, 1fr); }
   .footer-cols { grid-template-columns: repeat(2, 1fr); }
-  .countdown { width: 100%; flex-wrap: wrap; }
+  .countdown { width: 100%; flex-direction: column; align-items: flex-start; gap: var(--sp-xs); }
+  .countdown__clock { width: 100%; }
   .countdown__cell { min-width: 0; flex: 1; }
   .calendar__foot { flex-direction: column; align-items: stretch; }
   .join__actions { flex-direction: column; }

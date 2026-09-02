@@ -98,6 +98,16 @@ h1, h2, h3, h4 {
   border: 1.5px solid rgba(255,255,255,.65);
 }
 .btn--ghost:hover { background: rgba(255,255,255,.12); }
+/* Sobre fondo claro (páginas internas) el ghost necesita tinta oscura */
+.u-surface .btn--ghost,
+.shop .btn--ghost,
+.sponsors .btn--ghost {
+  --btn-fg: var(--ink);
+  border-color: var(--surface-container);
+}
+.u-surface .btn--ghost:hover,
+.shop .btn--ghost:hover,
+.sponsors .btn--ghost:hover { background: var(--grey-100); }
 .btn--dark { --btn-bg: var(--navy); }
 .btn--block { display: flex; width: 100%; justify-content: center; }
 
@@ -127,7 +137,8 @@ h1, h2, h3, h4 {
   text-transform: uppercase;
   color: #fff;
 }
-.u-surface .widget__title { color: var(--ink); }
+.u-surface .widget__title,
+.shop .widget__title { color: var(--ink); }
 .widget__title::after {
   content: "";
   display: block;
@@ -162,6 +173,7 @@ h1, h2, h3, h4 {
 
 /* ---- Media placeholder (sin assets con copyright) --------------------- */
 .ph {
+  display: block;
   position: relative;
   overflow: hidden;
   background: var(--grad-tight);

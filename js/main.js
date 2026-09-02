@@ -295,9 +295,10 @@
   function renderStaff() {
     const w = $("[data-staff]");
     if (!w || !D) return;
+    const initials = (n) => n.split(/\s+/).slice(0, 2).map((x) => x[0]).join("").toUpperCase();
     w.innerHTML = D.staff.map((s, i) => `
       <div class="person">
-        <span class="person__photo ph ${["", "ph--grana", "ph--navy", "ph--blue", "", "ph--grana"][i % 6]}"></span>
+        <span class="person__photo ph ${["", "ph--grana", "ph--navy", "ph--blue", "", "ph--grana"][i % 6]}"><span class="person__initials">${initials(s.nombre)}</span></span>
         <strong>${s.nombre}</strong><span>${s.rol}</span>
       </div>`).join("");
   }
