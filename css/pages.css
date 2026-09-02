@@ -215,6 +215,7 @@
   margin-inline: auto;
 }
 .news-card__media.is-portrait img { object-position: center 22%; }
+.hero__thumb--portrait img { object-position: center 20%; }
 .article__body p { margin-bottom: var(--sp-m); font-size: var(--fs-body-l); line-height: 1.7; }
 .article__body { margin-bottom: var(--sp-xl); }
 .article__facts {
