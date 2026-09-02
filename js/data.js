@@ -9,18 +9,24 @@ window.CorreData = (function () {
 
   const noticias = [
     {
-      id: "juvenil-fase-final",
-      titulo: "El Juvenil A se clasifica para la fase final del torneo comarcal",
-      categoria: "Juvenil",
-      fecha: "2025-09-01",
-      hace: "Hace 9 h",
-      img: S + "news-juvenil.svg",
-      resumen: "El equipo de Míriam Cano termina primero de grupo tras ganar en la última jornada y jugará la fase final en casa.",
+      id: "porteros-septiembre",
+      titulo: "Septiembre arranca con nuevos retos: entrenamientos de porteros",
+      categoria: "Escuela de porteros",
+      fecha: "2025-09-02",
+      hace: "Hace 1 h",
+      img: S + "promo-porteros.svg",
+      resumen: "Sesiones específicas para todos los porteros del club, de benjamín a juvenil. Enfoque, técnica, disciplina y seguridad bajo los tres palos.",
+      datos: [
+        { icon: "ri-calendar-line", label: "Días", valor: "Martes y miércoles" },
+        { icon: "ri-time-line", label: "Hora", valor: "17:00 h" },
+        { icon: "ri-focus-3-line", label: "En qué trabajamos", valor: "Enfoque · Técnica · Disciplina · Seguridad" }
+      ],
+      cta: { texto: "Apuntar a un portero", url: "inscripciones.html" },
       cuerpo: [
-        "El Juvenil A cerró la fase de grupos del torneo comarcal con una victoria por 2-1 que le da el primer puesto y el factor campo para la fase final.",
-        "Los dos goles llegaron en la segunda parte, después de una primera mitad muy igualada. El equipo mostró la paciencia y el juego combinativo que se trabaja durante la semana.",
-        "«Lo importante no es solo el resultado, sino cómo hemos competido cuando el partido se puso difícil», valoró la entrenadora Míriam Cano al terminar el encuentro.",
-        "La fase final se disputará el último fin de semana de septiembre en el Campo Municipal, con entrada libre para familias y aficionados."
+        "Arranca septiembre y con él la nueva temporada de la escuela de porteros del Corre Cancún. Empezamos con ganas y con retos nuevos para cada edad.",
+        "Las sesiones son específicas para todos los porteros del club, de benjamín a juvenil. Trabajamos el juego de pies, el blocaje, las salidas, el juego aéreo y, sobre todo, la toma de decisiones y la comunicación con la defensa.",
+        "Más allá de la técnica, insistimos en cuatro cosas: enfoque para mantener la concentración los 90 minutos, técnica para repetir bien los gestos, disciplina para no fallar en los detalles y seguridad para transmitir calma al equipo.",
+        "¡Prepárate para darlo todo bajo los tres palos! Si tu hijo o hija quiere probar una sesión, habla con su entrenador o escríbenos desde la página de contacto."
       ]
     },
     {

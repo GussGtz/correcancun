@@ -167,14 +167,19 @@
     const id = new URLSearchParams(location.search).get("id");
     const n = D.noticia(id) || D.noticias[0];
     document.title = n.titulo + " · Corre Cancún";
+    const datos = n.datos ? `
+      <ul class="article__facts">${n.datos.map((d) => `
+        <li><i class="${d.icon}" aria-hidden="true"></i><span><strong>${d.label}</strong>${d.valor}</span></li>`).join("")}</ul>` : "";
+    const cta = n.cta ? `<a class="btn btn--gold" href="${n.cta.url}">${n.cta.texto}</a>` : "";
     wrap.innerHTML = `
       <nav class="breadcrumb"><a href="index.html">Inicio</a> › <a href="actualidad.html">Actualidad</a> › <span>${n.categoria}</span></nav>
       <span class="tag">${n.categoria}</span>
       <h1 class="article__title">${n.titulo}</h1>
       <p class="article__meta">${n.categoria} · ${n.hace} · ${fmtFecha(n.fecha)}</p>
       <div class="article__hero"><img src="${n.img}" alt=""></div>
+      ${datos}
       <div class="article__body">${n.cuerpo.map((p) => `<p>${p}</p>`).join("")}</div>
-      <a class="btn btn--ghost" href="actualidad.html">← Volver a Actualidad</a>`;
+      <div class="article__actions">${cta}<a class="btn btn--ghost" href="actualidad.html">← Volver a Actualidad</a></div>`;
     const rel = $("[data-noticia-rel]");
     if (rel) rel.innerHTML = D.noticias.filter((x) => x.id !== n.id).slice(0, 3)
       .map((x) => newsCardHTML(x, false)).join("");

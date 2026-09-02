@@ -20,7 +20,9 @@
 .hero__primary::after {
   content: "";
   position: absolute; inset: 0;
-  background: var(--grad-navy);
+  background:
+    linear-gradient(180deg, transparent 0%, rgba(8,8,10,.15) 30%, rgba(8,8,10,.72) 62%, rgba(8,8,10,.97) 100%),
+    linear-gradient(90deg, rgba(8,8,10,.5) 0%, rgba(8,8,10,.12) 45%, transparent 70%);
 }
 .hero__body {
   position: absolute;
