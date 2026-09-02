@@ -252,10 +252,16 @@ window.CorreData = (function () {
   const P = (i) => S + "player-" + i + ".svg";
   const plantilla = [
     // Jugador real del club
-    { id: "santi-gutierrez", nombre: "Santiago «Santi» Gutiérrez", dorsal: 131, pos: "Defensa", grupo: "Defensas",
-      cat: "Prebenjamín", foto: "assets/img/jug-santi.jpg", nac: "2018-10-16", lugar: "Quintana Roo",
+    { id: "santi-gutierrez", nombre: "Santiago «Santi» Gutiérrez", apellido: "Gutiérrez", dorsal: 131, pos: "Defensa", grupo: "Defensas",
+      cat: "Prebenjamín", foto: "assets/img/jug-santi.jpg", retrato: "assets/img/jug-santi.png",
+      nac: "2018-10-16", lugar: "Quintana Roo",
       desde: "2025", liga: "Liga Guillermo Cañedo, A. C.", nui: "1222933",
       cita: "Defensa aplicado que no pierde la marca y sabe salir jugando desde atrás.",
+      stats: [
+        { num: 4, label: "Temporadas", sub: "Fútbol federado" },
+        { num: 2, label: "Categorías", sub: "2017 y 2018" },
+        { num: 5, label: "Logros", sub: "En el palmarés" }
+      ],
       bio: [
         "Con solo siete años, Santi acumula una trayectoria poco habitual para su edad. Empezó en el fútbol federado en la temporada 2023-24 y desde entonces no ha dejado de competir.",
         "En 2025 se incorporó al Corre Cancún y es de los pocos jugadores que están en el proyecto desde el principio. En 2026 fue convocado por la selección de Quintana Roo para disputar el campeonato nacional en Playa del Carmen.",
@@ -263,11 +269,11 @@ window.CorreData = (function () {
         "Lo que más lo distingue es que, siendo de 2018, compite en su categoría y también en una superior. En cada club destaca lo suficiente para alternar la 2018 y la 2017; de hecho, esta última temporada fue convocado por la selección de Quintana Roo 2017."
       ],
       palmares: [
-        { titulo: "Campeón · Liga Guillermo Cañedo", nota: "Temporada 2025-26" },
-        { titulo: "Campeón · Copa ACO", nota: "Valladolid · 2026" },
-        { titulo: "Subcampeón · Copa Celta", nota: "Torneo internacional del RC Celta y su Celta Academy · 2026" },
-        { titulo: "Selección de Quintana Roo", nota: "Campeonato nacional en Playa del Carmen · 2026" },
-        { titulo: "Copa Pioneros", nota: "Participación · 2026" }
+        { tag: "Liga", titulo: "Liga Guillermo Cañedo", mark: "1º", icon: "ri-trophy-fill", nota: "Campeón · Temporada 2025-26" },
+        { tag: "Torneo", titulo: "Copa ACO", mark: "1º", icon: "ri-trophy-fill", nota: "Campeón · Valladolid 2026" },
+        { tag: "Internacional", titulo: "Copa Celta", mark: "2º", icon: "ri-medal-fill", nota: "Subcampeón · RC Celta y Celta Academy · 2026" },
+        { tag: "Selección", titulo: "Quintana Roo 2017", mark: "★", icon: "ri-shield-star-fill", nota: "Campeonato nacional · Playa del Carmen 2026" },
+        { tag: "Torneo", titulo: "Copa Pioneros", mark: "—", icon: "ri-football-fill", nota: "Participación · 2026" }
       ],
       historial: [
         { temporada: "2025-26", torneo: "Liga Guillermo Cañedo", club: "Filial Venados N. Héroes", pos: "Defensa", dorsal: "131" },

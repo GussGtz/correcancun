@@ -88,27 +88,39 @@
   to { opacity: 1; transform: none; }
 }
 
-/* ---- Ficha de jugador ------------------------------------------- */
-.jugador__photo img { animation: kenBurns 14s ease-in-out infinite alternate; }
-@keyframes kenBurns {
-  from { transform: scale(1); }
-  to { transform: scale(1.06); }
-}
-.jugador__no {
-  animation: noRise .8s var(--ease) both;
-}
-@keyframes noRise {
-  from { opacity: 0; transform: translateY(30px); }
+/* ---- Ficha de jugador (jugador.html) --------------------------- */
+.jficha__wm { animation: wmIn 1s var(--ease) both; }
+@keyframes wmIn {
+  from { opacity: 0; transform: translateX(-4rem); }
   to { opacity: 1; transform: none; }
 }
-.jugador__stats div { animation: statIn .55s var(--ease) both; }
-.jugador__stats div:nth-child(2) { animation-delay: .1s; }
-.jugador__stats div:nth-child(3) { animation-delay: .2s; }
+.jficha__hero-main > * { animation: heroFade .7s var(--ease) both; }
+.jficha__hero-main .eyebrow { animation-delay: .05s; }
+.jficha__hero-main h1 { animation-delay: .12s; }
+.jficha__hero-main .jficha__stats { animation-delay: .2s; }
+.jficha__photo { animation: photoRise .8s var(--ease) both; animation-delay: .15s; }
+@keyframes photoRise {
+  from { opacity: 0; transform: translateY(3rem); }
+  to { opacity: 1; transform: none; }
+}
+.jficha__plate { animation: heroFade .7s var(--ease) both; animation-delay: .5s; }
+.jficha__stat { animation: statIn .55s var(--ease) both; }
+.jficha__stat:nth-child(2) { animation-delay: .1s; }
+.jficha__stat:nth-child(3) { animation-delay: .2s; }
 @keyframes statIn {
   from { opacity: 0; transform: translateY(14px); }
   to { opacity: 1; transform: none; }
 }
-.jugador__stats strong { font-variant-numeric: tabular-nums; }
+.jficha__stat strong { font-variant-numeric: tabular-nums; }
+
+.jhonor {
+  animation: cardIn .5s var(--ease) both;
+  animation-delay: calc(var(--i, 0) * 80ms);
+}
+.jhonor { transition: transform .3s var(--ease), border-color .3s var(--ease); }
+.jhonor:hover { transform: translateY(-6px); border-color: rgba(226,100,30,.55); }
+.jnews-card__media img { transition: transform .5s var(--ease); }
+.jnews-card:hover .jnews-card__media img { transform: scale(1.06); }
 
 /* ---- Botón "volver arriba" e íconos con micro-interacción ------- */
 .to-top { transition: opacity .2s var(--ease), transform .25s var(--ease), background-color .2s var(--ease); }
@@ -136,9 +148,12 @@
 @media (prefers-reduced-motion: reduce) {
   .reveal, .reveal--zoom, .reveal--left, .reveal--right { opacity: 1 !important; transform: none !important; }
   .squad__grid .player-card,
-  .jugador__photo img,
-  .jugador__no,
-  .jugador__stats div,
+  .jficha__wm,
+  .jficha__hero-main > *,
+  .jficha__photo,
+  .jficha__plate,
+  .jficha__stat,
+  .jhonor,
   .page-hero > .wrapper > * { animation: none !important; }
   .chip.is-active { animation: none !important; }
 }

@@ -358,32 +358,6 @@
   content: ""; position: absolute; inset: 0;
   background: linear-gradient(180deg, transparent 40%, rgba(0,5,40,.95));
 }
-.jugador__traye {
-  display: flex; align-items: center; gap: .8rem;
-  font-size: var(--fs-body-m);
-  color: var(--ink-soft);
-  margin-bottom: var(--sp-xl);
-}
-.jugador__traye i { font-size: 2rem; color: var(--brand-orange); flex: none; }
-
-.jugador__palmares {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(26rem, 1fr));
-  gap: var(--sp-s);
-  margin-bottom: var(--sp-xl);
-}
-.jugador__palmares li {
-  display: flex; align-items: flex-start; gap: var(--sp-s);
-  padding: var(--sp-m);
-  background: var(--grey-100);
-  border-left: 3px solid var(--brand-orange);
-  border-radius: var(--radius-m);
-}
-.jugador__palmares i { font-size: 2rem; color: var(--brand-orange); flex: none; line-height: 1; }
-.jugador__palmares span { display: flex; flex-direction: column; }
-.jugador__palmares strong { font-size: var(--fs-body-l); }
-.jugador__palmares em { font-style: normal; font-size: var(--fs-body-s); color: var(--ink-soft); }
-
 .pill-cap {
   display: inline-block;
   margin-left: .6rem;
@@ -401,66 +375,367 @@
 .jugador__historial { min-width: 62rem; }
 .jugador__historial td:last-child, .jugador__historial th:last-child { text-align: right; white-space: nowrap; }
 
-/* ---- Ficha de jugador (jugador.html) --------------------------- */
-.jugador { max-width: 92rem; margin-inline: auto; }
-.jugador__top {
-  display: grid;
-  grid-template-columns: 30rem 1fr;
-  gap: var(--sp-2xl);
-  align-items: start;
-  margin: var(--sp-m) 0 var(--sp-xl);
+/* ==============================================================
+   Ficha de jugador (jugador.html) — hero + bio + palmarés + actualidad
+   ============================================================== */
+.jficha { display: block; }
+.jficha__section {
+  max-width: var(--wrapper-wide);
+  margin-inline: auto;
+  padding: var(--sp-4xl) var(--sp-xl);
 }
-.jugador__photo {
+.jficha .section-sub { color: var(--ink); }
+
+/* ---- Hero ---- */
+.jficha__hero {
   position: relative;
-  aspect-ratio: 3 / 4;
-  border-radius: var(--radius-l);
   overflow: hidden;
-  background: var(--grad-tight);
+  background: var(--navy-3);
+  color: #fff;
+  padding-top: var(--sp-2xl);
 }
-.jugador__photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.jugador__no {
-  position: absolute; right: 1rem; bottom: .4rem;
+.jficha__hero::before {
+  content: "";
+  position: absolute;
+  top: -18%; right: -8%;
+  width: 62rem; height: 62rem;
+  background: radial-gradient(circle, rgba(226,100,30,.38), transparent 62%);
+  pointer-events: none;
+}
+.jficha__wm {
+  position: absolute;
+  left: -1.5rem;
+  bottom: 6%;
   font-family: var(--font-display);
-  font-size: 8rem;
-  line-height: 1;
-  color: rgba(255,255,255,.85);
-  text-shadow: 0 4px 20px rgba(0,0,0,.4);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: clamp(8rem, 19vw, 23rem);
+  line-height: .78;
+  letter-spacing: -.02em;
+  color: rgba(255,255,255,.055);
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 1;
 }
-.jugador__intro h1 { font-size: var(--fs-display-xs); margin: var(--sp-xs) 0 var(--sp-s); }
-.jugador__cita {
-  font-size: var(--fs-title-s);
-  font-style: italic;
-  color: var(--ink);
-  border-left: 3px solid var(--brand-orange);
-  padding-left: var(--sp-m);
-  margin-bottom: var(--sp-l);
+.jficha__hero .breadcrumb {
+  position: relative;
+  z-index: 4;
+  max-width: var(--wrapper-wide);
+  margin-inline: auto;
+  padding: 0 var(--sp-xl);
+  color: rgba(255,255,255,.6);
 }
-.jugador__stats { display: flex; gap: var(--sp-xl); }
-.jugador__stats strong { display: block; font-family: var(--font-display); font-size: var(--fs-display-xs); line-height: 1; }
-.jugador__stats span { font-size: var(--fs-body-xs); text-transform: uppercase; letter-spacing: .08em; color: var(--ink-soft); }
-.jugador__nota { font-size: var(--fs-body-s); color: var(--ink-soft); margin-top: var(--sp-s); }
-.jugador__ficha {
+.jficha__hero .breadcrumb a { color: rgba(255,255,255,.6); }
+.jficha__hero .breadcrumb a:hover { color: #fff; }
+.jficha__hero-inner {
+  position: relative;
+  z-index: 3;
+  max-width: var(--wrapper-wide);
+  margin-inline: auto;
+  padding: var(--sp-l) var(--sp-xl) 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
-  gap: var(--sp-s);
-  padding: var(--sp-l) 0;
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-  margin-bottom: var(--sp-xl);
+  grid-template-columns: 1fr minmax(28rem, 42rem);
+  gap: var(--sp-2xl);
+  align-items: end;
+  min-height: 46rem;
 }
-.jugador__ficha li { display: flex; flex-direction: column; gap: .2rem; font-size: var(--fs-body-l); }
-.jugador__ficha strong {
+.jficha__hero-main { padding-bottom: var(--sp-4xl); }
+.jficha__hero-main .eyebrow { color: var(--brand-amber); }
+.jficha__hero-main h1 {
+  font-family: var(--font-display);
+  font-size: clamp(3.6rem, 6vw, 6.4rem);
+  line-height: .95;
+  text-transform: uppercase;
+  margin: var(--sp-xs) 0 var(--sp-xl);
+}
+.jficha__stats { display: flex; flex-wrap: wrap; gap: var(--sp-2xl); }
+.jficha__stat strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(3.4rem, 5vw, 5.4rem);
+  line-height: 1;
+  color: var(--brand-amber);
+  font-variant-numeric: tabular-nums;
+}
+.jficha__stat span {
+  display: block;
+  font-size: var(--fs-body-m);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  margin-top: .4rem;
+}
+.jficha__stat small {
+  display: block;
   font-size: var(--fs-body-xs);
   text-transform: uppercase;
-  letter-spacing: .06em;
+  letter-spacing: .08em;
+  color: rgba(255,255,255,.5);
+  margin-top: .2rem;
+}
+.jficha__photo {
+  position: relative;
+  align-self: end;
+  margin: 0;
+}
+.jficha__photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 52rem;
+  object-fit: contain;
+  object-position: bottom center;
+  filter: drop-shadow(0 30px 44px rgba(0,0,0,.55));
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 14%, #000 100%);
+  mask-image: linear-gradient(90deg, transparent, #000 14%, #000 100%);
+}
+.jficha__plate {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: var(--sp-s) var(--sp-m) var(--sp-m) 5rem;
+  text-align: right;
+  background: linear-gradient(90deg, transparent, rgba(11,11,13,.92) 34%);
+}
+.jficha__plate span {
+  font-size: var(--fs-body-s);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  color: var(--brand-amber);
+}
+.jficha__plate strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: var(--fs-display-xs);
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+/* ---- Biografía + ficha técnica ---- */
+.jficha__bio { background: var(--surface); }
+.jficha__bio-grid {
+  display: grid;
+  grid-template-columns: minmax(24rem, 34rem) 1fr;
+  gap: var(--sp-3xl);
+  align-items: start;
+}
+.jficha__bio-photo {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  max-height: 44rem;
+  border-radius: var(--radius-l);
+  overflow: hidden;
+  background: linear-gradient(118deg, var(--brand-orange) 0 48%, var(--navy) 48% 100%);
+}
+.jficha__bio-photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: bottom center;
+}
+.jficha__bio-head {
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: clamp(2.4rem, 3.6vw, 3.8rem);
+  line-height: 1.06;
+  color: var(--ink);
+  margin-bottom: var(--sp-l);
+}
+.jficha__bio-body { max-width: 62ch; color: var(--ink-soft); font-size: var(--fs-body-l); }
+.jficha__bio-body p + p { margin-top: var(--sp-m); }
+.jficha__bio-body p.is-hidden { display: none; }
+.jficha__bio-more {
+  margin-top: var(--sp-m);
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: var(--fs-body-m);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  color: var(--brand-orange);
+}
+.jficha__bio-more i { font-size: 1.8rem; }
+.jficha__facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: var(--sp-l);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: var(--sp-xl) 0;
+  margin-top: var(--sp-3xl);
+}
+.jficha__fact span {
+  display: block;
+  font-size: var(--fs-body-xs);
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--ink-soft);
+  margin-bottom: .4rem;
+}
+.jficha__fact strong {
+  font-family: var(--font-display);
+  font-size: var(--fs-title-l);
+  font-weight: 600;
+  color: var(--ink);
+}
+.jficha__note {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  margin-top: var(--sp-l);
+  font-size: var(--fs-body-m);
   color: var(--ink-soft);
 }
-.jugador__bio { max-width: 68ch; margin-bottom: var(--sp-xl); }
+.jficha__note i { font-size: 2rem; color: var(--brand-orange); flex: none; }
 
-@media (max-width: 760px) {
-  .jugador__top { grid-template-columns: 1fr; gap: var(--sp-l); }
-  .jugador__photo { max-width: 28rem; }
-  .jugador__stats { gap: var(--sp-l); }
+/* ---- Historia deportiva ---- */
+.jficha__historia { background: var(--surface); padding-top: 0; }
+
+/* ---- Palmarés (carrusel oscuro) ---- */
+.jficha__palmares {
+  background: var(--navy-3);
+  color: #fff;
+  padding: var(--sp-4xl) 0;
+}
+.jhonors {
+  max-width: var(--wrapper-wide);
+  margin-inline: auto;
+  padding-inline: var(--sp-xl);
+}
+.jhonors__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-m);
+  margin-bottom: var(--sp-xl);
+}
+.jhonors__head h2 { font-size: var(--fs-title-xl); }
+.jhonors__track {
+  display: flex;
+  gap: var(--sp-m);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  padding-bottom: var(--sp-s);
+}
+.jhonors__track::-webkit-scrollbar { display: none; }
+.jhonor {
+  scroll-snap-align: start;
+  flex: 0 0 clamp(23rem, 26vw, 29rem);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 20rem;
+  padding: var(--sp-l);
+  border-radius: var(--radius-l);
+  background: var(--navy-2);
+  border: 1px solid rgba(255,255,255,.06);
+}
+.jhonor::after {
+  content: "";
+  position: absolute;
+  right: -20%;
+  bottom: -40%;
+  width: 30rem; height: 30rem;
+  background: radial-gradient(circle, rgba(226,100,30,.5), transparent 62%);
+  pointer-events: none;
+}
+.jhonor__tag {
+  position: relative;
+  z-index: 1;
+  font-size: var(--fs-body-xs);
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: rgba(255,255,255,.55);
+}
+.jhonor__title {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-display);
+  font-size: var(--fs-title-m);
+  text-transform: uppercase;
+  line-height: 1.05;
+  margin-top: .4rem;
+}
+.jhonor__mark {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: var(--sp-s);
+  margin-top: auto;
+}
+.jhonor__mark b {
+  font-family: var(--font-display);
+  font-size: var(--fs-display-s);
+  line-height: 1;
+  color: var(--brand-amber);
+}
+.jhonor__mark i { font-size: 2.8rem; color: var(--brand-amber); }
+.jhonor__sub {
+  position: relative;
+  z-index: 1;
+  font-size: var(--fs-body-s);
+  color: rgba(255,255,255,.72);
+  margin-top: var(--sp-xs);
+}
+
+/* ---- Actualidad relacionada ---- */
+.jficha__news { background: var(--surface); }
+.jnews__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--sp-m);
+}
+.jnews-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--navy-2);
+  border-radius: var(--radius-m);
+  overflow: hidden;
+  color: #fff;
+  transition: transform .18s var(--ease);
+}
+.jnews-card:hover { transform: translateY(-4px); }
+.jnews-card__media { position: relative; aspect-ratio: 16 / 10; }
+.jnews-card__media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.jnews-card__body { display: flex; flex-direction: column; gap: var(--sp-xs); padding: var(--sp-m); flex: 1; }
+.jnews-card__body h3 {
+  font-family: var(--font-body);
+  font-weight: 700;
+  text-transform: none;
+  font-size: var(--fs-body-m);
+  line-height: 1.3;
+}
+.jnews-card__meta {
+  margin-top: auto;
+  font-size: var(--fs-body-xs);
+  color: rgba(255,255,255,.55);
+}
+
+@media (max-width: 900px) {
+  .jficha__hero-inner { grid-template-columns: 1fr; gap: var(--sp-l); }
+  .jficha__hero-main { padding-bottom: var(--sp-l); }
+  .jficha__photo { max-width: 34rem; margin-inline: auto; }
+  .jficha__bio-grid { grid-template-columns: 1fr; gap: var(--sp-xl); }
+  .jficha__bio-photo { max-width: 32rem; }
+  .jnews__grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 520px) {
+  .jficha__section { padding: var(--sp-2xl) var(--sp-m); }
+  .jficha__stats { gap: var(--sp-l); }
+  .jnews__grid { grid-template-columns: 1fr; }
 }
 
 /* ---- Categorías (cat-card) -------------------------------------- */

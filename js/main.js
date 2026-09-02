@@ -49,23 +49,7 @@
     }
 
     /* -------------------------------------------------------- Carruseles */
-    $$(".js-carousel").forEach((car) => {
-      const track = $(".js-carousel-track", car);
-      const prev = $('[data-dir="prev"]', car);
-      const next = $('[data-dir="next"]', car);
-      if (!track) return;
-      const step = () => Math.max(track.clientWidth * 0.8, 280);
-      const update = () => {
-        const max = track.scrollWidth - track.clientWidth - 4;
-        if (prev) prev.disabled = track.scrollLeft <= 4;
-        if (next) next.disabled = track.scrollLeft >= max;
-      };
-      prev?.addEventListener("click", () => track.scrollBy({ left: -step(), behavior: "smooth" }));
-      next?.addEventListener("click", () => track.scrollBy({ left: step(), behavior: "smooth" }));
-      track.addEventListener("scroll", update, { passive: true });
-      window.addEventListener("resize", update);
-      update();
-    });
+    $$(".js-carousel").forEach(initCarousel);
 
     /* ------------------------------------------- Tarjeta de artículo → ficha */
     $$(".js-article-expand").forEach((a) => {
@@ -120,6 +104,24 @@
   });
 
   /* ------------------------------------------------------------------ helpers */
+  function initCarousel(car) {
+    const track = $(".js-carousel-track", car);
+    const prev = $('[data-dir="prev"]', car);
+    const next = $('[data-dir="next"]', car);
+    if (!track) return;
+    const step = () => Math.max(track.clientWidth * 0.8, 280);
+    const update = () => {
+      const max = track.scrollWidth - track.clientWidth - 4;
+      if (prev) prev.disabled = track.scrollLeft <= 4;
+      if (next) next.disabled = track.scrollLeft >= max;
+    };
+    prev?.addEventListener("click", () => track.scrollBy({ left: -step(), behavior: "smooth" }));
+    next?.addEventListener("click", () => track.scrollBy({ left: step(), behavior: "smooth" }));
+    track.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    update();
+  }
+
   function el(tag, cls, html) {
     const n = document.createElement(tag);
     if (cls) n.className = cls;
@@ -424,74 +426,159 @@
     body.querySelectorAll(".squad__grid .player-card").forEach((c, i) => c.style.setProperty("--i", i));
   }
 
-  // jugador.html: ficha completa
+  // jugador.html: ficha completa (estilo ficha de club — hero + bio + palmarés + actualidad)
+  const fact = (k, v) => (v ? `<li class="jficha__fact"><span>${k}</span><strong>${v}</strong></li>` : "");
+
   function renderJugador() {
     const wrap = $("[data-jugador]");
     if (!wrap || !D) return;
     const id = new URLSearchParams(location.search).get("id");
     const j = D.jugador(id) || D.plantilla[0];
     document.title = j.nombre + " · Corre Cancún";
-    const fecha = new Date(j.nac + "T00:00:00").toLocaleDateString("es-ES", { day: "numeric", month: "long", year: "numeric" });
+
+    const fecha = new Date(j.nac + "T00:00:00").toLocaleDateString("es-ES", { day: "2-digit", month: "2-digit", year: "numeric" });
     const edad = Math.floor((Date.now() - new Date(j.nac)) / 31557600000);
+    const apellido = j.apellido || j.nombre.replace(/«[^»]*»/g, "").trim().split(/\s+/).pop();
+    const retrato = j.retrato || j.foto;
+
     // trayectoria por el club, derivada del año de entrada y la categoría actual
     const escala = ["Prebenjamín", "Benjamín", "Alevín", "Infantil", "Cadete", "Juvenil"];
     const actual = escala.findIndex((e) => (j.cat || "").startsWith(e));
     const inicio = Math.max(0, actual - Math.min(actual, new Date().getFullYear() - Number(j.desde)));
     const paso = actual >= 0 ? escala.slice(inicio, actual + 1) : [];
-    const traye = j.historial ? "" : (paso.length > 1
-      ? `<p class="jugador__traye"><i class="ri-route-line" aria-hidden="true"></i> En el club desde ${j.desde}. Ha pasado por ${paso.slice(0, -1).join(", ")} y ${paso[paso.length - 1]}.</p>`
-      : `<p class="jugador__traye"><i class="ri-route-line" aria-hidden="true"></i> En el club desde ${j.desde}, en la categoría ${j.cat}.</p>`);
+    const trayeTxt = paso.length > 1
+      ? `En el club desde ${j.desde}. Ha pasado por ${paso.slice(0, -1).join(", ")} y ${paso[paso.length - 1]}.`
+      : `En el club desde ${j.desde}, en la categoría ${j.cat}.`;
 
-    const stats = j.temp ? `
-          <div class="jugador__stats">
-            <div><strong data-count="${j.temp.pj}">0</strong><span>Partidos</span></div>
-            <div><strong data-count="${j.temp.g}">0</strong><span>Goles</span></div>
-            <div><strong data-count="${j.temp.a}">0</strong><span>Asistencias</span></div>
+    const statList = j.stats || (j.temp ? [
+      { num: j.temp.pj, label: "Partidos", sub: "Temporada en curso" },
+      { num: j.temp.g, label: "Goles" },
+      { num: j.temp.a, label: "Asistencias" }
+    ] : []);
+    const stats = statList.map((s) => `
+      <div class="jficha__stat">
+        <strong data-count="${s.num}">0</strong>
+        <span>${s.label}</span>
+        ${s.sub ? `<small>${s.sub}</small>` : ""}
+      </div>`).join("");
+
+    /* ---- Hero ---- */
+    const hero = `
+      <section class="jficha__hero">
+        <span class="jficha__wm" aria-hidden="true">${apellido}</span>
+        <nav class="breadcrumb"><a href="index.html">Inicio</a> › <a href="jugadores.html">Jugadores</a> › <span>${j.cat}</span></nav>
+        <div class="jficha__hero-inner">
+          <div class="jficha__hero-main">
+            <span class="eyebrow">${j.cat} · ${j.pos}</span>
+            <h1>${j.nombre}</h1>
+            ${stats ? `<div class="jficha__stats">${stats}</div>` : ""}
           </div>
-          <p class="jugador__nota">Datos de la temporada en curso.</p>` : "";
-
-    const fichaRows = [
-      ["Lugar de nacimiento", j.lugar],
-      ["Fecha de nacimiento", `${fecha} (${edad} años)`],
-      ["Altura", j.altura],
-      ["Pie", j.pie],
-      ["Liga", j.liga],
-      ["NUI", j.nui],
-      ["En el club desde", j.desde]
-    ].filter(([, v]) => v).map(([k, v]) => `<li><strong>${k}</strong>${v}</li>`).join("");
-
-    const palmares = j.palmares ? `
-      <h2 class="section-sub" style="color:var(--ink)">Palmarés y logros</h2>
-      <ul class="jugador__palmares">${j.palmares.map((p) => `
-        <li><i class="ri-trophy-line" aria-hidden="true"></i><span><strong>${p.titulo}</strong>${p.nota ? `<em>${p.nota}</em>` : ""}</span></li>`).join("")}</ul>` : "";
-
-    const historial = j.historial ? `
-      <h2 class="section-sub" style="color:var(--ink)">Historia deportiva</h2>
-      <div class="table-wrap">
-        <table class="data-table jugador__historial">
-          <thead><tr><th>Temporada</th><th>Torneo</th><th>Club</th><th>Posición</th><th>Dorsal</th></tr></thead>
-          <tbody>${j.historial.map((h) => `<tr>
-            <td>${h.temporada}</td><td>${h.torneo}</td><td>${h.club}${h.cap ? ' <span class="pill-cap">Capitán</span>' : ""}</td><td>${h.pos}</td><td>#${h.dorsal}</td></tr>`).join("")}</tbody>
-        </table>
-      </div>` : "";
-
-    wrap.innerHTML = `
-      <nav class="breadcrumb"><a href="index.html">Inicio</a> › <a href="jugadores.html">Jugadores</a> › <span>${j.cat}</span></nav>
-      <div class="jugador__top">
-        <div class="jugador__photo"><img src="${j.foto}" alt="${j.nombre}"><span class="jugador__no">${j.dorsal}</span></div>
-        <div class="jugador__intro">
-          <span class="eyebrow" style="color:var(--brand-orange)">${j.cat} · ${j.pos}</span>
-          <h1>${j.nombre}</h1>
-          <p class="jugador__cita">«${j.cita}»</p>
-          ${stats}
+          <figure class="jficha__photo">
+            <img src="${retrato}" alt="${j.nombre}">
+            <figcaption class="jficha__plate"><span>${j.pos}</span><strong>${j.dorsal} ${apellido}</strong></figcaption>
+          </figure>
         </div>
-      </div>
-      <ul class="jugador__ficha">${fichaRows}</ul>
-      ${traye}
-      <div class="prose jugador__bio">${j.bio.map((p) => `<p>${p}</p>`).join("")}</div>
-      ${palmares}
-      ${historial}
-      <p style="margin-top:var(--sp-xl)"><a class="btn btn--ghost" href="jugadores.html">← Ver toda la plantilla</a></p>`;
+      </section>`;
+
+    /* ---- Biografía + ficha técnica ---- */
+    const [bioLead, ...bioRest] = j.bio;
+    const bio = `
+      <section class="jficha__section jficha__bio">
+        <div class="jficha__bio-grid">
+          <div class="jficha__bio-photo"><img src="${retrato}" alt="${j.nombre}"></div>
+          <div class="jficha__bio-text">
+            <p class="jficha__bio-head">${j.cita}</p>
+            <div class="jficha__bio-body">
+              <p>${bioLead}</p>
+              ${bioRest.map((p) => `<p class="is-hidden">${p}</p>`).join("")}
+            </div>
+            ${bioRest.length ? `<button type="button" class="jficha__bio-more" data-bio-toggle>
+              <span>Biografía completa</span><i class="ri-add-line" aria-hidden="true"></i></button>` : ""}
+          </div>
+        </div>
+        <ul class="jficha__facts">
+          ${fact("Lugar de nacimiento", j.lugar)}
+          ${fact("Fecha de nacimiento", `${fecha} · ${edad} años`)}
+          ${fact("Altura", j.altura)}
+          ${fact("Pie", j.pie)}
+          ${fact("Liga", j.liga)}
+          ${fact("NUI", j.nui)}
+          ${fact("En el club desde", j.desde)}
+        </ul>
+        ${j.historial ? "" : `<p class="jficha__note"><i class="ri-route-line" aria-hidden="true"></i> ${trayeTxt}</p>`}
+      </section>`;
+
+    /* ---- Historia deportiva ---- */
+    const historia = j.historial ? `
+      <section class="jficha__section jficha__historia">
+        <h2 class="section-sub" style="color:var(--ink)">Historia deportiva</h2>
+        <div class="table-wrap">
+          <table class="data-table jugador__historial">
+            <thead><tr><th>Temporada</th><th>Torneo</th><th>Club</th><th>Posición</th><th>Dorsal</th></tr></thead>
+            <tbody>${j.historial.map((h) => `<tr>
+              <td>${h.temporada}</td><td>${h.torneo}</td><td>${h.club}${h.cap ? ' <span class="pill-cap">Capitán</span>' : ""}</td><td>${h.pos}</td><td>#${h.dorsal}</td></tr>`).join("")}</tbody>
+          </table>
+        </div>
+      </section>` : "";
+
+    /* ---- Palmarés (carrusel) ---- */
+    const palmares = j.palmares ? `
+      <section class="jficha__palmares">
+        <div class="jhonors js-carousel">
+          <div class="jhonors__head">
+            <h2>Palmarés</h2>
+            <div class="carousel-nav">
+              <button type="button" data-dir="prev" aria-label="Anterior"><svg viewBox="0 0 24 24"><path d="M15 4 7 12l8 8 1.5-1.5L10 12l6.5-6.5L15 4Z"/></svg></button>
+              <button type="button" data-dir="next" aria-label="Siguiente"><svg viewBox="0 0 24 24"><path d="m9 4 8 8-8 8-1.5-1.5L14 12 7.5 5.5 9 4Z"/></svg></button>
+            </div>
+          </div>
+          <div class="jhonors__track js-carousel-track">
+            ${j.palmares.map((p, i) => `
+              <article class="jhonor" style="--i:${i}">
+                <span class="jhonor__tag">${p.tag || "Logro"}</span>
+                <h3 class="jhonor__title">${p.titulo}</h3>
+                <div class="jhonor__mark">${p.mark ? `<b>${p.mark}</b>` : ""}<i class="${p.icon || "ri-trophy-fill"}" aria-hidden="true"></i></div>
+                <p class="jhonor__sub">${p.nota || ""}</p>
+              </article>`).join("")}
+          </div>
+        </div>
+      </section>` : "";
+
+    /* ---- Actualidad relacionada ---- */
+    const suyas = D.noticias.filter((n) => (n.jugadores || []).some((x) => x.id === j.id));
+    const relNews = [...suyas, ...D.noticias.filter((n) => !suyas.includes(n))].slice(0, 4);
+    const news = `
+      <section class="jficha__section jficha__news">
+        <h2 class="section-sub" style="color:var(--ink)">Actualidad</h2>
+        <div class="jnews__grid">${relNews.map((n) => `
+          <a class="jnews-card" href="noticia.html?id=${n.id}">
+            <span class="jnews-card__media"><img src="${n.img}" alt=""></span>
+            <span class="jnews-card__body">
+              <span class="tag">${n.categoria}</span>
+              <h3>${n.titulo}</h3>
+              <span class="jnews-card__meta">${n.hace}</span>
+            </span>
+          </a>`).join("")}</div>
+        <p style="margin-top:var(--sp-l)"><a class="btn btn--ghost" href="jugadores.html">← Ver toda la plantilla</a></p>
+      </section>`;
+
+    wrap.innerHTML = hero + bio + historia + palmares + news;
+
+    // Biografía completa (toggle)
+    const tgl = wrap.querySelector("[data-bio-toggle]");
+    if (tgl) tgl.addEventListener("click", () => {
+      const open = tgl.classList.toggle("is-open");
+      wrap.querySelectorAll(".jficha__bio-body p").forEach((p, i) => {
+        if (i > 0) p.classList.toggle("is-hidden", !open);
+      });
+      tgl.querySelector("span").textContent = open ? "Ver menos" : "Biografía completa";
+      tgl.querySelector("i").className = open ? "ri-subtract-line" : "ri-add-line";
+    });
+
+    // el carrusel de palmarés se crea después del init global
+    const car = wrap.querySelector(".js-carousel");
+    if (car) initCarousel(car);
+
     const rel = $("[data-jugador-rel]");
     if (rel) {
       rel.innerHTML = D.plantilla.filter((x) => x.grupo === j.grupo && x.id !== j.id).slice(0, 4)
@@ -538,7 +625,8 @@
       ".news-card", ".cat-card", ".video-card", ".prod", ".value", ".person",
       ".honor", ".team-tile", ".info-card", ".trophy", ".fx", ".article__facts",
       ".article__gallery", ".shop-card", ".promo-card", ".story",
-      ".squad .section-sub", ".jugador__ficha", ".jugador__bio", ".jugador__traye"
+      ".squad .section-sub", ".jnews-card", ".jficha__facts", ".jficha__bio-grid",
+      ".jficha__historia .table-wrap"
     ].join(",");
     const io = new IntersectionObserver((entries) => {
       entries.forEach((en) => {
