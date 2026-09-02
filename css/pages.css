@@ -384,6 +384,19 @@
 .jugador__palmares strong { font-size: var(--fs-body-l); }
 .jugador__palmares em { font-style: normal; font-size: var(--fs-body-s); color: var(--ink-soft); }
 
+.pill-cap {
+  display: inline-block;
+  margin-left: .6rem;
+  padding: .1rem .6rem;
+  font-size: var(--fs-body-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  color: var(--brand-orange);
+  border: 1px solid var(--brand-orange);
+  border-radius: 999px;
+  vertical-align: middle;
+}
 .table-wrap { overflow-x: auto; margin-bottom: var(--sp-xl); border-radius: var(--radius-m); }
 .jugador__historial { min-width: 62rem; }
 .jugador__historial td:last-child, .jugador__historial th:last-child { text-align: right; white-space: nowrap; }

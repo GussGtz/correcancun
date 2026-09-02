@@ -471,7 +471,7 @@
         <table class="data-table jugador__historial">
           <thead><tr><th>Temporada</th><th>Torneo</th><th>Club</th><th>Posición</th><th>Dorsal</th></tr></thead>
           <tbody>${j.historial.map((h) => `<tr>
-            <td>${h.temporada}</td><td>${h.torneo}</td><td>${h.club}</td><td>${h.pos}</td><td>#${h.dorsal}</td></tr>`).join("")}</tbody>
+            <td>${h.temporada}</td><td>${h.torneo}</td><td>${h.club}${h.cap ? ' <span class="pill-cap">Capitán</span>' : ""}</td><td>${h.pos}</td><td>#${h.dorsal}</td></tr>`).join("")}</tbody>
         </table>
       </div>` : "";
 
