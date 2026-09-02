@@ -30,8 +30,24 @@
       { feature: { cls: "ph--grana", tag: "El club", tagCls: "tag--gold", h: "18 años de cantera",
         p: "Desde 2007 formando a niños y niñas dentro y fuera del campo.", href: "club.html#historia" } }
     ] },
-    { key: "categorias", label: "Categorías", href: "categorias.html" },
-    { key: "escuela", label: "Escuela", href: "inscripciones.html#escuela" },
+    { key: "categorias", label: "Categorías", href: "categorias.html", mega: [
+      { h: "Fútbol base", links: [
+        ["Escuela (4-6 años)", "categorias.html#escuela"],
+        ["Prebenjamín", "categorias.html#prebenjamin"],
+        ["Benjamín", "categorias.html#benjamin"],
+        ["Alevín", "categorias.html#alevin"] ] },
+      { h: "Competición", links: [
+        ["Infantil", "categorias.html#infantil"],
+        ["Cadete", "categorias.html#cadete"],
+        ["Juvenil", "categorias.html#juvenil"],
+        ["Femenino", "categorias.html#femenino"] ] },
+      { h: "La plantilla", links: [
+        ["Jugadores de la cantera", "jugadores.html"],
+        ["Cuerpo técnico", "jugadores.html#cuerpo-tecnico"],
+        ["Calendario y resultados", "calendario.html"] ] },
+      { feature: { cls: "ph--blue", tag: "Jugadores", h: "Conoce a la cantera",
+        p: "Fichas de los jugadores y jugadoras de las categorías de competición.", href: "jugadores.html" } }
+    ] },
     { key: "tv", label: "Corre TV", href: "corre-tv.html" }
   ];
 

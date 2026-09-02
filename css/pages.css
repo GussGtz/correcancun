@@ -329,6 +329,25 @@
   scroll-snap-align: none;
 }
 .squad__grid .player-card { min-height: 26rem; }
+.player-card--staff { background: var(--navy-2); }
+.player-card__initials {
+  position: absolute; inset: 0;
+  display: grid; place-items: center;
+  font-family: var(--font-display);
+  font-size: 6rem;
+  color: rgba(255,255,255,.9);
+}
+.player-card--staff::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(0,5,40,.95));
+}
+.jugador__traye {
+  display: flex; align-items: center; gap: .8rem;
+  font-size: var(--fs-body-m);
+  color: var(--ink-soft);
+  margin-bottom: var(--sp-xl);
+}
+.jugador__traye i { font-size: 2rem; color: var(--brand-orange); flex: none; }
 
 /* ---- Ficha de jugador (jugador.html) --------------------------- */
 .jugador { max-width: 92rem; margin-inline: auto; }

@@ -14,6 +14,7 @@
   const $  = (s, c = document) => c.querySelector(s);
   const $$ = (s, c = document) => [...c.querySelectorAll(s)];
   const D  = window.CorreData;
+  const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   const fmtFecha = (iso) => {
     const d = new Date(iso + "T00:00:00");
@@ -112,6 +113,10 @@
 
     /* -------------------------------------------------------- Formularios */
     $$("form[data-form]").forEach(initForm);
+
+    /* ------------------------------------------------------- Animaciones */
+    initReveal();
+    countUp(document);
   });
 
   /* ------------------------------------------------------------------ helpers */
@@ -342,20 +347,27 @@
   }
 
   /* --------------------------------------------------- Jugadores */
-  function playerCardHTML(j) {
-    return `<a class="player-card" href="jugador.html?id=${j.id}">
+  function playerCardHTML(j, i) {
+    return `<a class="player-card" href="jugador.html?id=${j.id}" style="--i:${i || 0}">
       <img src="${j.foto}" alt="">
       <span class="player-card__no">${j.dorsal}</span>
       <span class="player-card__body">
         <small>${j.cat}</small><h3>${j.nombre}</h3><span>${j.pos}</span>
       </span></a>`;
   }
+  function staffCardHTML(s, i) {
+    const ini = s.nombre.split(/\s+/).slice(0, 2).map((x) => x[0]).join("").toUpperCase();
+    return `<div class="player-card player-card--staff" style="--i:${i || 0}">
+      <span class="player-card__initials ph ${["", "ph--grana", "ph--navy", "ph--blue"][i % 4]}">${ini}</span>
+      <span class="player-card__body"><small>Cuerpo técnico</small><h3>${s.nombre}</h3><span>${s.rol}</span></span>
+    </div>`;
+  }
 
   // Portada: carrusel de jugadores
   function renderPlayersHome() {
     const track = $("[data-players-home]");
     if (!track || !D) return;
-    track.innerHTML = D.plantilla.map(playerCardHTML).join("");
+    track.innerHTML = D.plantilla.map((j, i) => playerCardHTML(j, i)).join("");
   }
 
   // jugadores.html: rejilla por posición + filtro
@@ -363,26 +375,49 @@
     const wrap = $("[data-plantilla]");
     if (!wrap || !D) return;
     const grupos = ["Porteros", "Defensas", "Centrocampistas", "Delanteros"];
+    const opts = ["Todos", ...grupos, "Cuerpo técnico"];
     const chips = el("div", "chips");
-    chips.innerHTML = ['<button class="chip is-active" data-g="Todos">Todos</button>']
-      .concat(grupos.map((g) => `<button class="chip" data-g="${g}">${g}</button>`)).join("");
+    chips.innerHTML = opts.map((g, i) =>
+      `<button class="chip${i === 0 ? " is-active" : ""}" data-g="${g}">${g}</button>`).join("");
     const body = el("div", "squad");
     const paint = (g) => {
-      const secciones = (g === "Todos" ? grupos : [g]).map((grp) => {
-        const js = D.plantilla.filter((j) => j.grupo === grp);
-        if (!js.length) return "";
-        return `<h2 class="section-sub">${grp}</h2>
-          <div class="squad__grid">${js.map(playerCardHTML).join("")}</div>`;
-      }).join("");
-      body.innerHTML = secciones;
+      let html = "";
+      if (g === "Todos" || g === "Cuerpo técnico") {
+        if (g === "Todos") {
+          html += grupos.map((grp) => {
+            const js = D.plantilla.filter((j) => j.grupo === grp);
+            return `<h2 class="section-sub">${grp}</h2>
+              <div class="squad__grid">${js.map((j, i) => playerCardHTML(j, i)).join("")}</div>`;
+          }).join("");
+        }
+        html += `<h2 class="section-sub" id="cuerpo-tecnico">Cuerpo técnico</h2>
+          <div class="squad__grid">${D.staff.map((s, i) => staffCardHTML(s, i)).join("")}</div>`;
+      } else {
+        const js = D.plantilla.filter((j) => j.grupo === g);
+        html = `<h2 class="section-sub">${g}</h2>
+          <div class="squad__grid">${js.map((j, i) => playerCardHTML(j, i)).join("")}</div>`;
+      }
+      body.classList.add("is-swapping");
+      setTimeout(() => {
+        body.innerHTML = html;
+        body.querySelectorAll(".squad__grid .player-card").forEach((c, i) => (c.style.setProperty("--i", i)));
+        body.classList.remove("is-swapping");
+      }, 180);
     };
     chips.addEventListener("click", (e) => {
-      const b = e.target.closest(".chip"); if (!b) return;
+      const b = e.target.closest(".chip"); if (!b || b.classList.contains("is-active")) return;
       $$(".chip", chips).forEach((x) => x.classList.toggle("is-active", x === b));
       paint(b.dataset.g);
     });
     wrap.append(chips, body);
-    paint("Todos");
+    // pintado inicial sin la animación de "swap"
+    body.innerHTML = grupos.map((grp) => {
+      const js = D.plantilla.filter((j) => j.grupo === grp);
+      return `<h2 class="section-sub">${grp}</h2>
+        <div class="squad__grid">${js.map((j, i) => playerCardHTML(j, i)).join("")}</div>`;
+    }).join("") + `<h2 class="section-sub" id="cuerpo-tecnico">Cuerpo técnico</h2>
+      <div class="squad__grid">${D.staff.map((s, i) => staffCardHTML(s, i)).join("")}</div>`;
+    body.querySelectorAll(".squad__grid .player-card").forEach((c, i) => c.style.setProperty("--i", i));
   }
 
   // jugador.html: ficha completa
@@ -394,6 +429,15 @@
     document.title = j.nombre + " · Corre Cancún";
     const fecha = new Date(j.nac + "T00:00:00").toLocaleDateString("es-ES", { day: "numeric", month: "long", year: "numeric" });
     const edad = Math.floor((Date.now() - new Date(j.nac)) / 31557600000);
+    // trayectoria por el club, derivada del año de entrada y la categoría actual
+    const escala = ["Prebenjamín", "Benjamín", "Alevín", "Infantil", "Cadete", "Juvenil"];
+    const actual = escala.findIndex((e) => (j.cat || "").startsWith(e));
+    const inicio = Math.max(0, actual - Math.min(actual, new Date().getFullYear() - Number(j.desde)));
+    const paso = actual >= 0 ? escala.slice(inicio, actual + 1) : [];
+    const traye = paso.length > 1
+      ? `<p class="jugador__traye"><i class="ri-route-line" aria-hidden="true"></i> En el club desde ${j.desde}. Ha pasado por ${paso.slice(0, -1).join(", ")} y ${paso[paso.length - 1]}.</p>`
+      : `<p class="jugador__traye"><i class="ri-route-line" aria-hidden="true"></i> En el club desde ${j.desde}, en la categoría ${j.cat}.</p>`;
+
     wrap.innerHTML = `
       <nav class="breadcrumb"><a href="index.html">Inicio</a> › <a href="jugadores.html">Jugadores</a> › <span>${j.cat}</span></nav>
       <div class="jugador__top">
@@ -403,9 +447,9 @@
           <h1>${j.nombre}</h1>
           <p class="jugador__cita">«${j.cita}»</p>
           <div class="jugador__stats">
-            <div><strong>${j.temp.pj}</strong><span>Partidos</span></div>
-            <div><strong>${j.temp.g}</strong><span>Goles</span></div>
-            <div><strong>${j.temp.a}</strong><span>Asistencias</span></div>
+            <div><strong data-count="${j.temp.pj}">0</strong><span>Partidos</span></div>
+            <div><strong data-count="${j.temp.g}">0</strong><span>Goles</span></div>
+            <div><strong data-count="${j.temp.a}">0</strong><span>Asistencias</span></div>
           </div>
           <p class="jugador__nota">Datos de la temporada en curso.</p>
         </div>
@@ -417,11 +461,74 @@
         <li><strong>Pie</strong>${j.pie}</li>
         <li><strong>En el club desde</strong>${j.desde}</li>
       </ul>
+      ${traye}
       <div class="prose jugador__bio">${j.bio.map((p) => `<p>${p}</p>`).join("")}</div>
       <a class="btn btn--ghost" href="jugadores.html">← Ver toda la plantilla</a>`;
     const rel = $("[data-jugador-rel]");
-    if (rel) rel.innerHTML = D.plantilla.filter((x) => x.grupo === j.grupo && x.id !== j.id).slice(0, 4)
-      .map(playerCardHTML).join("");
+    if (rel) {
+      rel.innerHTML = D.plantilla.filter((x) => x.grupo === j.grupo && x.id !== j.id).slice(0, 4)
+        .map((x, i) => playerCardHTML(x, i)).join("");
+    }
+    countUp(wrap);
+  }
+
+  /* ---------------------------------------------- Contadores animados */
+  function countUp(scope) {
+    const supportsIO = "IntersectionObserver" in window;
+    (scope || document).querySelectorAll("[data-count]").forEach((elm) => {
+      const end = Number(elm.dataset.count) || 0;
+      let done = false;
+      const animate = () => {
+        if (done) return;
+        done = true;
+        if (prefersReduced) { elm.textContent = end; return; }
+        const dur = 900, t0 = performance.now();
+        const step = (t) => {
+          const p = Math.min(1, (t - t0) / dur);
+          elm.textContent = Math.round(end * (1 - Math.pow(1 - p, 3)));
+          if (p < 1) requestAnimationFrame(step);
+        };
+        requestAnimationFrame(step);
+      };
+      if (prefersReduced || end === 0 || !supportsIO) { elm.textContent = end; return; }
+      const io = new IntersectionObserver((entries, obs) => {
+        if (entries.some((e) => e.isIntersecting)) { obs.disconnect(); animate(); }
+      }, { threshold: 0.5 });
+      io.observe(elm);
+      // red de seguridad: si nada disparó en 2,5 s (pestaña oculta, sin rAF…), muestra el número final
+      setTimeout(() => {
+        io.disconnect();
+        if (!done) { done = true; elm.textContent = end; }
+      }, 2500);
+    });
+  }
+
+  /* ------------------------------------------------- Scroll reveal */
+  function initReveal() {
+    if (prefersReduced || !("IntersectionObserver" in window)) return;
+    const sel = [
+      ".news-card", ".cat-card", ".video-card", ".prod", ".value", ".person",
+      ".honor", ".team-tile", ".info-card", ".trophy", ".fx", ".article__facts",
+      ".article__gallery", ".shop-card", ".promo-card", ".story",
+      ".squad .section-sub", ".jugador__ficha", ".jugador__bio", ".jugador__traye"
+    ].join(",");
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((en) => {
+        if (en.isIntersecting) { en.target.classList.add("is-visible"); io.unobserve(en.target); }
+      });
+    }, { threshold: 0.1, rootMargin: "0px 0px -40px 0px" });
+    let n = 0, lastTop = -1;
+    const items = $$(sel).filter((elm) => !elm.closest("[data-hero-list], .js-carousel-track, [data-players-home]"));
+    items.forEach((elm) => {
+      const top = Math.round(elm.getBoundingClientRect().top);
+      n = Math.abs(top - lastTop) < 8 ? n + 1 : 0;
+      lastTop = top;
+      elm.classList.add("reveal");
+      elm.style.setProperty("--reveal-delay", Math.min(n, 6) * 70 + "ms");
+      io.observe(elm);
+    });
+    // red de seguridad: si el observer no dispara (pestaña oculta, etc.) mostrar todo
+    setTimeout(() => { io.disconnect(); items.forEach((e) => e.classList.add("is-visible")); }, 2600);
   }
 
   /* --------------------------------------------------- buscar.html */

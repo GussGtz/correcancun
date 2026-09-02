@@ -1,0 +1,144 @@
+/* ==========================================================================
+   Corre Cancún — Animaciones (scroll-reveal, hover, contadores)
+   Todo se desactiva con prefers-reduced-motion.
+   ========================================================================== */
+
+/* ---- Scroll reveal --------------------------------------------------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .6s var(--ease), transform .6s var(--ease);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+.reveal--zoom { transform: scale(.94); }
+.reveal--left { transform: translateX(-28px); }
+.reveal--right { transform: translateX(28px); }
+
+/* ---- Tarjeta de jugador (portada + rejilla) ------------------------ */
+.player-card {
+  transition: transform .35s var(--ease), box-shadow .35s var(--ease);
+}
+.player-card img {
+  transition: transform .5s var(--ease), filter .4s var(--ease);
+}
+.player-card::after {
+  transition: opacity .35s var(--ease);
+}
+.player-card__no {
+  transition: color .35s var(--ease), transform .35s var(--ease);
+}
+.player-card__body { transition: transform .35s var(--ease); }
+.player-card__body h3 { transition: color .25s var(--ease); }
+
+.player-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 22px 48px rgba(0, 0, 0, .45);
+}
+.player-card:hover img {
+  transform: scale(1.07);
+  filter: saturate(1.08);
+}
+.player-card:hover .player-card__no {
+  color: var(--brand-orange);
+  transform: scale(1.06);
+}
+.player-card:hover .player-card__body { transform: translateY(-4px); }
+.player-card:hover .player-card__body h3 { color: var(--brand-orange); }
+.player-card::before {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 3px;
+  background: var(--brand-orange);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .4s var(--ease);
+  z-index: 3;
+}
+.player-card:hover::before { transform: scaleX(1); }
+
+/* ---- Chips de filtro (jugadores.html) ----------------------------- */
+.chip {
+  transition: background-color .2s var(--ease), color .2s var(--ease), transform .12s var(--ease);
+}
+.chip:active { transform: scale(.95); }
+.chip.is-active { animation: chipPop .3s var(--ease); }
+@keyframes chipPop {
+  0% { transform: scale(.9); }
+  60% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* ---- Rejilla que reaparece al filtrar ---------------------------- */
+.squad__grid.is-swapping { opacity: 0; transform: translateY(10px); }
+.squad__grid {
+  transition: opacity .28s var(--ease), transform .28s var(--ease);
+}
+.squad__grid .player-card {
+  animation: cardIn .5s var(--ease) both;
+  animation-delay: calc(var(--i, 0) * 45ms);
+}
+@keyframes cardIn {
+  from { opacity: 0; transform: translateY(18px) scale(.97); }
+  to { opacity: 1; transform: none; }
+}
+
+/* ---- Ficha de jugador ------------------------------------------- */
+.jugador__photo img { animation: kenBurns 14s ease-in-out infinite alternate; }
+@keyframes kenBurns {
+  from { transform: scale(1); }
+  to { transform: scale(1.06); }
+}
+.jugador__no {
+  animation: noRise .8s var(--ease) both;
+}
+@keyframes noRise {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: none; }
+}
+.jugador__stats div { animation: statIn .55s var(--ease) both; }
+.jugador__stats div:nth-child(2) { animation-delay: .1s; }
+.jugador__stats div:nth-child(3) { animation-delay: .2s; }
+@keyframes statIn {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: none; }
+}
+.jugador__stats strong { font-variant-numeric: tabular-nums; }
+
+/* ---- Botón "volver arriba" e íconos con micro-interacción ------- */
+.to-top { transition: opacity .2s var(--ease), transform .25s var(--ease), background-color .2s var(--ease); }
+.to-top:hover { transform: translateY(-3px); background: var(--primary-hover); }
+
+.link-arrow svg,
+.shop-card__link svg,
+.cta-band .btn,
+.header-plans { transition: transform .2s var(--ease), background-color .18s var(--ease); }
+
+/* ---- Aparición de secciones "hero" de página ------------------- */
+.page-hero > .wrapper > * {
+  animation: heroFade .7s var(--ease) both;
+}
+.page-hero .breadcrumb { animation-delay: 0s; }
+.page-hero .eyebrow { animation-delay: .06s; }
+.page-hero h1 { animation-delay: .12s; }
+.page-hero p { animation-delay: .2s; }
+@keyframes heroFade {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* ---- Respeto a reduce-motion ---------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .reveal--zoom, .reveal--left, .reveal--right { opacity: 1 !important; transform: none !important; }
+  .squad__grid .player-card,
+  .jugador__photo img,
+  .jugador__no,
+  .jugador__stats div,
+  .page-hero > .wrapper > * { animation: none !important; }
+  .chip.is-active { animation: none !important; }
+}
