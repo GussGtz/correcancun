@@ -248,10 +248,111 @@ window.CorreData = (function () {
     { icon: "ri-award-line", num: "9", label: "Categorías" }
   ];
 
+  // Jugadores destacados de la cantera (fichas de ejemplo)
+  const P = (i) => S + "player-" + i + ".svg";
+  const plantilla = [
+    // Porteros
+    { id: "jan-ferrer", nombre: "Jan Ferrer", dorsal: 1, pos: "Portero", grupo: "Porteros", cat: "Juvenil A",
+      foto: P(6), pie: "Diestro", nac: "2007-02-18", lugar: "Cancún, Q. Roo", altura: "1,82 m", desde: "2016",
+      cita: "Un portero tranquilo que ordena a la defensa y sale con el balón jugado.",
+      bio: [
+        "Jan llegó al club con nueve años y ha pasado por casi todas las categorías bajo palos. Destaca por el juego de pies y por la lectura de las salidas.",
+        "Es el capitán del Juvenil A y una de las voces del vestuario. El club lo tiene como referente para los porteros más pequeños en la escuela de porteros."
+      ], temp: { pj: 6, g: 0, a: 1 } },
+    { id: "alex-prieto", nombre: "Àlex Prieto", dorsal: 13, pos: "Portero", grupo: "Porteros", cat: "Cadete A",
+      foto: P(2), pie: "Zurdo", nac: "2009-09-30", lugar: "Playa del Carmen", altura: "1,76 m", desde: "2019",
+      cita: "Reflejos rápidos y mucho carácter en el uno contra uno.",
+      bio: [
+        "Àlex compagina la portería con el trabajo específico de los viernes. Ha mejorado mucho el juego aéreo en el último año.",
+        "Es de los que llega antes a entrenar y se queda a recoger el material. Ejemplo de compromiso para su categoría."
+      ], temp: { pj: 5, g: 0, a: 0 } },
+    // Defensas
+    { id: "nil-fontana", nombre: "Nil Fontana", dorsal: 4, pos: "Central", grupo: "Defensas", cat: "Cadete A",
+      foto: P(4), pie: "Diestro", nac: "2009-05-04", lugar: "Cancún, Q. Roo", altura: "1,80 m", desde: "2017",
+      cita: "Fuerte en el duelo y con buena salida de balón desde atrás.",
+      bio: [
+        "Nil manda en la última línea del Cadete A. Gana casi todos los duelos aéreos y ha aprendido a defender el espacio, no solo al rival.",
+        "El cuerpo técnico trabaja con él la orientación del cuerpo para iniciar el juego hacia adelante."
+      ], temp: { pj: 4, g: 1, a: 0 } },
+    { id: "aleix-roca", nombre: "Aleix Roca", dorsal: 2, pos: "Lateral", grupo: "Defensas", cat: "Infantil A",
+      foto: P(5), pie: "Diestro", nac: "2011-01-22", lugar: "Cancún, Q. Roo", altura: "1,66 m", desde: "2018",
+      cita: "Un lateral que no para de subir y bajar la banda los 60 minutos.",
+      bio: [
+        "Aleix aporta profundidad por la derecha del Infantil A. Su recorrido y su ida y vuelta son señas de identidad del equipo.",
+        "Está puliendo la toma de decisiones en el último tercio: cuándo centrar y cuándo esperar."
+      ], temp: { pj: 5, g: 0, a: 2 } },
+    { id: "bruno-gil", nombre: "Bruno Gil", dorsal: 5, pos: "Central", grupo: "Defensas", cat: "Juvenil A",
+      foto: P(3), pie: "Zurdo", nac: "2007-07-11", lugar: "Mérida", altura: "1,84 m", desde: "2020",
+      cita: "Zurdo, alto y con una zancada larga para tapar espacios.",
+      bio: [
+        "Bruno se incorporó desde otro club de la zona y encajó rápido en el modelo del Juvenil A por su comodidad con el balón.",
+        "Forma pareja de centrales con jugadores más agresivos: él aporta el equilibrio y la salida limpia."
+      ], temp: { pj: 6, g: 0, a: 1 } },
+    { id: "marc-terol", nombre: "Marc Terol", dorsal: 3, pos: "Lateral", grupo: "Defensas", cat: "Cadete B",
+      foto: P(1), pie: "Zurdo", nac: "2010-03-19", lugar: "Cancún, Q. Roo", altura: "1,70 m", desde: "2019",
+      cita: "Marca al hombre como nadie y no se le escapa un balón dividido.",
+      bio: [
+        "Marc es puro carácter en la izquierda del Cadete B. Defiende hacia adelante y contagia intensidad al resto.",
+        "Trabaja la salida de balón para ser también una opción cuando el equipo tiene la pelota."
+      ], temp: { pj: 5, g: 0, a: 0 } },
+    // Centrocampistas
+    { id: "iker-sanz", nombre: "Iker Sanz", dorsal: 8, pos: "Mediapunta", grupo: "Centrocampistas", cat: "Juvenil A",
+      foto: P(2), pie: "Diestro", nac: "2007-11-02", lugar: "Cancún, Q. Roo", altura: "1,73 m", desde: "2016",
+      cita: "Aparece entre líneas y siempre encuentra el pase que rompe.",
+      bio: [
+        "Iker es el cerebro del Juvenil A. Juega de cara, gira bien y tiene el último pase para los delanteros.",
+        "Ha crecido en la parte física para poder sostener el nivel los 90 minutos y ayudar también sin balón."
+      ], temp: { pj: 6, g: 2, a: 5 } },
+    { id: "pau-miralles", nombre: "Pau Miralles", dorsal: 7, pos: "Interior", grupo: "Centrocampistas", cat: "Cadete A",
+      foto: P(3), pie: "Diestro", nac: "2009-04-27", lugar: "Chetumal", altura: "1,71 m", desde: "2018",
+      cita: "Llegada desde segunda línea y mucho gol para ser centrocampista.",
+      bio: [
+        "Pau es el interior que aparece en el área rival. Tiene timing para las llegadas y un buen disparo desde la frontal.",
+        "El reto de esta temporada es equilibrar esas llegadas con el trabajo defensivo del mediocampo."
+      ], temp: { pj: 5, g: 4, a: 2 } },
+    { id: "guillem-prat", nombre: "Guillem Prat", dorsal: 6, pos: "Pivote", grupo: "Centrocampistas", cat: "Infantil A",
+      foto: P(8), pie: "Diestro", nac: "2011-08-15", lugar: "Cancún, Q. Roo", altura: "1,64 m", desde: "2018",
+      cita: "El ancla del equipo: recupera, orienta y da el primer pase.",
+      bio: [
+        "Guillem juega por delante de la defensa del Infantil A. Ve el peligro antes de que llegue y distribuye con criterio.",
+        "Es un jugador poco vistoso pero imprescindible: cuando él está bien, el equipo está ordenado."
+      ], temp: { pj: 5, g: 0, a: 1 } },
+    { id: "ona-grau", nombre: "Ona Grau", dorsal: 10, pos: "Pivote", grupo: "Centrocampistas", cat: "Femenino Sub-16",
+      foto: P(7), pie: "Diestra", nac: "2010-06-08", lugar: "Cancún, Q. Roo", altura: "1,68 m", desde: "2017",
+      cita: "Marca el ritmo del equipo y no pierde un balón bajo presión.",
+      bio: [
+        "Ona es la capitana del femenino Sub-16 y la jugadora que ordena el juego desde el centro del campo.",
+        "Su lectura del partido y su temple con balón la convierten en un referente para las categorías femeninas más jóvenes."
+      ], temp: { pj: 4, g: 1, a: 3 } },
+    // Delanteros
+    { id: "marc-vidal", nombre: "Marc Vidal", dorsal: 10, pos: "Delantero", grupo: "Delanteros", cat: "Juvenil A",
+      foto: P(1), pie: "Diestro", nac: "2007-03-12", lugar: "Cancún, Q. Roo", altura: "1,76 m", desde: "2016",
+      cita: "Le gusta encarar, buscar el uno contra uno y no tiene miedo a fallar.",
+      bio: [
+        "Marc es el referente ofensivo del Juvenil A. Combina el desborde por fuera con la aparición dentro del área.",
+        "Ha estado en el club desde prebenjamín. Trabaja la definición con la escuela de tecnificación una tarde a la semana."
+      ], temp: { pj: 6, g: 5, a: 2 } },
+    { id: "eric-sola", nombre: "Èric Solà", dorsal: 11, pos: "Extremo", grupo: "Delanteros", cat: "Cadete B",
+      foto: P(7), pie: "Zurdo", nac: "2010-10-01", lugar: "Cancún, Q. Roo", altura: "1,69 m", desde: "2019",
+      cita: "Velocidad pura por la banda y peligro cada vez que arranca.",
+      bio: [
+        "Èric es el extremo más rápido del Cadete B. En espacios abiertos es casi imparable y genera muchas faltas y córners.",
+        "Está mejorando el último pase para que su velocidad se traduzca en más asistencias."
+      ], temp: { pj: 5, g: 3, a: 1 } },
+    { id: "hugo-leon", nombre: "Hugo León", dorsal: 9, pos: "Delantero", grupo: "Delanteros", cat: "Juvenil A",
+      foto: P(4), pie: "Diestro", nac: "2008-01-25", lugar: "Cancún, Q. Roo", altura: "1,83 m", desde: "2021",
+      cita: "Un '9' de área que la baja de espaldas y aguanta a los centrales.",
+      bio: [
+        "Hugo es el delantero de referencia del Juvenil A. Juega bien de espaldas, fija a los centrales y libera a los interiores.",
+        "El club valora especialmente su generosidad: presiona el primero y celebra los goles del equipo como propios."
+      ], temp: { pj: 6, g: 4, a: 3 } }
+  ];
+
   // Índice de búsqueda (páginas + contenidos)
   const paginas = [
     { titulo: "Inscripciones 25/26", url: "inscripciones.html", tipo: "Página", texto: "cómo inscribirse plazas cuotas becas pruebas de acceso área de familias temporada" },
     { titulo: "Nuestras categorías", url: "categorias.html", tipo: "Página", texto: "escuela prebenjamín benjamín alevín infantil cadete juvenil femenino edades horarios" },
+    { titulo: "Jugadores de la cantera", url: "jugadores.html", tipo: "Página", texto: "plantilla porteros defensas centrocampistas delanteros fichas jugadores jugadoras dorsal posición" },
     { titulo: "Metodología", url: "metodologia.html", tipo: "Página", texto: "modelo de juego valores plan formativo por edades tecnificación escuela de porteros" },
     { titulo: "El Club", url: "club.html", tipo: "Página", texto: "historia orígenes 2007 escudo valores junta directiva instalaciones campo municipal ciudad deportiva staff" },
     { titulo: "Calendario y resultados", url: "calendario.html", tipo: "Página", texto: "partidos jornada liga comarcal copa federación resultados convocatoria" },
@@ -262,8 +363,9 @@ window.CorreData = (function () {
   ];
 
   return {
-    noticias, categorias, calendario, videos, tienda, cuotas, valores, staff, cifras, paginas,
+    noticias, categorias, calendario, videos, tienda, cuotas, valores, staff, cifras, paginas, plantilla,
     noticia: (id) => noticias.find((n) => n.id === id),
+    jugador: (id) => plantilla.find((j) => j.id === id),
     buscar(q) {
       q = (q || "").trim().toLowerCase();
       if (!q) return [];
@@ -278,6 +380,10 @@ window.CorreData = (function () {
       categorias.forEach((c) => {
         if (hit(c.nombre + " " + c.desc + " " + c.edad))
           res.push({ titulo: "Categoría · " + c.nombre, url: "categorias.html#" + c.id, tipo: "Categoría", texto: c.desc });
+      });
+      plantilla.forEach((j) => {
+        if (hit(j.nombre + " " + j.pos + " " + j.cat + " " + j.grupo))
+          res.push({ titulo: j.nombre + " · " + j.pos, url: "jugador.html?id=" + j.id, tipo: "Jugador", texto: j.cat + " — " + j.cita });
       });
       return res;
     }

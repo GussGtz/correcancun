@@ -44,7 +44,7 @@
         ["Crónicas de partido", "actualidad.html"] ] },
       { h: "Equipos", links: [
         ["Todas las categorías", "categorias.html"],
-        ["Jugadores de la cantera", "index.html#jugadores"],
+        ["Jugadores de la cantera", "jugadores.html"],
         ["Fotos y vídeos", "corre-tv.html"] ] },
       { h: "Agenda", links: [
         ["Puertas abiertas", "actualidad.html"],
@@ -175,10 +175,10 @@
         <div class="search-suggests">
           <a href="inscripciones.html">Inscripciones</a>
           <a href="categorias.html">Categorías</a>
+          <a href="jugadores.html">Jugadores</a>
           <a href="calendario.html">Calendario</a>
           <a href="metodologia.html#programas">Escuela de porteros</a>
           <a href="tienda.html">Equipación</a>
-          <a href="metodologia.html">Metodología</a>
         </div>
       </div>
     </div>
@@ -253,9 +253,9 @@
         <h3>Información</h3>
         <ul>
           <li><a href="club.html">Quiénes somos</a></li>
-          <li><a href="club.html#valores">Escudo y valores</a></li>
+          <li><a href="jugadores.html">Jugadores de la cantera</a></li>
+          <li><a href="calendario.html">Calendario y resultados</a></li>
           <li><a href="club.html#instalaciones">Instalaciones</a></li>
-          <li><a href="club.html#junta">Junta directiva</a></li>
           <li><a href="contacto.html">Únete al staff</a></li>
           <li><a href="contacto.html">Contacto</a></li>
         </ul>

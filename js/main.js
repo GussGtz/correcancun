@@ -105,6 +105,9 @@
     renderCuotas();
     renderValores();
     renderStaff();
+    renderPlayersHome();
+    renderPlantilla();
+    renderJugador();
     renderBuscador();
 
     /* -------------------------------------------------------- Formularios */
@@ -336,6 +339,89 @@
         <span class="person__photo ph ${["", "ph--grana", "ph--navy", "ph--blue", "", "ph--grana"][i % 6]}"><span class="person__initials">${initials(s.nombre)}</span></span>
         <strong>${s.nombre}</strong><span>${s.rol}</span>
       </div>`).join("");
+  }
+
+  /* --------------------------------------------------- Jugadores */
+  function playerCardHTML(j) {
+    return `<a class="player-card" href="jugador.html?id=${j.id}">
+      <img src="${j.foto}" alt="">
+      <span class="player-card__no">${j.dorsal}</span>
+      <span class="player-card__body">
+        <small>${j.cat}</small><h3>${j.nombre}</h3><span>${j.pos}</span>
+      </span></a>`;
+  }
+
+  // Portada: carrusel de jugadores
+  function renderPlayersHome() {
+    const track = $("[data-players-home]");
+    if (!track || !D) return;
+    track.innerHTML = D.plantilla.map(playerCardHTML).join("");
+  }
+
+  // jugadores.html: rejilla por posición + filtro
+  function renderPlantilla() {
+    const wrap = $("[data-plantilla]");
+    if (!wrap || !D) return;
+    const grupos = ["Porteros", "Defensas", "Centrocampistas", "Delanteros"];
+    const chips = el("div", "chips");
+    chips.innerHTML = ['<button class="chip is-active" data-g="Todos">Todos</button>']
+      .concat(grupos.map((g) => `<button class="chip" data-g="${g}">${g}</button>`)).join("");
+    const body = el("div", "squad");
+    const paint = (g) => {
+      const secciones = (g === "Todos" ? grupos : [g]).map((grp) => {
+        const js = D.plantilla.filter((j) => j.grupo === grp);
+        if (!js.length) return "";
+        return `<h2 class="section-sub">${grp}</h2>
+          <div class="squad__grid">${js.map(playerCardHTML).join("")}</div>`;
+      }).join("");
+      body.innerHTML = secciones;
+    };
+    chips.addEventListener("click", (e) => {
+      const b = e.target.closest(".chip"); if (!b) return;
+      $$(".chip", chips).forEach((x) => x.classList.toggle("is-active", x === b));
+      paint(b.dataset.g);
+    });
+    wrap.append(chips, body);
+    paint("Todos");
+  }
+
+  // jugador.html: ficha completa
+  function renderJugador() {
+    const wrap = $("[data-jugador]");
+    if (!wrap || !D) return;
+    const id = new URLSearchParams(location.search).get("id");
+    const j = D.jugador(id) || D.plantilla[0];
+    document.title = j.nombre + " · Corre Cancún";
+    const fecha = new Date(j.nac + "T00:00:00").toLocaleDateString("es-ES", { day: "numeric", month: "long", year: "numeric" });
+    const edad = Math.floor((Date.now() - new Date(j.nac)) / 31557600000);
+    wrap.innerHTML = `
+      <nav class="breadcrumb"><a href="index.html">Inicio</a> › <a href="jugadores.html">Jugadores</a> › <span>${j.cat}</span></nav>
+      <div class="jugador__top">
+        <div class="jugador__photo"><img src="${j.foto}" alt="${j.nombre}"><span class="jugador__no">${j.dorsal}</span></div>
+        <div class="jugador__intro">
+          <span class="eyebrow" style="color:var(--brand-orange)">${j.cat} · ${j.pos}</span>
+          <h1>${j.nombre}</h1>
+          <p class="jugador__cita">«${j.cita}»</p>
+          <div class="jugador__stats">
+            <div><strong>${j.temp.pj}</strong><span>Partidos</span></div>
+            <div><strong>${j.temp.g}</strong><span>Goles</span></div>
+            <div><strong>${j.temp.a}</strong><span>Asistencias</span></div>
+          </div>
+          <p class="jugador__nota">Datos de la temporada en curso.</p>
+        </div>
+      </div>
+      <ul class="jugador__ficha">
+        <li><strong>Lugar de nacimiento</strong>${j.lugar}</li>
+        <li><strong>Fecha de nacimiento</strong>${fecha} (${edad} años)</li>
+        <li><strong>Altura</strong>${j.altura}</li>
+        <li><strong>Pie</strong>${j.pie}</li>
+        <li><strong>En el club desde</strong>${j.desde}</li>
+      </ul>
+      <div class="prose jugador__bio">${j.bio.map((p) => `<p>${p}</p>`).join("")}</div>
+      <a class="btn btn--ghost" href="jugadores.html">← Ver toda la plantilla</a>`;
+    const rel = $("[data-jugador-rel]");
+    if (rel) rel.innerHTML = D.plantilla.filter((x) => x.grupo === j.grupo && x.id !== j.id).slice(0, 4)
+      .map(playerCardHTML).join("");
   }
 
   /* --------------------------------------------------- buscar.html */

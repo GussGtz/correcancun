@@ -223,21 +223,15 @@
     <div class="wrapper wrapper--wide js-carousel">
       <div class="widget__header">
         <h2 class="widget__title">Jugadores de la cantera</h2>
-        <div class="carousel-nav">
-          <button type="button" data-dir="prev" aria-label="Anterior"><svg viewBox="0 0 24 24"><path d="M15 4 7 12l8 8 1.5-1.5L10 12l6.5-6.5L15 4Z"/></svg></button>
-          <button type="button" data-dir="next" aria-label="Siguiente"><svg viewBox="0 0 24 24"><path d="m9 4 8 8-8 8-1.5-1.5L14 12 7.5 5.5 9 4Z"/></svg></button>
+        <div style="display:flex;gap:var(--sp-m);align-items:center">
+          <a class="link-arrow" href="jugadores.html" style="color:#fff">Ver toda la plantilla <svg viewBox="0 0 24 24"><path d="m9 4 8 8-8 8-1.5-1.5L14 12 7.5 5.5 9 4Z"/></svg></a>
+          <div class="carousel-nav">
+            <button type="button" data-dir="prev" aria-label="Anterior"><svg viewBox="0 0 24 24"><path d="M15 4 7 12l8 8 1.5-1.5L10 12l6.5-6.5L15 4Z"/></svg></button>
+            <button type="button" data-dir="next" aria-label="Siguiente"><svg viewBox="0 0 24 24"><path d="m9 4 8 8-8 8-1.5-1.5L14 12 7.5 5.5 9 4Z"/></svg></button>
+          </div>
         </div>
       </div>
-      <div class="players__track js-carousel-track">
-        <a class="player-card" href="categorias.html#juvenil"><img src="assets/img/scenes/player-1.svg" alt=""><span class="player-card__no">10</span><span class="player-card__body"><small>Juvenil A</small><h3>Marc Vidal</h3><span>Delantero</span></span></a>
-        <a class="player-card" href="categorias.html#juvenil"><img src="assets/img/scenes/player-2.svg" alt=""><span class="player-card__no">8</span><span class="player-card__body"><small>Juvenil A</small><h3>Iker Sanz</h3><span>Mediapunta</span></span></a>
-        <a class="player-card" href="categorias.html#cadete"><img src="assets/img/scenes/player-3.svg" alt=""><span class="player-card__no">7</span><span class="player-card__body"><small>Cadete A</small><h3>Pau Miralles</h3><span>Interior</span></span></a>
-        <a class="player-card" href="categorias.html#cadete"><img src="assets/img/scenes/player-4.svg" alt=""><span class="player-card__no">4</span><span class="player-card__body"><small>Cadete A</small><h3>Nil Fontana</h3><span>Central</span></span></a>
-        <a class="player-card" href="categorias.html#infantil"><img src="assets/img/scenes/player-5.svg" alt=""><span class="player-card__no">2</span><span class="player-card__body"><small>Infantil A</small><h3>Aleix Roca</h3><span>Lateral</span></span></a>
-        <a class="player-card" href="categorias.html#juvenil"><img src="assets/img/scenes/player-6.svg" alt=""><span class="player-card__no">1</span><span class="player-card__body"><small>Juvenil A</small><h3>Jan Ferrer</h3><span>Portero</span></span></a>
-        <a class="player-card" href="categorias.html#cadete"><img src="assets/img/scenes/player-7.svg" alt=""><span class="player-card__no">11</span><span class="player-card__body"><small>Cadete B</small><h3>Èric Solà</h3><span>Extremo</span></span></a>
-        <a class="player-card" href="categorias.html#femenino"><img src="assets/img/scenes/player-8.svg" alt=""><span class="player-card__no">6</span><span class="player-card__body"><small>Femenino Sub-16</small><h3>Ona Grau</h3><span>Pivote</span></span></a>
-      </div>
+      <div class="players__track js-carousel-track" data-players-home></div>
     </div>
   </section>
 
