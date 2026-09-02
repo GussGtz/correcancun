@@ -94,6 +94,7 @@
     });
 
     /* ============================================= Renderizado de contenidos */
+    renderHeroList();
     renderNoticiasHome();
     renderActualidad();
     renderNoticia();
@@ -134,6 +135,17 @@
     const grid = $("[data-news-home]");
     if (!grid || !D) return;
     grid.innerHTML = D.noticias.map((n, i) => newsCardHTML(n, i === 0)).join("");
+  }
+
+  /* --------------------------------- Portada: lista de titulares del hero */
+  function renderHeroList() {
+    const list = $("[data-hero-list]");
+    if (!list || !D) return;
+    list.innerHTML = D.noticias.slice(0, 4).map((n) => `
+      <a class="hero__item" href="noticia.html?id=${n.id}">
+        <span class="ph hero__thumb${n.imgPortrait ? " hero__thumb--portrait" : ""}"><img src="${n.img}" alt=""></span>
+        <div><span class="tag tag--blue">${n.categoria}</span><h3>${n.titulo}</h3></div>
+      </a>`).join("");
   }
 
   /* --------------------------------------------------- actualidad.html */
