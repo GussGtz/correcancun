@@ -196,6 +196,9 @@
     const hero = n.jugadores
       ? ""
       : `<div class="article__hero${n.imgPortrait ? " article__hero--portrait" : ""}"><img src="${n.img}" alt="${n.imgAlt || ""}"></div>`;
+    const galeria = n.galeria ? `
+      <div class="article__gallery">${n.galeria.map((g) => `
+        <figure><img src="${g.src}" alt="${g.alt || ""}"></figure>`).join("")}</div>` : "";
     wrap.innerHTML = `
       <nav class="breadcrumb"><a href="index.html">Inicio</a> › <a href="actualidad.html">Actualidad</a> › <span>${n.categoria}</span></nav>
       <span class="tag">${n.categoria}</span>
@@ -205,6 +208,7 @@
       ${honors}
       ${datos}
       <div class="article__body">${n.cuerpo.map((p) => `<p>${p}</p>`).join("")}</div>
+      ${galeria}
       <div class="article__actions">${cta}<a class="btn btn--ghost" href="actualidad.html">← Volver a Actualidad</a></div>`;
     const rel = $("[data-noticia-rel]");
     if (rel) rel.innerHTML = D.noticias.filter((x) => x.id !== n.id).slice(0, 3)

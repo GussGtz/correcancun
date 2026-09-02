@@ -58,11 +58,36 @@ window.CorreData = (function () {
       ]
     },
     {
+      id: "mundialito-3v3",
+      titulo: "El Mundialito Corre 3v3 se despide con la cancha llena de sonrisas",
+      categoria: "Club",
+      fecha: "2025-07-22",
+      hace: "Hace 6 semanas",
+      img: "assets/img/mundialito.jpg",
+      imgAlt: "Niños del club sentados en círculo alrededor del trofeo en la clausura del Mundialito 3v3",
+      resumen: "Un torneo de fútbol rápido tres contra tres en formato mundial: cada equipo del club representó a una selección. Gracias a las familias por acompañarnos.",
+      datos: [
+        { icon: "ri-football-line", label: "Formato", valor: "Fútbol 3 contra 3" },
+        { icon: "ri-flag-line", label: "Selecciones", valor: "8 equipos representando a otros tantos países" },
+        { icon: "ri-trophy-line", label: "Espíritu", valor: "Jugar, competir y disfrutar" }
+      ],
+      galeria: [
+        { src: "assets/img/mundialito-2.jpg", alt: "Cartel del Mundialito Corre 3v3 con las ocho selecciones participantes" }
+      ],
+      cta: { texto: "Ver las categorías del club", url: "categorias.html" },
+      cuerpo: [
+        "El club cerró una nueva edición del Mundialito Corre 3v3, su torneo interno de fútbol rápido tres contra tres para las categorías de base.",
+        "Se jugó en formato mundial: cada equipo del club representó a una selección —México, Argentina, Portugal, España, Inglaterra, Brasil, Francia y Egipto— y compitió por levantar el trofeo.",
+        "Más que una competición, fueron varios días de sonrisas, compañerismo y aprendizaje. Cada niño y niña dejó todo en la cancha y nos recordó que el verdadero triunfo está en disfrutar del juego y seguir soñando en grande.",
+        "En la clausura, todos los equipos se reunieron en el centro del campo junto al trofeo para cerrar la experiencia como se empezó: jugando. Gracias a todas las familias por acompañarnos. Nos vemos en la próxima edición."
+      ]
+    },
+    {
       id: "horarios-benjamin-alevin",
       titulo: "Nuevo horario de entrenamientos para Benjamín y Alevín",
       categoria: "Escuela",
       fecha: "2025-08-31",
-      hace: "Hace 1 día",
+      hace: "Hace 2 meses",
       img: S + "news-escuela.svg",
       resumen: "A partir de esta semana, benjamines y alevines entrenan martes y jueves de 17:30 a 19:00 para aprovechar mejor la luz natural.",
       cuerpo: [
@@ -76,7 +101,7 @@ window.CorreData = (function () {
       titulo: "El femenino Sub-14 disputa su primer amistoso de la temporada",
       categoria: "Femenino",
       fecha: "2025-08-30",
-      hace: "Hace 2 días",
+      hace: "Hace 2 meses",
       img: S + "news-femenino.svg",
       resumen: "El equipo estrenó la nueva equipación en un amistoso disputado en casa con muy buenas sensaciones colectivas.",
       cuerpo: [
@@ -90,7 +115,7 @@ window.CorreData = (function () {
       titulo: "Jornada de puertas abiertas: ven a probar un entrenamiento gratis",
       categoria: "Escuela",
       fecha: "2025-08-29",
-      hace: "Hace 3 días",
+      hace: "Hace 3 meses",
       img: S + "news-puertas.svg",
       resumen: "El sábado 13 de septiembre abrimos los campos para que niños y niñas de 4 a 12 años prueben un entrenamiento sin compromiso.",
       cuerpo: [
@@ -104,27 +129,13 @@ window.CorreData = (function () {
       titulo: "Tres jugadores del Juvenil se incorporan al primer equipo amateur",
       categoria: "Sénior",
       fecha: "2025-08-28",
-      hace: "Hace 4 días",
+      hace: "Hace 3 meses",
       img: S + "news-senior.svg",
       resumen: "Dan el salto tras varios años en la cantera y compaginarán entrenamientos con el juvenil durante las primeras semanas.",
       cuerpo: [
         "El primer equipo amateur incorpora a tres jugadores formados en el club desde la categoría benjamín.",
         "La transición se hará de forma progresiva: durante septiembre alternarán sesiones con el juvenil para adaptarse al ritmo del sénior.",
         "Es el camino natural que el club quiere para sus jugadores: crecer dentro de casa."
-      ]
-    },
-    {
-      id: "charla-familias",
-      titulo: "Charla para familias sobre alimentación, descanso y deporte",
-      categoria: "Club",
-      fecha: "2025-08-27",
-      hace: "Hace 5 días",
-      img: S + "news-familias.svg",
-      resumen: "Abierta a todas las familias del club, con una nutricionista y un fisioterapeuta del cuerpo técnico.",
-      cuerpo: [
-        "El club retoma su ciclo de charlas formativas para familias.",
-        "En esta primera sesión se hablará de hábitos de alimentación, importancia del descanso y prevención de lesiones en edades de formación.",
-        "Será el jueves 18 de septiembre a las 19:00 en la sala polivalente. La entrada es libre hasta completar aforo."
       ]
     }
   ];

@@ -258,6 +258,18 @@
   margin-bottom: .2rem;
 }
 .article__actions { display: flex; flex-wrap: wrap; gap: var(--sp-s); }
+.article__gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
+  gap: var(--sp-m);
+  margin-bottom: var(--sp-xl);
+}
+.article__gallery figure {
+  border-radius: var(--radius-l);
+  overflow: hidden;
+  background: var(--grey-100);
+}
+.article__gallery img { width: 100%; height: auto; display: block; }
 @media (max-width: 640px) {
   .article__facts { grid-template-columns: 1fr; }
 }
