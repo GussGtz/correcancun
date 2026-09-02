@@ -44,7 +44,7 @@ window.CorreData = (function () {
       jugadores: [
         { nombre: "Tony", foto: "assets/img/rep-tony.jpg", tag: "Selección Q. Roo · 2016",
           texto: "Cuarto puesto en el Nacional: entre los cuatro mejores equipos del país." },
-        { nombre: "Santi", foto: "assets/img/rep-santi.jpg", tag: "Selección Q. Roo · 2017",
+        { nombre: "Santi", foto: "assets/img/rep-santi.jpg", tag: "Selección Q. Roo · 2017", id: "santi-gutierrez",
           texto: "Disputó el Nacional celebrado en Playa del Carmen. En el club desde el primer día del proyecto." },
         { nombre: "Jaziel", foto: "assets/img/rep-jaziel.jpg", tag: "Selección Q. Roo · portero",
           texto: "Con solo 9 años, ya suma su segunda participación en un torneo nacional." }
@@ -251,6 +251,28 @@ window.CorreData = (function () {
   // Jugadores destacados de la cantera (fichas de ejemplo)
   const P = (i) => S + "player-" + i + ".svg";
   const plantilla = [
+    // Jugador real del club
+    { id: "santi-gutierrez", nombre: "Santiago «Santi» Gutiérrez", dorsal: 131, pos: "Defensa", grupo: "Defensas",
+      cat: "Prebenjamín", foto: "assets/img/jug-santi.jpg", nac: "2018-10-16", lugar: "Quintana Roo",
+      desde: "2025", liga: "Liga Guillermo Cañedo, A. C.", nui: "1222933",
+      cita: "Defensa aplicado que no pierde la marca y sabe salir jugando desde atrás.",
+      bio: [
+        "Con solo siete años, Santi ya acumula una trayectoria poco habitual para su edad. Empezó en el fútbol federado en la temporada 2023-24 y desde entonces no ha dejado de competir.",
+        "En 2025 se incorporó al Corre Cancún, con el que juega en la Liga Guillermo Cañedo. Ese mismo año fue convocado por la selección de Quintana Roo para disputar el campeonato nacional en Playa del Carmen.",
+        "Juega sobre todo de defensa, aunque en distintas etapas también ha actuado de medio y de delantero. Es tenaz en la marca y cada temporada mejora su salida de balón."
+      ],
+      palmares: [
+        { titulo: "Campeón · Copa ACO", nota: "Valladolid" },
+        { titulo: "Subcampeón · Copa Celta", nota: "Torneo internacional del RC Celta y su Celta Academy" },
+        { titulo: "Selección de Quintana Roo", nota: "Campeonato nacional en Playa del Carmen" },
+        { titulo: "Copa Pioneros", nota: "Participación" }
+      ],
+      historial: [
+        { temporada: "2025-26", torneo: "Liga Guillermo Cañedo", club: "Filial Venados N. Héroes", pos: "Defensa", dorsal: "131" },
+        { temporada: "2025-26", torneo: "Liga Premier Infantil-Juvenil", club: "Corre Cancún Sub-9", pos: "Medio", dorsal: "103" },
+        { temporada: "2024-25", torneo: "Liga Guillermo Cañedo", club: "Atlas Cancún Infantil Menor", pos: "Delantero", dorsal: "19" },
+        { temporada: "2023-24", torneo: "Liga Guillermo Cañedo", club: "Atlas Cancún Infantil Inicial", pos: "Defensa", dorsal: "74" }
+      ] },
     // Porteros
     { id: "jan-ferrer", nombre: "Jan Ferrer", dorsal: 1, pos: "Portero", grupo: "Porteros", cat: "Juvenil A",
       foto: P(6), pie: "Diestro", nac: "2007-02-18", lugar: "Cancún, Q. Roo", altura: "1,82 m", desde: "2016",

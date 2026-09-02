@@ -192,15 +192,19 @@
         <li><i class="${d.icon}" aria-hidden="true"></i><span><strong>${d.label}</strong>${d.valor}</span></li>`).join("")}</ul>` : "";
     const cta = n.cta ? `<a class="btn btn--gold" href="${n.cta.url}">${n.cta.texto}</a>` : "";
     const honors = n.jugadores ? `
-      <ul class="honors">${n.jugadores.map((j) => `
-        <li class="honor">
+      <ul class="honors">${n.jugadores.map((j) => {
+        const inner = `
           <span class="honor__photo"><img src="${j.foto}" alt="${j.nombre}"></span>
           <span class="honor__body">
             <strong>${j.nombre}</strong>
             <span class="honor__tag">${j.tag}</span>
             <span class="honor__text">${j.texto}</span>
-          </span>
-        </li>`).join("")}</ul>` : "";
+            ${j.id ? '<span class="honor__link">Ver ficha del jugador →</span>' : ""}
+          </span>`;
+        return j.id
+          ? `<li class="honor honor--link"><a href="jugador.html?id=${j.id}">${inner}</a></li>`
+          : `<li class="honor">${inner}</li>`;
+      }).join("")}</ul>` : "";
     const hero = n.jugadores
       ? ""
       : `<div class="article__hero${n.imgPortrait ? " article__hero--portrait" : ""}"><img src="${n.img}" alt="${n.imgAlt || ""}"></div>`;
@@ -434,9 +438,42 @@
     const actual = escala.findIndex((e) => (j.cat || "").startsWith(e));
     const inicio = Math.max(0, actual - Math.min(actual, new Date().getFullYear() - Number(j.desde)));
     const paso = actual >= 0 ? escala.slice(inicio, actual + 1) : [];
-    const traye = paso.length > 1
+    const traye = j.historial ? "" : (paso.length > 1
       ? `<p class="jugador__traye"><i class="ri-route-line" aria-hidden="true"></i> En el club desde ${j.desde}. Ha pasado por ${paso.slice(0, -1).join(", ")} y ${paso[paso.length - 1]}.</p>`
-      : `<p class="jugador__traye"><i class="ri-route-line" aria-hidden="true"></i> En el club desde ${j.desde}, en la categoría ${j.cat}.</p>`;
+      : `<p class="jugador__traye"><i class="ri-route-line" aria-hidden="true"></i> En el club desde ${j.desde}, en la categoría ${j.cat}.</p>`);
+
+    const stats = j.temp ? `
+          <div class="jugador__stats">
+            <div><strong data-count="${j.temp.pj}">0</strong><span>Partidos</span></div>
+            <div><strong data-count="${j.temp.g}">0</strong><span>Goles</span></div>
+            <div><strong data-count="${j.temp.a}">0</strong><span>Asistencias</span></div>
+          </div>
+          <p class="jugador__nota">Datos de la temporada en curso.</p>` : "";
+
+    const fichaRows = [
+      ["Lugar de nacimiento", j.lugar],
+      ["Fecha de nacimiento", `${fecha} (${edad} años)`],
+      ["Altura", j.altura],
+      ["Pie", j.pie],
+      ["Liga", j.liga],
+      ["NUI", j.nui],
+      ["En el club desde", j.desde]
+    ].filter(([, v]) => v).map(([k, v]) => `<li><strong>${k}</strong>${v}</li>`).join("");
+
+    const palmares = j.palmares ? `
+      <h2 class="section-sub" style="color:var(--ink)">Palmarés y logros</h2>
+      <ul class="jugador__palmares">${j.palmares.map((p) => `
+        <li><i class="ri-trophy-line" aria-hidden="true"></i><span><strong>${p.titulo}</strong>${p.nota ? `<em>${p.nota}</em>` : ""}</span></li>`).join("")}</ul>` : "";
+
+    const historial = j.historial ? `
+      <h2 class="section-sub" style="color:var(--ink)">Historia deportiva</h2>
+      <div class="table-wrap">
+        <table class="data-table jugador__historial">
+          <thead><tr><th>Temporada</th><th>Torneo</th><th>Club</th><th>Posición</th><th>Dorsal</th></tr></thead>
+          <tbody>${j.historial.map((h) => `<tr>
+            <td>${h.temporada}</td><td>${h.torneo}</td><td>${h.club}</td><td>${h.pos}</td><td>#${h.dorsal}</td></tr>`).join("")}</tbody>
+        </table>
+      </div>` : "";
 
     wrap.innerHTML = `
       <nav class="breadcrumb"><a href="index.html">Inicio</a> › <a href="jugadores.html">Jugadores</a> › <span>${j.cat}</span></nav>
@@ -446,24 +483,15 @@
           <span class="eyebrow" style="color:var(--brand-orange)">${j.cat} · ${j.pos}</span>
           <h1>${j.nombre}</h1>
           <p class="jugador__cita">«${j.cita}»</p>
-          <div class="jugador__stats">
-            <div><strong data-count="${j.temp.pj}">0</strong><span>Partidos</span></div>
-            <div><strong data-count="${j.temp.g}">0</strong><span>Goles</span></div>
-            <div><strong data-count="${j.temp.a}">0</strong><span>Asistencias</span></div>
-          </div>
-          <p class="jugador__nota">Datos de la temporada en curso.</p>
+          ${stats}
         </div>
       </div>
-      <ul class="jugador__ficha">
-        <li><strong>Lugar de nacimiento</strong>${j.lugar}</li>
-        <li><strong>Fecha de nacimiento</strong>${fecha} (${edad} años)</li>
-        <li><strong>Altura</strong>${j.altura}</li>
-        <li><strong>Pie</strong>${j.pie}</li>
-        <li><strong>En el club desde</strong>${j.desde}</li>
-      </ul>
+      <ul class="jugador__ficha">${fichaRows}</ul>
       ${traye}
       <div class="prose jugador__bio">${j.bio.map((p) => `<p>${p}</p>`).join("")}</div>
-      <a class="btn btn--ghost" href="jugadores.html">← Ver toda la plantilla</a>`;
+      ${palmares}
+      ${historial}
+      <p style="margin-top:var(--sp-xl)"><a class="btn btn--ghost" href="jugadores.html">← Ver toda la plantilla</a></p>`;
     const rel = $("[data-jugador-rel]");
     if (rel) {
       rel.innerHTML = D.plantilla.filter((x) => x.grupo === j.grupo && x.id !== j.id).slice(0, 4)
