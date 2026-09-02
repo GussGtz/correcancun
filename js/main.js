@@ -171,12 +171,26 @@
       <ul class="article__facts">${n.datos.map((d) => `
         <li><i class="${d.icon}" aria-hidden="true"></i><span><strong>${d.label}</strong>${d.valor}</span></li>`).join("")}</ul>` : "";
     const cta = n.cta ? `<a class="btn btn--gold" href="${n.cta.url}">${n.cta.texto}</a>` : "";
+    const honors = n.jugadores ? `
+      <ul class="honors">${n.jugadores.map((j) => `
+        <li class="honor">
+          <span class="honor__photo"><img src="${j.foto}" alt="${j.nombre}"></span>
+          <span class="honor__body">
+            <strong>${j.nombre}</strong>
+            <span class="honor__tag">${j.tag}</span>
+            <span class="honor__text">${j.texto}</span>
+          </span>
+        </li>`).join("")}</ul>` : "";
+    const hero = n.jugadores
+      ? ""
+      : `<div class="article__hero${n.imgPortrait ? " article__hero--portrait" : ""}"><img src="${n.img}" alt="${n.imgAlt || ""}"></div>`;
     wrap.innerHTML = `
       <nav class="breadcrumb"><a href="index.html">Inicio</a> › <a href="actualidad.html">Actualidad</a> › <span>${n.categoria}</span></nav>
       <span class="tag">${n.categoria}</span>
       <h1 class="article__title">${n.titulo}</h1>
       <p class="article__meta">${n.categoria} · ${n.hace} · ${fmtFecha(n.fecha)}</p>
-      <div class="article__hero${n.imgPortrait ? " article__hero--portrait" : ""}"><img src="${n.img}" alt="${n.imgAlt || ""}"></div>
+      ${hero}
+      ${honors}
       ${datos}
       <div class="article__body">${n.cuerpo.map((p) => `<p>${p}</p>`).join("")}</div>
       <div class="article__actions">${cta}<a class="btn btn--ghost" href="actualidad.html">← Volver a Actualidad</a></div>`;

@@ -9,6 +9,32 @@ window.CorreData = (function () {
 
   const noticias = [
     {
+      id: "representar-quintana-roo",
+      titulo: "Tres jugadores del club representan a Quintana Roo en los Nacionales",
+      categoria: "Cantera",
+      fecha: "2025-09-02",
+      hace: "Hace 2 h",
+      img: "assets/img/rep-santi.jpg",
+      imgPortrait: true,
+      imgAlt: "Jugador del club con la equipación de la selección de Quintana Roo",
+      resumen: "Tony, Santi y Jaziel fueron convocados por las selecciones de Quintana Roo de su categoría y compitieron en los campeonatos nacionales. Enhorabuena a los tres.",
+      jugadores: [
+        { nombre: "Tony", foto: "assets/img/rep-tony.jpg", tag: "Selección Q. Roo · 2016",
+          texto: "Cuarto puesto en el Nacional: entre los cuatro mejores equipos del país." },
+        { nombre: "Santi", foto: "assets/img/rep-santi.jpg", tag: "Selección Q. Roo · 2017",
+          texto: "Disputó el Nacional celebrado en Playa del Carmen. En el club desde el primer día del proyecto." },
+        { nombre: "Jaziel", foto: "assets/img/rep-jaziel.jpg", tag: "Selección Q. Roo · portero",
+          texto: "Con solo 9 años, ya suma su segunda participación en un torneo nacional." }
+      ],
+      cta: { texto: "Conoce nuestras categorías", url: "categorias.html" },
+      cuerpo: [
+        "El Corre Cancún celebra que tres de sus jugadores —Tony, Santi y Jaziel— hayan sido convocados por las selecciones de Quintana Roo de sus categorías para disputar los campeonatos nacionales.",
+        "Los tres llevan en el club prácticamente desde que arrancó el proyecto. En cada entrenamiento han demostrado la constancia, la disciplina y el compromiso que ahora les han abierto esta puerta.",
+        "Tony firmó un cuarto puesto a nivel nacional con la selección 2016, colándose entre los cuatro mejores equipos del país. Santi vivió la experiencia del Nacional en Playa del Carmen con la categoría 2017. Y Jaziel, con solo nueve años, ya suma su segunda participación en un torneo nacional bajo palos.",
+        "Representar al estado con el escudo del club en el pecho es un orgullo para toda la familia del Corre Cancún. Enhorabuena a los tres: seguid trabajando, luchando por vuestros sueños y dejando huella."
+      ]
+    },
+    {
       id: "porteros-septiembre",
       titulo: "Septiembre arranca con nuevos retos: entrenamientos de porteros",
       categoria: "Escuela de porteros",
