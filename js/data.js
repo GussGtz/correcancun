@@ -14,7 +14,9 @@ window.CorreData = (function () {
       categoria: "Escuela de porteros",
       fecha: "2025-09-02",
       hace: "Hace 1 h",
-      img: S + "promo-porteros.svg",
+      img: "assets/img/porteros.jpg",
+      imgPortrait: true,
+      imgAlt: "Portero del Corre Cancún con guantes y brazos cruzados frente al cielo azul",
       resumen: "Sesiones específicas para todos los porteros del club, de benjamín a juvenil. Enfoque, técnica, disciplina y seguridad bajo los tres palos.",
       datos: [
         { icon: "ri-calendar-line", label: "Días", valor: "Martes y miércoles" },

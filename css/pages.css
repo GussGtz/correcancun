@@ -209,6 +209,12 @@
 .article__title { font-size: var(--fs-display-xs); margin: var(--sp-s) 0; }
 .article__meta { color: var(--ink-soft); font-size: var(--fs-body-s); margin-bottom: var(--sp-l); text-transform: uppercase; letter-spacing: .04em; }
 .article__hero { position: relative; aspect-ratio: 16/9; border-radius: var(--radius-l); overflow: hidden; margin-bottom: var(--sp-xl); }
+.article__hero--portrait {
+  aspect-ratio: 3/4;
+  max-width: 40rem;
+  margin-inline: auto;
+}
+.news-card__media.is-portrait img { object-position: center 22%; }
 .article__body p { margin-bottom: var(--sp-m); font-size: var(--fs-body-l); line-height: 1.7; }
 .article__body { margin-bottom: var(--sp-xl); }
 .article__facts {

@@ -120,7 +120,7 @@
 
   function newsCardHTML(n, lead) {
     return `<a class="news-card${lead ? " news-card--lead" : ""}" href="noticia.html?id=${n.id}">
-      <span class="news-card__media"><img src="${n.img}" alt="">
+      <span class="news-card__media${n.imgPortrait ? " is-portrait" : ""}"><img src="${n.img}" alt="">
         <span class="tag">${n.categoria}</span></span>
       <span class="news-card__body">
         <h3>${n.titulo}</h3>
@@ -176,7 +176,7 @@
       <span class="tag">${n.categoria}</span>
       <h1 class="article__title">${n.titulo}</h1>
       <p class="article__meta">${n.categoria} · ${n.hace} · ${fmtFecha(n.fecha)}</p>
-      <div class="article__hero"><img src="${n.img}" alt=""></div>
+      <div class="article__hero${n.imgPortrait ? " article__hero--portrait" : ""}"><img src="${n.img}" alt="${n.imgAlt || ""}"></div>
       ${datos}
       <div class="article__body">${n.cuerpo.map((p) => `<p>${p}</p>`).join("")}</div>
       <div class="article__actions">${cta}<a class="btn btn--ghost" href="actualidad.html">← Volver a Actualidad</a></div>`;
