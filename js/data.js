@@ -267,7 +267,7 @@ window.CorreData = (function () {
         { titulo: "Campeón · Copa ACO", nota: "Valladolid · 2026" },
         { titulo: "Subcampeón · Copa Celta", nota: "Torneo internacional del RC Celta y su Celta Academy · 2026" },
         { titulo: "Selección de Quintana Roo", nota: "Campeonato nacional en Playa del Carmen · 2026" },
-        { titulo: "Copa Pioneros", nota: "Participación" }
+        { titulo: "Copa Pioneros", nota: "Participación · 2026" }
       ],
       historial: [
         { temporada: "2025-26", torneo: "Liga Guillermo Cañedo", club: "Filial Venados N. Héroes", pos: "Defensa", dorsal: "131" },
