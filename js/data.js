@@ -9,32 +9,6 @@ window.CorreData = (function () {
 
   const noticias = [
     {
-      id: "representar-quintana-roo",
-      titulo: "Tres jugadores del club representan a Quintana Roo en los Nacionales",
-      categoria: "Cantera",
-      fecha: "2025-09-02",
-      hace: "Hace 2 h",
-      img: "assets/img/rep-santi.jpg",
-      imgPortrait: true,
-      imgAlt: "Jugador del club con la equipación de la selección de Quintana Roo",
-      resumen: "Tony, Santi y Jaziel fueron convocados por las selecciones de Quintana Roo de su categoría y compitieron en los campeonatos nacionales. Enhorabuena a los tres.",
-      jugadores: [
-        { nombre: "Tony", foto: "assets/img/rep-tony.jpg", tag: "Selección Q. Roo · 2016",
-          texto: "Cuarto puesto en el Nacional: entre los cuatro mejores equipos del país." },
-        { nombre: "Santi", foto: "assets/img/rep-santi.jpg", tag: "Selección Q. Roo · 2017",
-          texto: "Disputó el Nacional celebrado en Playa del Carmen. En el club desde el primer día del proyecto." },
-        { nombre: "Jaziel", foto: "assets/img/rep-jaziel.jpg", tag: "Selección Q. Roo · portero",
-          texto: "Con solo 9 años, ya suma su segunda participación en un torneo nacional." }
-      ],
-      cta: { texto: "Conoce nuestras categorías", url: "categorias.html" },
-      cuerpo: [
-        "El Corre Cancún celebra que tres de sus jugadores —Tony, Santi y Jaziel— hayan sido convocados por las selecciones de Quintana Roo de sus categorías para disputar los campeonatos nacionales.",
-        "Los tres llevan en el club prácticamente desde que arrancó el proyecto. En cada entrenamiento han demostrado la constancia, la disciplina y el compromiso que ahora les han abierto esta puerta.",
-        "Tony firmó un cuarto puesto a nivel nacional con la selección 2016, colándose entre los cuatro mejores equipos del país. Santi vivió la experiencia del Nacional en Playa del Carmen con la categoría 2017. Y Jaziel, con solo nueve años, ya suma su segunda participación en un torneo nacional bajo palos.",
-        "Representar al estado con el escudo del club en el pecho es un orgullo para toda la familia del Corre Cancún. Enhorabuena a los tres: seguid trabajando, luchando por vuestros sueños y dejando huella."
-      ]
-    },
-    {
       id: "porteros-septiembre",
       titulo: "Septiembre arranca con nuevos retos: entrenamientos de porteros",
       categoria: "Escuela de porteros",
@@ -58,11 +32,37 @@ window.CorreData = (function () {
       ]
     },
     {
+      id: "representar-quintana-roo",
+      titulo: "Tres jugadores del club representan a Quintana Roo en los Nacionales",
+      categoria: "Cantera",
+      fecha: "2025-09-01",
+      hace: "Hace 6 h",
+      img: "assets/img/rep-santi.jpg",
+      imgPortrait: true,
+      imgAlt: "Jugador del club con la equipación de la selección de Quintana Roo",
+      resumen: "Tony, Santi y Jaziel fueron convocados por las selecciones de Quintana Roo de su categoría y compitieron en los campeonatos nacionales. Enhorabuena a los tres.",
+      jugadores: [
+        { nombre: "Tony", foto: "assets/img/rep-tony.jpg", tag: "Selección Q. Roo · 2016",
+          texto: "Cuarto puesto en el Nacional: entre los cuatro mejores equipos del país." },
+        { nombre: "Santi", foto: "assets/img/rep-santi.jpg", tag: "Selección Q. Roo · 2017",
+          texto: "Disputó el Nacional celebrado en Playa del Carmen. En el club desde el primer día del proyecto." },
+        { nombre: "Jaziel", foto: "assets/img/rep-jaziel.jpg", tag: "Selección Q. Roo · portero",
+          texto: "Con solo 9 años, ya suma su segunda participación en un torneo nacional." }
+      ],
+      cta: { texto: "Conoce nuestras categorías", url: "categorias.html" },
+      cuerpo: [
+        "El Corre Cancún celebra que tres de sus jugadores —Tony, Santi y Jaziel— hayan sido convocados por las selecciones de Quintana Roo de sus categorías para disputar los campeonatos nacionales.",
+        "Los tres llevan en el club prácticamente desde que arrancó el proyecto. En cada entrenamiento han demostrado la constancia, la disciplina y el compromiso que ahora les han abierto esta puerta.",
+        "Tony firmó un cuarto puesto a nivel nacional con la selección 2016, colándose entre los cuatro mejores equipos del país. Santi vivió la experiencia del Nacional en Playa del Carmen con la categoría 2017. Y Jaziel, con solo nueve años, ya suma su segunda participación en un torneo nacional bajo palos.",
+        "Representar al estado con el escudo del club en el pecho es un orgullo para toda la familia del Corre Cancún. Enhorabuena a los tres: seguid trabajando, luchando por vuestros sueños y dejando huella."
+      ]
+    },
+    {
       id: "horarios-benjamin-alevin",
       titulo: "Nuevo horario de entrenamientos para Benjamín y Alevín",
       categoria: "Escuela",
-      fecha: "2025-09-01",
-      hace: "Hace 4 h",
+      fecha: "2025-08-31",
+      hace: "Hace 1 día",
       img: S + "news-escuela.svg",
       resumen: "A partir de esta semana, benjamines y alevines entrenan martes y jueves de 17:30 a 19:00 para aprovechar mejor la luz natural.",
       cuerpo: [
@@ -75,8 +75,8 @@ window.CorreData = (function () {
       id: "femenino-primer-amistoso",
       titulo: "El femenino Sub-14 disputa su primer amistoso de la temporada",
       categoria: "Femenino",
-      fecha: "2025-08-31",
-      hace: "Hace 6 h",
+      fecha: "2025-08-30",
+      hace: "Hace 2 días",
       img: S + "news-femenino.svg",
       resumen: "El equipo estrenó la nueva equipación en un amistoso disputado en casa con muy buenas sensaciones colectivas.",
       cuerpo: [
@@ -89,8 +89,8 @@ window.CorreData = (function () {
       id: "puertas-abiertas",
       titulo: "Jornada de puertas abiertas: ven a probar un entrenamiento gratis",
       categoria: "Escuela",
-      fecha: "2025-08-30",
-      hace: "Hace 8 h",
+      fecha: "2025-08-29",
+      hace: "Hace 3 días",
       img: S + "news-puertas.svg",
       resumen: "El sábado 13 de septiembre abrimos los campos para que niños y niñas de 4 a 12 años prueben un entrenamiento sin compromiso.",
       cuerpo: [
@@ -103,8 +103,8 @@ window.CorreData = (function () {
       id: "juvenil-senior",
       titulo: "Tres jugadores del Juvenil se incorporan al primer equipo amateur",
       categoria: "Sénior",
-      fecha: "2025-08-29",
-      hace: "Hace 20 h",
+      fecha: "2025-08-28",
+      hace: "Hace 4 días",
       img: S + "news-senior.svg",
       resumen: "Dan el salto tras varios años en la cantera y compaginarán entrenamientos con el juvenil durante las primeras semanas.",
       cuerpo: [
@@ -117,8 +117,8 @@ window.CorreData = (function () {
       id: "charla-familias",
       titulo: "Charla para familias sobre alimentación, descanso y deporte",
       categoria: "Club",
-      fecha: "2025-08-28",
-      hace: "Hace 1 día",
+      fecha: "2025-08-27",
+      hace: "Hace 5 días",
       img: S + "news-familias.svg",
       resumen: "Abierta a todas las familias del club, con una nutricionista y un fisioterapeuta del cuerpo técnico.",
       cuerpo: [
