@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Corre Cancún · Club Formativo de Fútbol Base</title>
+  <meta name="description" content="Club formativo de fútbol base. Categorías desde la escuela hasta juvenil, fútbol femenino, metodología, calendario, inscripciones y noticias del club.">
+  <meta name="theme-color" content="#101013">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/icon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/img/icon-192.png">
+  <link rel="shortcut icon" href="assets/img/favicon.ico">
+  <link rel="apple-touch-icon" href="assets/img/icon-180.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/vendor/remixicon/remixicon.css">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+<div data-layout-header data-active=""></div>
+
+<main>
+
+  <!-- Hero destacado -->
+  <section class="hero" aria-label="Destacados">
+    <a class="hero__primary" href="inscripciones.html">
+      <img src="assets/img/scenes/hero-inscripciones.svg" alt="">
+      <div class="hero__body">
+        <span class="tag">Inscripciones</span>
+        <h2 class="hero__title">Abiertas las inscripciones para la temporada 2025/26</h2>
+        <div class="hero__meta">
+          <time><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm1 5h-2v6l5 3 1-1.7-4-2.3V7Z"/></svg>Hace 1 h</time>
+        </div>
+      </div>
+    </a>
+
+    <div class="hero__list">
+      <a class="hero__item" href="noticia.html?id=juvenil-fase-final">
+        <span class="ph hero__thumb"><img src="assets/img/scenes/cat-juvenil.svg" alt=""></span>
+        <div><span class="tag tag--blue">Juvenil</span><h3>El Juvenil A se clasifica para la fase final del torneo comarcal</h3></div>
+      </a>
+      <a class="hero__item" href="noticia.html?id=puertas-abiertas">
+        <span class="ph hero__thumb"><img src="assets/img/scenes/news-puertas.svg" alt=""></span>
+        <div><span class="tag tag--blue">Escuela</span><h3>Jornada de puertas abiertas: ven a probar un entrenamiento</h3></div>
+      </a>
+      <a class="hero__item" href="noticia.html?id=femenino-primer-amistoso">
+        <span class="ph hero__thumb"><img src="assets/img/scenes/news-femenino.svg" alt=""></span>
+        <div><span class="tag tag--blue">Femenino</span><h3>El femenino Sub-14 disputa su primer amistoso de la temporada</h3></div>
+      </a>
+      <a class="hero__item" href="club.html#instalaciones">
+        <span class="ph hero__thumb"><img src="assets/img/scenes/club-instalaciones.svg" alt=""></span>
+        <div><span class="tag tag--blue">Club</span><h3>Estrenamos nuevos vestuarios en el campo municipal</h3></div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Carrusel de novedades -->
+  <section class="section section--tight u-main-background" aria-label="Novedades del club">
+    <div class="wrapper js-carousel promo-carousel">
+      <div class="widget__header">
+        <h2 class="widget__title">Novedades del club</h2>
+        <div class="carousel-nav">
+          <button type="button" data-dir="prev" aria-label="Anterior"><svg viewBox="0 0 24 24"><path d="M15 4 7 12l8 8 1.5-1.5L10 12l6.5-6.5L15 4Z"/></svg></button>
+          <button type="button" data-dir="next" aria-label="Siguiente"><svg viewBox="0 0 24 24"><path d="m9 4 8 8-8 8-1.5-1.5L14 12 7.5 5.5 9 4Z"/></svg></button>
+        </div>
+      </div>
+      <div class="promo-track js-carousel-track">
+        <a class="promo-card" href="inscripciones.html"><img src="assets/img/scenes/promo-inscripciones.svg" alt=""><div class="promo-card__text"><h3>Inscripciones 25/26</h3><p>Reserva la plaza de tu hijo o hija</p></div></a>
+        <a class="promo-card" href="metodologia.html#programas"><img src="assets/img/scenes/promo-porteros.svg" alt=""><div class="promo-card__text"><h3>Escuela de porteros</h3><p>Sesiones específicas los viernes</p></div></a>
+        <a class="promo-card" href="metodologia.html#programas"><img src="assets/img/scenes/promo-campus.svg" alt=""><div class="promo-card__text"><h3>Campus de vacaciones</h3><p>Tecnificación en Navidad y verano</p></div></a>
+        <a class="promo-card" href="corre-tv.html"><img src="assets/img/scenes/promo-tv.svg" alt=""><div class="promo-card__text"><h3>Corre TV</h3><p>Resúmenes, entrenos y entrevistas</p></div></a>
+        <a class="promo-card" href="#socios"><img src="assets/img/scenes/promo-colabora.svg" alt=""><div class="promo-card__text"><h3>Colabora con el club</h3><p>Ayuda a que más niños jueguen al fútbol</p></div></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Calendario + próximo partido -->
+  <section class="section u-main-background" id="calendario" aria-label="Calendario">
+    <div class="wrapper wrapper--wide calendar">
+      <div class="calendar__head">
+        <h2>Calendario</h2>
+        <div class="countdown js-countdown" data-timestamp="">
+          <span class="countdown__label">Próximo partido</span>
+          <div class="countdown__clock">
+            <div class="countdown__cell"><span class="countdown__num" data-u="d">00</span><span class="countdown__unit">Días</span></div>
+            <div class="countdown__cell"><span class="countdown__num" data-u="h">00</span><span class="countdown__unit">Horas</span></div>
+            <div class="countdown__cell"><span class="countdown__num" data-u="m">00</span><span class="countdown__unit">Min</span></div>
+            <div class="countdown__cell"><span class="countdown__num" data-u="s">00</span><span class="countdown__unit">Seg</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="fixtures">
+        <article class="fixture">
+          <div class="fixture__top"><span class="fixture__badge-comp"><span class="dot"></span>Juvenil A · Liga</span><span>Jornada 3</span></div>
+          <div class="fixture__teams">
+            <div class="fixture__team"><img class="crest-mini" src="assets/img/mark.png" alt=""><span>Corre Cancún</span></div>
+            <div class="fixture__kick"><strong>12:00</strong><small>h</small></div>
+            <div class="fixture__team"><span class="crest-mini ph" style="border-radius:50%"></span><span>Costa CF</span></div>
+          </div>
+          <div class="fixture__date">Sábado, 7 de septiembre · Campo Municipal</div>
+          <a class="fixture__cta" href="calendario.html">Convocatoria</a>
+        </article>
+        <article class="fixture">
+          <div class="fixture__top"><span class="fixture__badge-comp"><span class="dot"></span>Cadete B · Liga</span><span>Jornada 2</span></div>
+          <div class="fixture__teams">
+            <div class="fixture__team"><img class="crest-mini" src="assets/img/mark.png" alt=""><span>Corre Cancún</span></div>
+            <div class="fixture__kick"><strong>10:00</strong><small>h</small></div>
+            <div class="fixture__team"><span class="crest-mini ph ph--grana" style="border-radius:50%"></span><span>Nord CF</span></div>
+          </div>
+          <div class="fixture__date">Domingo, 8 de septiembre · Ciudad Deportiva Corre</div>
+          <a class="fixture__cta" href="calendario.html">Cómo llegar</a>
+        </article>
+        <article class="fixture">
+          <div class="fixture__top"><span class="fixture__badge-comp"><span class="dot"></span>Infantil A · Copa</span><span>1ª ronda</span></div>
+          <div class="fixture__teams">
+            <div class="fixture__team"><span class="crest-mini ph ph--navy" style="border-radius:50%"></span><span>Vall UD</span></div>
+            <div class="fixture__kick"><strong>11:30</strong><small>h</small></div>
+            <div class="fixture__team"><img class="crest-mini" src="assets/img/mark.png" alt=""><span>Corre Cancún</span></div>
+          </div>
+          <div class="fixture__date">Sábado, 14 de septiembre · Campo de la Vall</div>
+          <a class="fixture__cta" href="calendario.html">Convocatoria</a>
+        </article>
+      </div>
+
+      <div class="calendar__foot">
+        <a class="link-arrow" href="calendario.html" style="color:#fff">Ver el calendario completo <svg viewBox="0 0 24 24"><path d="m9 4 8 8-8 8-1.5-1.5L14 12 7.5 5.5 9 4Z"/></svg></a>
+        <a class="btn btn--ghost" href="calendario.html">Sincronizar calendario</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stories -->
+  <section class="stories" aria-label="Corre Stories">
+    <div class="wrapper wrapper--wide">
+      <div class="stories__track">
+        <a class="story" href="corre-tv.html"><span class="story__ring"><span class="ph"><img src="assets/img/scenes/story-1.svg" alt=""></span></span><span class="story__new">Nuevo</span><span class="story__label">Primer día de escuela</span></a>
+        <a class="story" href="corre-tv.html"><span class="story__ring"><span class="ph"><img src="assets/img/scenes/story-2.svg" alt=""></span></span><span class="story__new">Nuevo</span><span class="story__label">Entreno de porteros</span></a>
+        <a class="story" href="corre-tv.html"><span class="story__ring"><span class="ph"><img src="assets/img/scenes/story-3.svg" alt=""></span></span><span class="story__new">Nuevo</span><span class="story__label">Gol de la semana</span></a>
+        <a class="story" href="corre-tv.html"><span class="story__ring"><span class="ph"><img src="assets/img/scenes/story-5.svg" alt=""></span></span><span class="story__new">Nuevo</span><span class="story__label">Charla de valores</span></a>
+        <a class="story" href="corre-tv.html"><span class="story__ring"><span class="ph"><img src="assets/img/scenes/story-4.svg" alt=""></span></span><span class="story__new">Nuevo</span><span class="story__label">Viaje del Cadete</span></a>
+        <a class="story" href="corre-tv.html"><span class="story__ring"><span class="ph"><img src="assets/img/scenes/story-6.svg" alt=""></span></span><span class="story__new">Nuevo</span><span class="story__label">Un día de partido</span></a>
+        <a class="story" href="corre-tv.html"><span class="story__ring"><span class="ph"><img src="assets/img/scenes/story-7.svg" alt=""></span></span><span class="story__new">Nuevo</span><span class="story__label">Nuestra metodología</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tienda -->
+  <section class="section shop" id="tienda" aria-label="Tienda del club">
+    <div class="wrapper wrapper--wide">
+      <div class="widget__header"><h2 class="widget__title">Tienda del club</h2><a class="link-arrow" href="tienda.html" style="color:var(--ink)">Ver toda la tienda <svg viewBox="0 0 24 24"><path d="m9 4 8 8-8 8-1.5-1.5L14 12 7.5 5.5 9 4Z"/></svg></a></div>
+      <div class="shop__grid">
+        <a class="shop-card" href="tienda.html">
+          <span class="shop-card__media ph"><img src="assets/img/scenes/shop-kit.svg" alt=""></span>
+          <span class="shop-card__body">
+            <h3>Equipación oficial</h3>
+            <p>La equipación de juego y de paseo de la temporada 25/26 para todas las categorías.</p>
+            <span class="shop-card__link link-arrow">Ver equipación <svg viewBox="0 0 24 24"><path d="M7 17 17 7m0 0H9m8 0v8"/></svg></span>
+          </span>
+        </a>
+        <a class="shop-card" href="tienda.html">
+          <span class="shop-card__media ph"><img src="assets/img/scenes/shop-training.svg" alt=""></span>
+          <span class="shop-card__body">
+            <h3>Ropa de entrenamiento</h3>
+            <p>Chándal, sudadera y camisetas técnicas para el día a día en el campo.</p>
+            <span class="shop-card__link link-arrow">Ver ropa <svg viewBox="0 0 24 24"><path d="M7 17 17 7m0 0H9m8 0v8"/></svg></span>
+          </span>
+        </a>
+        <a class="shop-card" href="tienda.html">
+          <span class="shop-card__media ph"><img src="assets/img/scenes/shop-accesorios.svg" alt=""></span>
+          <span class="shop-card__body">
+            <h3>Accesorios del club</h3>
+            <p>Mochilas, botellas, bufandas y complementos con el escudo del Corre Cancún.</p>
+            <span class="shop-card__link link-arrow">Ver accesorios <svg viewBox="0 0 24 24"><path d="M7 17 17 7m0 0H9m8 0v8"/></svg></span>
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Promo socios colaboradores -->
+  <section class="feature-promo feature-promo--gold" id="socios" aria-label="Hazte socio colaborador">
+    <img src="assets/img/scenes/promo-colabora.svg" alt="">
+    <div class="wrapper wrapper--wide">
+      <div class="feature-promo__body">
+        <span class="eyebrow" style="color:#3a2a00">Socios</span>
+        <h2>Hazte socio colaborador</h2>
+        <p>Tu cuota anual ayuda a financiar becas, material deportivo y los desplazamientos de los equipos. El fútbol base también se sostiene con la afición.</p>
+        <a class="btn btn--dark" href="contacto.html">Más información</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Vídeo: metodología -->
+  <section class="video-hero" id="metodologia" aria-label="Conoce nuestra metodología">
+    <img src="assets/img/scenes/video-metodologia.svg" alt="">
+    <div class="video-hero__body">
+      <button class="video-hero__play" type="button" aria-label="Reproducir vídeo" data-video="Así entrenamos: un día en la escuela Corre">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7L8 5Z"/></svg>
+      </button>
+      <span class="eyebrow">Vídeo</span>
+      <h2>Así entrenamos: un día en la escuela Corre</h2>
+    </div>
+  </section>
+
+  <!-- Actualidad -->
+  <section class="section news page-body--dark" id="actualidad" aria-label="Actualidad">
+    <div class="wrapper wrapper--wide">
+      <div class="widget__header"><h2 class="widget__title">Actualidad</h2><a class="link-arrow" href="actualidad.html" style="color:#fff">Ver todo <svg viewBox="0 0 24 24"><path d="m9 4 8 8-8 8-1.5-1.5L14 12 7.5 5.5 9 4Z"/></svg></a></div>
+      <div class="news__grid" data-news-home></div>
+    </div>
+  </section>
+
+  <!-- Rejilla de categorías -->
+  <section class="section teams-grid" id="equipos" aria-label="Nuestras categorías">
+    <div class="wrapper wrapper--wide">
+      <div class="widget__header"><h2 class="widget__title">Nuestras categorías</h2><a class="link-arrow" href="categorias.html" style="color:#fff">Ver detalle <svg viewBox="0 0 24 24"><path d="m9 4 8 8-8 8-1.5-1.5L14 12 7.5 5.5 9 4Z"/></svg></a></div>
+      <div class="teams-grid__list">
+        <a class="team-tile" href="categorias.html#escuela"><img src="assets/img/scenes/cat-escuela.svg" alt=""><span class="team-tile__label">Escuela (4-6 años)</span></a>
+        <a class="team-tile" href="categorias.html#prebenjamin"><img src="assets/img/scenes/cat-base.svg" alt=""><span class="team-tile__label">Prebenjamín</span></a>
+        <a class="team-tile" href="categorias.html#benjamin"><img src="assets/img/scenes/cat-benjamin.svg" alt=""><span class="team-tile__label">Benjamín</span></a>
+        <a class="team-tile" href="categorias.html#alevin"><img src="assets/img/scenes/cat-alevin.svg" alt=""><span class="team-tile__label">Alevín</span></a>
+        <a class="team-tile" href="categorias.html#infantil"><img src="assets/img/scenes/cat-infantil.svg" alt=""><span class="team-tile__label">Infantil</span></a>
+        <a class="team-tile" href="categorias.html#cadete"><img src="assets/img/scenes/cat-cadete.svg" alt=""><span class="team-tile__label">Cadete</span></a>
+        <a class="team-tile" href="categorias.html#juvenil"><img src="assets/img/scenes/cat-juvenil.svg" alt=""><span class="team-tile__label">Juvenil</span></a>
+        <a class="team-tile" href="categorias.html#femenino"><img src="assets/img/scenes/cat-femenino.svg" alt=""><span class="team-tile__label">Femenino</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Jugadores de la cantera -->
+  <section class="section players" id="jugadores" aria-label="Jugadores de la cantera">
+    <div class="wrapper wrapper--wide js-carousel">
+      <div class="widget__header">
+        <h2 class="widget__title">Jugadores de la cantera</h2>
+        <div class="carousel-nav">
+          <button type="button" data-dir="prev" aria-label="Anterior"><svg viewBox="0 0 24 24"><path d="M15 4 7 12l8 8 1.5-1.5L10 12l6.5-6.5L15 4Z"/></svg></button>
+          <button type="button" data-dir="next" aria-label="Siguiente"><svg viewBox="0 0 24 24"><path d="m9 4 8 8-8 8-1.5-1.5L14 12 7.5 5.5 9 4Z"/></svg></button>
+        </div>
+      </div>
+      <div class="players__track js-carousel-track">
+        <a class="player-card" href="categorias.html#juvenil"><img src="assets/img/scenes/player-1.svg" alt=""><span class="player-card__no">10</span><span class="player-card__body"><small>Juvenil A</small><h3>Marc Vidal</h3><span>Delantero</span></span></a>
+        <a class="player-card" href="categorias.html#juvenil"><img src="assets/img/scenes/player-2.svg" alt=""><span class="player-card__no">8</span><span class="player-card__body"><small>Juvenil A</small><h3>Iker Sanz</h3><span>Mediapunta</span></span></a>
+        <a class="player-card" href="categorias.html#cadete"><img src="assets/img/scenes/player-3.svg" alt=""><span class="player-card__no">7</span><span class="player-card__body"><small>Cadete A</small><h3>Pau Miralles</h3><span>Interior</span></span></a>
+        <a class="player-card" href="categorias.html#cadete"><img src="assets/img/scenes/player-4.svg" alt=""><span class="player-card__no">4</span><span class="player-card__body"><small>Cadete A</small><h3>Nil Fontana</h3><span>Central</span></span></a>
+        <a class="player-card" href="categorias.html#infantil"><img src="assets/img/scenes/player-5.svg" alt=""><span class="player-card__no">2</span><span class="player-card__body"><small>Infantil A</small><h3>Aleix Roca</h3><span>Lateral</span></span></a>
+        <a class="player-card" href="categorias.html#juvenil"><img src="assets/img/scenes/player-6.svg" alt=""><span class="player-card__no">1</span><span class="player-card__body"><small>Juvenil A</small><h3>Jan Ferrer</h3><span>Portero</span></span></a>
+        <a class="player-card" href="categorias.html#cadete"><img src="assets/img/scenes/player-7.svg" alt=""><span class="player-card__no">11</span><span class="player-card__body"><small>Cadete B</small><h3>Èric Solà</h3><span>Extremo</span></span></a>
+        <a class="player-card" href="categorias.html#femenino"><img src="assets/img/scenes/player-8.svg" alt=""><span class="player-card__no">6</span><span class="player-card__body"><small>Femenino Sub-16</small><h3>Ona Grau</h3><span>Pivote</span></span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Franja de inscripciones -->
+  <section class="join" id="inscripciones" aria-label="Inscripciones">
+    <div class="wrapper">
+      <h2>Súmate al club</h2>
+      <p>Inscripciones abiertas para todas las categorías, desde la escuela hasta juvenil. Entrenamientos, valores y muchas ganas de jugar. Sin pruebas para las edades más pequeñas.</p>
+      <div class="join__actions">
+        <a class="btn btn--gold" href="inscripciones.html">Solicita tu plaza</a>
+        <a class="btn btn--ghost" href="inscripciones.html#familias">Área de familias</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Colaboradores -->
+  <section class="sponsors" id="media" aria-label="Colaboradores">
+    <div class="wrapper wrapper--wide">
+      <h2>Con el apoyo de nuestros colaboradores</h2>
+      <div class="sponsors__row">
+        <span class="sponsors__logo">NOVA</span>
+        <span class="sponsors__logo">L&rsquo;ESPIGA</span>
+        <span class="sponsors__logo">VOLTA</span>
+        <span class="sponsors__logo">MERIDIA</span>
+        <span class="sponsors__logo">DELTA</span>
+        <span class="sponsors__logo">ORBIT</span>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div data-layout-footer></div>
+
+<script>
+  (function () {
+    var el = document.querySelector('.js-countdown');
+    if (el) { var t = new Date(); t.setDate(t.getDate() + 3); t.setHours(12, 0, 0, 0); el.dataset.timestamp = String(t.getTime()); }
+  })();
+</script>
+<script src="js/data.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

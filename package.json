@@ -1,0 +1,15 @@
+{
+  "name": "corre-fc",
+  "version": "1.0.0",
+  "description": "Reconstrucción front-end / UX de la portada de un club de fútbol, tomando como referencia la arquitectura y el sistema de diseño de **fcbarcelona.es/es/**.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "remixicon": "^4.9.1"
+  }
+}

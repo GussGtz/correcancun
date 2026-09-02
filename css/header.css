@@ -1,0 +1,276 @@
+/* ==========================================================================
+   Corre Cancún — Cabecera global: ribbon, barra principal, mega-menú, buscador
+   ========================================================================== */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-header);
+  background: var(--navy);
+  box-shadow: var(--shadow-2);
+}
+.site-header.is-scrolled .ribbon { display: none; }
+.site-header.is-scrolled .navbar__inner { min-height: 5.4rem; }
+.site-header.is-scrolled .brand svg,
+.site-header.is-scrolled .brand img { width: 3.6rem; }
+
+/* ---- Ribbon promocional --------------------------------------------------- */
+.ribbon {
+  background: var(--navy-2);
+  color: #fff;
+  font-size: var(--fs-body-s);
+}
+.ribbon__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-m);
+  min-height: var(--ribbon-h);
+  padding-block: .4rem;
+}
+.ribbon__slogan {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-xs);
+  min-width: 0;
+  color: rgba(255,255,255,.9);
+}
+.ribbon__slogan-icon {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  font-size: 1.25rem;
+  line-height: 1;
+  color: var(--brand-orange);
+  background: rgba(226, 100, 30, .16);
+  border-radius: 50%;
+}
+.ribbon__slogan-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  letter-spacing: .01em;
+}
+.ribbon__slogan-text b {
+  font-weight: 700;
+  color: var(--brand-orange);
+}
+.ribbon__lang {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .4rem .6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: rgba(255,255,255,.9);
+  border-radius: var(--radius-s);
+  transition: color .16s var(--ease), background-color .16s var(--ease);
+}
+.ribbon__lang:hover { color: #fff; background: rgba(255,255,255,.08); }
+.ribbon__lang svg { width: 1.3rem; height: 1.3rem; fill: currentColor; }
+.ribbon__lang-caret { width: 1rem !important; height: 1rem !important; opacity: .7; }
+
+/* ---- Barra principal --------------------------------------------------- */
+.navbar { position: relative; }
+.navbar__inner {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-l);
+  min-height: var(--header-h);
+}
+
+.brand { display: flex; align-items: center; gap: var(--sp-s); flex: none; }
+.brand svg, .brand img { width: 4.6rem; height: auto; }
+.brand__word {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-display);
+  line-height: .92;
+  color: #fff;
+  text-transform: uppercase;
+}
+.brand__word b {
+  font-weight: 700;
+  font-size: 2rem;
+  letter-spacing: .01em;
+}
+.brand__word i {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1.15rem;
+  letter-spacing: .22em;
+  color: var(--brand-orange);
+}
+
+.mainnav { display: flex; align-items: center; flex: 1; min-width: 0; }
+.mainnav__list { display: flex; align-items: center; gap: var(--sp-2xs); }
+.mainnav__list--right { margin-left: auto; }
+
+.mainnav__link {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  padding: 1rem .7rem;
+  font-family: var(--font-body);
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .02em;
+  color: rgba(255,255,255,.86);
+  white-space: nowrap;
+  transition: color .16s var(--ease);
+}
+@media (max-width: 1460px) {
+  .navbar .brand__word { display: none; }
+}
+@media (max-width: 1320px) {
+  .mainnav__link { font-size: 1.2rem; padding: 1rem .45rem; }
+  .navbar__inner { gap: var(--sp-m); }
+}
+.mainnav__link:hover,
+.mainnav__item.is-open > .mainnav__link { color: #fff; }
+.mainnav__link .caret {
+  width: 1rem; height: 1rem; fill: currentColor;
+  transition: transform .2s var(--ease);
+}
+.mainnav__item.is-open .caret { transform: rotate(180deg); }
+
+.navbar__underline {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: .4rem;
+  background: var(--grad-sharp);
+}
+
+/* ---- Utilidades cabecera (login / planes / buscar) ------------------- */
+.header-utils { display: flex; align-items: center; gap: var(--sp-s); flex: none; }
+.header-login {
+  display: flex; align-items: center; gap: .6rem;
+  font-size: var(--fs-label-s); font-weight: 700; color: #fff;
+  text-transform: uppercase; letter-spacing: .03em;
+}
+.header-login svg { width: 1.8rem; height: 1.8rem; fill: currentColor; }
+.header-plans {
+  display: inline-flex; align-items: center; gap: .7rem;
+  padding: .9rem 1.6rem;
+  background: var(--brand-grana);
+  color: #fff; font-size: var(--fs-label-s); font-weight: 700;
+  text-transform: uppercase; letter-spacing: .04em;
+  border-radius: var(--radius-full);
+}
+.header-plans:hover { background: var(--brand-grana-dark); }
+.header-plans svg { width: 1.6rem; height: 1.6rem; fill: currentColor; }
+
+.search-toggle {
+  display: grid; place-items: center;
+  width: 4rem; height: 4rem;
+  color: #fff;
+}
+.search-toggle svg { width: 2rem; height: 2rem; fill: currentColor; }
+
+/* ---- Mega menú --------------------------------------------------------- */
+.mega {
+  position: absolute;
+  left: 0; right: 0; top: 100%;
+  z-index: var(--z-mega);
+  background: var(--surface);
+  color: var(--ink);
+  border-top: .4rem solid transparent;
+  border-image: var(--grad-soft) 1;
+  box-shadow: var(--shadow-3);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: opacity .18s var(--ease), transform .18s var(--ease), visibility .18s;
+}
+.mainnav__item.is-open .mega { opacity: 1; visibility: visible; transform: translateY(0); }
+
+.mega__inner {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--sp-2xl);
+  padding-block: var(--sp-2xl);
+}
+.mega__col h3 {
+  font-size: var(--fs-label-s);
+  color: var(--ink-soft);
+  letter-spacing: .1em;
+  margin-bottom: var(--sp-m);
+}
+.mega__col a {
+  display: block;
+  padding: .7rem 0;
+  font-size: var(--fs-body-m);
+  font-weight: 600;
+  border-bottom: 1px solid var(--line);
+  transition: color .14s var(--ease), padding-left .14s var(--ease);
+}
+.mega__col a:hover { color: var(--brand-blue); padding-left: .5rem; }
+.mega__feature {
+  grid-column: span 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 22rem;
+  padding: var(--sp-l);
+  color: #fff;
+}
+.mega__feature .tag { align-self: flex-start; margin-bottom: var(--sp-xs); }
+.mega__feature h4 { font-size: var(--fs-title-m); }
+.mega__feature p { font-size: var(--fs-body-m); margin-top: var(--sp-xs); color: rgba(255,255,255,.85); }
+
+/* ---- Panel de búsqueda ---------------------------------------------------- */
+.search-panel {
+  position: absolute;
+  left: 0; right: 0; top: 100%;
+  z-index: var(--z-mega);
+  background: var(--navy);
+  box-shadow: var(--shadow-3);
+  padding-block: var(--sp-2xl);
+  transform: translateY(-100%);
+  opacity: 0;
+  visibility: hidden;
+  transition: transform .24s var(--ease), opacity .24s var(--ease), visibility .24s;
+}
+.search-panel.is-open { transform: translateY(0); opacity: 1; visibility: visible; }
+.search-panel form { display: flex; align-items: center; gap: var(--sp-m); border-bottom: 2px solid rgba(255,255,255,.4); padding-bottom: var(--sp-s); }
+.search-panel input {
+  flex: 1;
+  background: none;
+  border: 0;
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: var(--fs-title-l);
+  text-transform: uppercase;
+}
+.search-panel input::placeholder { color: rgba(255,255,255,.4); }
+.search-panel button[type=submit] { color: var(--brand-yellow); }
+.search-panel button[type=submit] svg { width: 2.4rem; height: 2.4rem; fill: currentColor; }
+.search-suggests { margin-top: var(--sp-l); display: flex; flex-wrap: wrap; gap: var(--sp-xs); }
+.search-suggests a {
+  padding: .7rem 1.3rem;
+  border: 1px solid rgba(255,255,255,.3);
+  border-radius: var(--radius-full);
+  font-size: var(--fs-body-s);
+  font-weight: 600;
+  color: rgba(255,255,255,.85);
+}
+.search-suggests a:hover { background: rgba(255,255,255,.12); color: #fff; }
+
+/* ---- Botón hamburguesa (móvil) ---------------------------------------- */
+.nav-toggle { display: none; width: 4rem; height: 4rem; place-items: center; color: #fff; }
+.nav-toggle svg { width: 2.4rem; height: 2.4rem; fill: currentColor; }
+
+/* ---- Overlay --------------------------------------------------------- */
+.overlay {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,.55);
+  opacity: 0; visibility: hidden;
+  transition: opacity .2s var(--ease), visibility .2s;
+  z-index: var(--z-mega);
+}
+.overlay.is-visible { opacity: 1; visibility: visible; }

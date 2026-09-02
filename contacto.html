@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contacto · Corre Cancún</title>
+  <meta name="description" content="Contacta con el Corre Cancún: oficina del club, teléfono, correo y dirección de la ciudad deportiva.">
+  <meta name="theme-color" content="#101013">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/icon-32.png">
+  <link rel="shortcut icon" href="assets/img/favicon.ico">
+  <link rel="apple-touch-icon" href="assets/img/icon-180.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/vendor/remixicon/remixicon.css">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+<div data-layout-header data-active=""></div>
+
+<main>
+  <section class="page-hero">
+    <div class="wrapper wrapper--wide">
+      <nav class="breadcrumb"><a href="index.html">Inicio</a> › <span>Contacto</span></nav>
+      <span class="eyebrow">Hablemos</span>
+      <h1>Contacto</h1>
+      <p>Para inscripciones, dudas sobre categorías, colaboración con el club o para unirte al cuerpo técnico.</p>
+    </div>
+  </section>
+
+  <section class="section u-surface">
+    <div class="wrapper wrapper--wide">
+      <div class="info-cards">
+        <div class="info-card"><i class="ri-phone-line"></i><h3>Teléfono</h3><p>+34 900 000 000<br>Lunes a viernes, 17:00-20:00</p></div>
+        <div class="info-card"><i class="ri-mail-line"></i><h3>Correo</h3><p>hola@correcancun.example<br>coordinacion@correcancun.example</p></div>
+        <div class="info-card" id="mapa"><i class="ri-map-pin-line"></i><h3>Dónde estamos</h3><p>Ciudad Deportiva Corre<br>Camí del Poliesportiu, s/n</p></div>
+      </div>
+
+      <h2 class="section-sub" style="color:var(--ink)">Escríbenos</h2>
+      <form class="form" data-form="contacto" data-success="¡Gracias! Hemos recibido tu mensaje y te responderemos lo antes posible." novalidate>
+        <div class="form__row">
+          <div class="field"><label for="c-nombre">Nombre *</label><input id="c-nombre" name="nombre" required></div>
+          <div class="field"><label for="c-email">Correo electrónico *</label><input id="c-email" name="email" type="email" required></div>
+        </div>
+        <div class="field"><label for="c-motivo">Motivo</label>
+          <select id="c-motivo" name="motivo">
+            <option value="inscripcion">Inscripción / plazas</option>
+            <option value="categoria">Duda sobre categorías</option>
+            <option value="colaborar">Colaborar / patrocinio</option>
+            <option value="staff">Unirme al cuerpo técnico</option>
+            <option value="otro">Otro</option>
+          </select>
+        </div>
+        <div class="field"><label for="c-msg">Mensaje *</label><textarea id="c-msg" name="mensaje" required></textarea></div>
+        <div class="field field--check"><input id="c-priv" name="privacidad" type="checkbox" required><label for="c-priv">Acepto la política de privacidad. *</label></div>
+        <button class="btn btn--gold" type="submit">Enviar mensaje</button>
+      </form>
+
+      <div class="article__hero" style="max-width:100%;margin-top:2.4rem"><img src="assets/img/scenes/club-instalaciones.svg" alt="Plano de la ciudad deportiva"></div>
+    </div>
+  </section>
+</main>
+
+<div data-layout-footer></div>
+<script src="js/data.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

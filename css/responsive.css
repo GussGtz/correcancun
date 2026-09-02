@@ -1,0 +1,118 @@
+/* ==========================================================================
+   Corre Cancún — Adaptación responsive
+   Breakpoints: 1200 (desk), 1024 (tab-land), 768 (tab), 560 (phab), 420 (phone)
+   ========================================================================== */
+
+@media (max-width: 1200px) {
+  :root { --fs-display-s: 4rem; --fs-display-xs: 3.4rem; }
+  .hero { grid-template-columns: 1.4fr 1fr; }
+  .news__grid { grid-template-columns: repeat(3, 1fr); }
+  .teams-grid__list { grid-template-columns: repeat(3, 1fr); }
+  .footer-cols { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 1024px) {
+  .mainnav { display: none; }
+  .nav-toggle { display: grid; }
+  .brand { margin-right: auto; }
+  .header-login span { display: none; }
+  .mega { display: none; }
+
+  .hero { grid-template-columns: 1fr; }
+  .hero__primary { min-height: 42rem; }
+  .fixtures { grid-template-columns: 1fr; }
+  .fixtures .fixture:nth-child(n+3) { display: none; }
+  .shop__grid { grid-template-columns: 1fr; }
+  .news__grid { grid-template-columns: repeat(2, 1fr); }
+  .news-card--lead { grid-column: span 2; grid-row: auto; }
+  .footer-trophies { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .wrapper { padding-inline: var(--sp-m); }
+  .section { padding-block: var(--sp-2xl); }
+
+  :root { --fs-title-xl: 2.6rem; --fs-display-xs: 3rem; --fs-display-s: 3.4rem; }
+
+  .header-plans span { display: none; }
+
+  .hero__list { grid-template-rows: none; }
+  .teams-grid__list { grid-template-columns: repeat(2, 1fr); }
+  .footer-cols { grid-template-columns: repeat(2, 1fr); }
+  .countdown { width: 100%; flex-wrap: wrap; }
+  .countdown__cell { min-width: 0; flex: 1; }
+  .calendar__foot { flex-direction: column; align-items: stretch; }
+  .join__actions { flex-direction: column; }
+}
+
+@media (max-width: 560px) {
+  .news__grid { grid-template-columns: 1fr; }
+  .news-card--lead { grid-column: auto; }
+  .shop__grid { grid-template-columns: 1fr; }
+  .teams-grid__list { grid-template-columns: 1fr 1fr; }
+  .hero__item { grid-template-columns: 9rem 1fr; }
+  .cookie__actions { flex-direction: column; }
+  .footer-trophies { grid-template-columns: 1fr; }
+  .footer-social { flex-direction: column; align-items: flex-start; }
+  .footer-social__links { margin-left: 0; }
+  .footer-legal nav { margin-left: 0; }
+}
+
+/* ---- Menú móvil desplegable ----------------------------------------- */
+.mobile-nav {
+  position: fixed;
+  top: 0; bottom: 0; left: 0;
+  width: min(86vw, 38rem);
+  z-index: var(--z-modal);
+  background: var(--navy);
+  color: #fff;
+  overflow-y: auto;
+  transform: translateX(-100%);
+  transition: transform .26s var(--ease);
+  padding: var(--sp-l);
+}
+.mobile-nav.is-open { transform: translateX(0); }
+.mobile-nav__head { display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--sp-l); }
+.mobile-nav__head .brand svg { width: 3.6rem; }
+.mobile-nav__close { width: 4rem; height: 4rem; display: grid; place-items: center; color: #fff; }
+.mobile-nav__close svg { width: 2rem; height: 2rem; fill: currentColor; }
+
+.mobile-nav details { border-bottom: 1px solid rgba(255,255,255,.12); }
+.mobile-nav summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--sp-m) 0;
+  font-family: var(--font-display);
+  font-size: var(--fs-title-s);
+  text-transform: uppercase;
+  cursor: pointer;
+  list-style: none;
+}
+.mobile-nav summary::-webkit-details-marker { display: none; }
+.mobile-nav summary::after {
+  content: "";
+  width: 1rem; height: 1rem;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform .2s var(--ease);
+}
+.mobile-nav details[open] summary::after { transform: rotate(-135deg); }
+.mobile-nav details > a,
+.mobile-nav details > div > a {
+  display: block;
+  padding: .8rem 0 .8rem var(--sp-m);
+  font-size: var(--fs-body-m);
+  color: rgba(255,255,255,.8);
+}
+.mobile-nav details > div { padding-bottom: var(--sp-m); }
+.mobile-nav__cta { margin-top: var(--sp-l); display: flex; flex-direction: column; gap: var(--sp-s); }
+
+@media (min-width: 1025px) {
+  .mobile-nav { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }
+}

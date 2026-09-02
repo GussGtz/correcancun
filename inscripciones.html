@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Inscripciones 25/26 · Corre Cancún</title>
+  <meta name="description" content="Cómo inscribirse en el Corre Cancún: plazas, cuotas por categoría, becas, pruebas de acceso y área de familias.">
+  <meta name="theme-color" content="#101013">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/icon-32.png">
+  <link rel="shortcut icon" href="assets/img/favicon.ico">
+  <link rel="apple-touch-icon" href="assets/img/icon-180.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/vendor/remixicon/remixicon.css">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+<div data-layout-header data-active="inscripciones"></div>
+
+<main>
+  <section class="page-hero">
+    <div class="wrapper wrapper--wide">
+      <nav class="breadcrumb"><a href="index.html">Inicio</a> › <span>Inscripciones</span></nav>
+      <span class="eyebrow">Temporada 2025/26</span>
+      <h1>Inscripciones abiertas</h1>
+      <p>Plazas disponibles desde la escuela (4 años) hasta juvenil, y en los dos equipos femeninos. Rellena la solicitud y la coordinación te contactará para confirmar la plaza y el grupo.</p>
+    </div>
+  </section>
+
+  <section class="section u-surface">
+    <div class="wrapper wrapper--wide">
+
+      <h2 class="section-sub" style="color:var(--ink)"><span id="como">Cómo inscribirse</span></h2>
+      <div class="info-cards">
+        <div class="info-card"><i class="ri-edit-line"></i><h3>1 · Solicitud</h3><p>Rellena el formulario de esta página con los datos del jugador o jugadora.</p></div>
+        <div class="info-card"><i class="ri-phone-line"></i><h3>2 · Contacto</h3><p>La coordinación llama en 2-3 días para confirmar categoría, grupo y horario.</p></div>
+        <div class="info-card"><i class="ri-bank-card-line"></i><h3>3 · Formalización</h3><p>Se aporta documentación (DNI/libro de familia y foto) y se abona la matrícula.</p></div>
+      </div>
+
+      <h2 class="section-sub" style="color:var(--ink)"><span id="pruebas">Pruebas de acceso</span></h2>
+      <div class="prose">
+        <p>De escuela a benjamín <strong>no hay pruebas</strong>: la plaza es directa hasta completar grupos. A partir de alevín se hace una o dos sesiones de valoración, sin presión, para ubicar a cada jugador en el equipo A o B de su edad.</p>
+      </div>
+
+      <h2 class="section-sub" style="color:var(--ink)"><span id="cuotas">Cuotas por categoría</span></h2>
+      <table class="data-table" data-cuotas></table>
+      <p class="prose" style="color:var(--ink-soft);margin-top:1rem">La cuota mensual se paga de septiembre a junio (10 meses) e incluye entrenamientos, ficha federativa, seguro y arbitrajes. La equipación se compra aparte en la <a href="tienda.html" style="color:var(--brand-orange)">tienda del club</a>.</p>
+
+      <h2 class="section-sub" style="color:var(--ink)"><span id="becas">Becas y ayudas</span></h2>
+      <div class="prose">
+        <p>Ninguna familia se queda fuera por motivos económicos. El club reserva cada año un fondo de becas que cubre total o parcialmente la cuota. La solicitud es confidencial: márcala en el formulario o escríbenos.</p>
+        <p>Además: <strong>2º hermano/a −20 %</strong>, <strong>3º −40 %</strong>.</p>
+      </div>
+
+      <h2 class="section-sub" style="color:var(--ink)"><span id="escuela">La Escuela (4-6 años)</span></h2>
+      <div class="prose">
+        <p>El primer contacto con el club. Dos días por semana, sesiones de una hora centradas en el juego, la coordinación y las ganas de volver. Grupos reducidos y monitores específicos de iniciación.</p>
+      </div>
+
+      <h2 class="section-sub" style="color:var(--ink)">Solicitud de plaza</h2>
+      <form class="form" data-form="inscripcion" data-success="¡Solicitud recibida! La coordinación te llamará en 2-3 días para confirmar la plaza." novalidate>
+        <div class="form__row">
+          <div class="field"><label for="ins-nombre">Nombre del jugador/a *</label><input id="ins-nombre" name="nombre_jugador" required></div>
+          <div class="field"><label for="ins-nac">Fecha de nacimiento *</label><input id="ins-nac" name="nacimiento" type="date" required></div>
+        </div>
+        <div class="form__row">
+          <div class="field"><label for="ins-cat">Categoría preferida *</label>
+            <select id="ins-cat" name="categoria" required>
+              <option value="">Selecciona…</option>
+              <option value="escuela">Escuela (4-6 años)</option>
+              <option value="prebenjamin">Prebenjamín (7-8)</option>
+              <option value="benjamin">Benjamín (9-10)</option>
+              <option value="alevin">Alevín (11-12)</option>
+              <option value="infantil">Infantil (13-14)</option>
+              <option value="cadete">Cadete (15-16)</option>
+              <option value="juvenil">Juvenil (17-19)</option>
+              <option value="femenino">Femenino</option>
+            </select>
+          </div>
+          <div class="field"><label for="ins-exp">¿Ha jugado antes en algún club?</label>
+            <select id="ins-exp" name="experiencia">
+              <option value="no">No, es su primera vez</option>
+              <option value="si">Sí, en otro club</option>
+              <option value="corre">Sí, ya está en el Corre Cancún</option>
+            </select>
+          </div>
+        </div>
+        <div class="form__row">
+          <div class="field"><label for="ins-tutor">Nombre de la madre/padre/tutor *</label><input id="ins-tutor" name="tutor" required></div>
+          <div class="field"><label for="ins-tel">Teléfono de contacto *</label><input id="ins-tel" name="telefono" type="tel" data-min="9" required></div>
+        </div>
+        <div class="field"><label for="ins-email">Correo electrónico *</label><input id="ins-email" name="email" type="email" required></div>
+        <div class="field"><label for="ins-notas">Comentarios (lesiones, necesidades, disponibilidad…)</label><textarea id="ins-notas" name="notas"></textarea></div>
+        <div class="field field--check"><input id="ins-beca" name="beca" type="checkbox"><label for="ins-beca">Me gustaría recibir información sobre las becas y ayudas del club.</label></div>
+        <div class="field field--check"><input id="ins-priv" name="privacidad" type="checkbox" required><label for="ins-priv">He leído y acepto la política de privacidad y el tratamiento de datos con la finalidad de gestionar la inscripción. *</label></div>
+        <button class="btn btn--gold" type="submit">Enviar solicitud</button>
+      </form>
+
+      <h2 class="section-sub" style="color:var(--ink)"><span id="familias">Área de familias</span></h2>
+      <div class="prose">
+        <p>Las familias ya inscritas acceden con su correo para consultar cuotas, horarios, convocatorias y comunicados. En esta demo el acceso no está conectado a ningún servidor.</p>
+        <p><a class="btn btn--ghost" href="#" onclick="window.CorreToast&amp;&amp;CorreToast('El área de familias no está disponible en esta demo.');return false;">Acceder al área de familias</a></p>
+      </div>
+
+      <h2 class="section-sub" style="color:var(--ink)"><span id="faq">Preguntas frecuentes</span></h2>
+      <div class="faq">
+        <details><summary>¿Hasta cuándo puedo inscribir a mi hijo/a?</summary><p>Las inscripciones están abiertas todo el año mientras queden plazas. En las categorías pequeñas se suelen completar los grupos en septiembre.</p></details>
+        <details><summary>¿Qué pasa si no puede ir a todos los entrenamientos?</summary><p>En fútbol base valoramos el compromiso, pero entendemos que hay semanas complicadas. Habla con el entrenador; lo importante es la constancia, no la perfección.</p></details>
+        <details><summary>¿Puede probar antes de decidir?</summary><p>Sí. Ofrecemos una semana de prueba gratuita. Marca «primera vez» en el formulario y lo organizamos.</p></details>
+        <details><summary>¿El club es el filial de algún equipo profesional?</summary><p>No. Somos un club formativo independiente, sin ánimo de lucro. Colaboramos con clubes de la zona cuando un jugador quiere dar el salto, pero no dependemos de nadie.</p></details>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<div data-layout-footer></div>
+<script src="js/data.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

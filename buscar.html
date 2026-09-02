@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Buscar · Corre Cancún</title>
+  <meta name="description" content="Buscador del sitio del Corre Cancún.">
+  <meta name="theme-color" content="#101013">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/icon-32.png">
+  <link rel="shortcut icon" href="assets/img/favicon.ico">
+  <link rel="apple-touch-icon" href="assets/img/icon-180.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/vendor/remixicon/remixicon.css">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+<div data-layout-header data-active=""></div>
+
+<main>
+  <section class="page-hero">
+    <div class="wrapper wrapper--wide">
+      <nav class="breadcrumb"><a href="index.html">Inicio</a> › <span>Buscar</span></nav>
+      <h1>Buscar en el sitio</h1>
+    </div>
+  </section>
+
+  <section class="section u-surface search-page">
+    <div class="wrapper" data-buscador>
+      <form role="search">
+        <input type="search" name="q" placeholder="Buscar…" aria-label="Buscar" autocomplete="off" autofocus>
+        <button class="btn btn--gold" type="submit">Buscar</button>
+      </form>
+      <p class="breadcrumb" data-buscador-count></p>
+      <div class="results" data-buscador-results></div>
+    </div>
+  </section>
+</main>
+
+<div data-layout-footer></div>
+<script src="js/data.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

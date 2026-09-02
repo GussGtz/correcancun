@@ -1,0 +1,127 @@
+/* ==========================================================================
+   Corre Cancún — Design tokens
+   Reconstrucción del sistema de diseño tipo "club de fútbol" (base 10px)
+   ========================================================================== */
+
+:root {
+  /* ---- Marca — Corre Cancún (naranja sobre negro) ----------------------- */
+  /* Se conservan los nombres de variable (blue/grana) para no tocar cada
+     archivo; ahora todas apuntan a la paleta naranja/ámbar del escudo. */
+  --brand-orange:          #e2641e;
+  --brand-orange-bright:   #f2762c;
+  --brand-orange-mid:      #c8571a;
+  --brand-orange-dark:     #9c3f0f;
+  --brand-rust:            #8f3b16;
+  --brand-amber:           #f5a623;
+
+  --brand-blue:            var(--brand-orange);
+  --brand-blue-mid:        var(--brand-orange-mid);
+  --brand-blue-dark:       var(--brand-orange-dark);
+  --corp-blue:             #d4571a;
+  --corp-blue-mid:         #b0470f;
+  --corp-blue-dark:        #7d310a;
+
+  --brand-grana:           #a83e12;
+  --brand-grana-mid:       #8f3b16;
+  --brand-grana-dark:      #5e2409;
+  --corp-grana:            #b8460f;
+  --corp-grana-dark:       #3d1705;
+
+  --brand-yellow:          #f5a623;
+  --brand-yellow-mid:      #e0951d;
+  --brand-yellow-dark:     #c47f15;
+
+  /* ---- Superficies ----------------------------------------------------------- */
+  --surface:               #ffffff;
+  --surface-dim:           #f6f4f2;
+  --surface-container:     #d8d3cd;
+  --navy:                  #101013;   /* superficie oscura principal (carbón) */
+  --navy-2:                #1a1a1f;
+  --navy-3:                #0b0b0d;   /* fondo del body (casi negro) */
+  --ink:                   #16130f;
+  --ink-soft:              #7a7269;
+  --line:                  #e7e3de;
+
+  /* ---- Neutros --------------------------------------------------------------- */
+  --grey-100:              #f6f4f2;
+  --grey-300:              #d8d3cd;
+  --grey-500:              #8b8178;
+  --grey-700:              #7a7269;
+  --white:                 #ffffff;
+  --black:                 #000000;
+
+  /* ---- Estados ------------------------------------------------------------- */
+  --primary-hover:         #c8571a;
+  --primary-pressed:       #9c3f0f;
+  --secondary-hover:       #e0951d;
+  --danger:                #d13b1a;
+  --success:               #3f9d5a;
+
+  /* ---- Degradados -------------------------------------------------------- */
+  --grad-sharp:  linear-gradient(90deg, var(--brand-orange) 50%, var(--brand-amber) 50%);
+  --grad-soft:   linear-gradient(90deg, var(--brand-orange), var(--brand-orange-dark));
+  --grad-tight:  linear-gradient(120deg, var(--brand-orange-bright) 0%, var(--brand-orange-mid) 70%);
+  --grad-gold:   linear-gradient(90deg, #d99845 -4%, #e0951d 13%, #f5a623 46%, #f5a623 60%, #e0951d 85%, #e0951d 113%);
+  --grad-navy:   linear-gradient(180deg, rgba(8,8,10,0) 0%, rgba(8,8,10,.55) 45%, rgba(8,8,10,.96) 100%);
+
+  /* ---- Tipografía --------------------------------------------------------- */
+  --font-display: "Barlow Condensed", "Archivo", Arial, "Helvetica Neue", sans-serif;
+  --font-body:    "Inter", -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+
+  --fs-display-xl: 9.6rem;
+  --fs-display-l:  7.2rem;
+  --fs-display-m:  5.6rem;
+  --fs-display-s:  4.8rem;
+  --fs-display-xs: 4rem;
+
+  --fs-title-xxl:  4.8rem;
+  --fs-title-xl:   3.2rem;
+  --fs-title-l:    2.8rem;
+  --fs-title-m:    2.4rem;
+  --fs-title-s:    2rem;
+  --fs-title-xs:   1.8rem;
+
+  --fs-label-l:    1.8rem;
+  --fs-label-m:    1.6rem;
+  --fs-label-s:    1.4rem;
+
+  --fs-body-l:     1.6rem;
+  --fs-body-m:     1.4rem;
+  --fs-body-s:     1.2rem;
+  --fs-body-xs:    1rem;
+
+  /* ---- Espaciado -------------------------------------------------------- */
+  --sp-2xs: .4rem;
+  --sp-xs:  .8rem;
+  --sp-s:   1.2rem;
+  --sp-m:   1.6rem;
+  --sp-l:   2rem;
+  --sp-xl:  2.4rem;
+  --sp-2xl: 3.2rem;
+  --sp-3xl: 4rem;
+  --sp-4xl: 4.8rem;
+  --sp-5xl: 5.6rem;
+  --sp-6xl: 6.4rem;
+
+  /* ---- Radios ----------------------------------------------------------- */
+  --radius-s:    .4rem;
+  --radius-m:    .8rem;
+  --radius-l:    1.2rem;
+  --radius-full: 25.6rem;
+
+  /* ---- Sombras / elevación ---------------------------------------------- */
+  --shadow-1: 0 1px 3px rgba(0,5,40,.14), 0 1px 2px rgba(0,5,40,.10);
+  --shadow-2: 0 6px 18px rgba(0,5,40,.16);
+  --shadow-3: 0 18px 46px rgba(0,5,40,.28);
+
+  /* ---- Layout --------------------------------------------------------- */
+  --wrapper:        122rem;
+  --wrapper-wide:   150rem;
+  --header-h:       6.4rem;
+  --ribbon-h:       3.6rem;
+  --z-header:       900;
+  --z-mega:         890;
+  --z-modal:        1000;
+
+  --ease: cubic-bezier(.4, 0, .2, 1);
+}

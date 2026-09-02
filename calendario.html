@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calendario y resultados · Corre Cancún</title>
+  <meta name="description" content="Calendario de partidos y últimos resultados de todas las categorías del Corre Cancún.">
+  <meta name="theme-color" content="#101013">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/icon-32.png">
+  <link rel="shortcut icon" href="assets/img/favicon.ico">
+  <link rel="apple-touch-icon" href="assets/img/icon-180.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/vendor/remixicon/remixicon.css">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+<div data-layout-header data-active="actualidad"></div>
+
+<main>
+  <section class="page-hero">
+    <div class="wrapper wrapper--wide">
+      <nav class="breadcrumb"><a href="index.html">Inicio</a> › <span>Calendario</span></nav>
+      <span class="eyebrow">Competición</span>
+      <h1>Calendario y resultados</h1>
+      <p>Partidos de liga y copa de todas las categorías. La entrada a los campos del club es libre para familias y aficionados.</p>
+    </div>
+  </section>
+
+  <section class="section u-main-background page-body--dark">
+    <div class="wrapper wrapper--wide">
+      <div class="calendar" style="margin-bottom:2.4rem">
+        <div class="calendar__head">
+          <h2 style="font-size:var(--fs-title-xl)">Cuenta atrás</h2>
+          <div class="countdown js-countdown" data-timestamp="">
+            <span class="countdown__label">Próximo partido</span>
+            <div class="countdown__clock">
+              <div class="countdown__cell"><span class="countdown__num" data-u="d">00</span><span class="countdown__unit">Días</span></div>
+              <div class="countdown__cell"><span class="countdown__num" data-u="h">00</span><span class="countdown__unit">Horas</span></div>
+              <div class="countdown__cell"><span class="countdown__num" data-u="m">00</span><span class="countdown__unit">Min</span></div>
+              <div class="countdown__cell"><span class="countdown__num" data-u="s">00</span><span class="countdown__unit">Seg</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-calendario></div>
+      <p style="margin-top:2.4rem"><a class="btn btn--ghost" href="#">Descargar calendario (.ics)</a></p>
+    </div>
+  </section>
+</main>
+
+<div data-layout-footer></div>
+<script src="js/data.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

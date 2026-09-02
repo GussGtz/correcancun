@@ -1,0 +1,394 @@
+/* ==========================================================================
+   Corre Cancún — Componentes de la portada
+   ========================================================================== */
+
+/* ---- Hero destacado --------------------------------------------------- */
+.hero {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 2px;
+  background: var(--navy-3);
+}
+.hero__primary {
+  position: relative;
+  display: block;
+  min-height: 52rem;
+  color: #fff;
+  overflow: hidden;
+}
+.hero__primary .ph { position: absolute; inset: 0; }
+.hero__primary::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: var(--grad-navy);
+}
+.hero__body {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  z-index: 2;
+  padding: var(--sp-2xl);
+}
+.hero__title {
+  font-size: var(--fs-display-s);
+  color: #fff;
+  max-width: 18ch;
+}
+.hero__meta { display: flex; align-items: center; gap: var(--sp-s); margin-top: var(--sp-m); font-size: var(--fs-body-s); }
+.hero__meta time { display: flex; align-items: center; gap: .5rem; color: rgba(255,255,255,.8); }
+.hero__meta svg { width: 1.3rem; height: 1.3rem; fill: currentColor; }
+
+.hero__list { display: grid; grid-template-rows: repeat(4, 1fr); gap: 2px; }
+.hero__item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 12rem 1fr;
+  gap: var(--sp-m);
+  padding: var(--sp-m);
+  background: var(--navy-2);
+  color: #fff;
+  transition: background-color .16s var(--ease);
+}
+.hero__item:hover { background: #131a44; }
+.hero__item .ph { border-radius: var(--radius-s); }
+.hero__item h3 { font-family: var(--font-body); font-size: var(--fs-body-m); font-weight: 700; text-transform: none; line-height: 1.3; }
+.hero__item .tag { margin-bottom: .6rem; }
+.hero__thumb { aspect-ratio: 4/3; }
+
+/* ---- Calendario + cuenta atrás -------------------------------------- */
+.calendar { color: #fff; }
+.calendar__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-m);
+  margin-bottom: var(--sp-xl);
+}
+.calendar__head h2 { font-size: var(--fs-title-xl); }
+.countdown { display: flex; align-items: center; gap: var(--sp-m); }
+.countdown__label { font-size: var(--fs-label-s); font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--brand-yellow); }
+.countdown__clock { display: flex; gap: var(--sp-s); }
+.countdown__cell { text-align: center; min-width: 5.4rem; }
+.countdown__num {
+  font-family: var(--font-display);
+  font-size: var(--fs-title-xl);
+  line-height: 1;
+  background: var(--navy-2);
+  border-radius: var(--radius-s);
+  padding: .6rem 0;
+  display: block;
+}
+.countdown__unit { font-size: var(--fs-body-xs); text-transform: uppercase; letter-spacing: .08em; color: rgba(255,255,255,.6); margin-top: .4rem; }
+
+.fixtures { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-m); }
+.fixture {
+  display: flex;
+  flex-direction: column;
+  background: var(--navy-2);
+  border-radius: var(--radius-m);
+  overflow: hidden;
+}
+.fixture__top {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: var(--sp-s) var(--sp-m);
+  font-size: var(--fs-body-xs);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: rgba(255,255,255,.7);
+  background: rgba(255,255,255,.04);
+}
+.fixture__badge-comp { display: flex; align-items: center; gap: .6rem; }
+.fixture__badge-comp span.dot { width: .8rem; height: .8rem; border-radius: 50%; background: var(--brand-yellow); }
+.fixture__teams {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: var(--sp-s);
+  padding: var(--sp-l) var(--sp-m);
+}
+.fixture__team { display: flex; flex-direction: column; align-items: center; gap: .8rem; text-align: center; }
+.fixture__team .crest-mini { width: 4.4rem; height: 4.4rem; }
+.fixture__team span { font-size: var(--fs-body-s); font-weight: 700; }
+.fixture__kick { text-align: center; }
+.fixture__kick strong { font-family: var(--font-display); font-size: var(--fs-title-m); display: block; }
+.fixture__kick small { font-size: var(--fs-body-xs); color: rgba(255,255,255,.6); }
+.fixture__date { padding: var(--sp-s) var(--sp-m); font-size: var(--fs-body-xs); color: rgba(255,255,255,.7); border-top: 1px solid rgba(255,255,255,.08); text-align: center; }
+.fixture__cta {
+  margin-top: auto;
+  padding: var(--sp-s);
+  text-align: center;
+  font-size: var(--fs-body-s);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  background: rgba(255,255,255,.06);
+  color: var(--brand-yellow);
+}
+.fixture__cta:hover { background: rgba(255,255,255,.12); }
+.calendar__foot { display: flex; align-items: center; justify-content: space-between; gap: var(--sp-m); margin-top: var(--sp-xl); }
+
+/* ---- Carrusel promocional ------------------------------------------------- */
+.promo-carousel { position: relative; }
+.promo-track {
+  display: flex;
+  gap: var(--sp-m);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  padding-bottom: var(--sp-xs);
+}
+.promo-track::-webkit-scrollbar { display: none; }
+.promo-card {
+  scroll-snap-align: start;
+  flex: 0 0 clamp(26rem, 30vw, 34rem);
+  position: relative;
+  min-height: 20rem;
+  border-radius: var(--radius-l);
+  overflow: hidden;
+  color: #fff;
+  display: flex;
+  align-items: flex-end;
+  padding: var(--sp-l);
+}
+.promo-card .ph { position: absolute; inset: 0; }
+.promo-card::after { content: ""; position: absolute; inset: 0; background: var(--grad-navy); }
+.promo-card__text { position: relative; z-index: 2; }
+.promo-card__text h3 { font-size: var(--fs-title-m); }
+.promo-card__text p { font-size: var(--fs-body-s); color: rgba(255,255,255,.85); margin-top: .4rem; }
+
+.carousel-nav { display: flex; gap: var(--sp-xs); }
+.carousel-nav button {
+  width: 4rem; height: 4rem;
+  display: grid; place-items: center;
+  border-radius: 50%;
+  background: rgba(255,255,255,.1);
+  color: #fff;
+  transition: background-color .16s var(--ease);
+}
+.carousel-nav button:hover { background: rgba(255,255,255,.22); }
+.carousel-nav button:disabled { opacity: .3; cursor: not-allowed; }
+.carousel-nav svg { width: 1.6rem; height: 1.6rem; fill: currentColor; }
+
+/* ---- Stories ---------------------------------------------------------- */
+.stories { background: var(--navy-2); }
+.stories__track { display: flex; gap: var(--sp-m); overflow-x: auto; scrollbar-width: none; padding-block: var(--sp-l); }
+.stories__track::-webkit-scrollbar { display: none; }
+.story {
+  flex: 0 0 12rem;
+  text-align: center;
+}
+.story__ring {
+  width: 11rem; height: 11rem;
+  border-radius: 50%;
+  padding: 3px;
+  background: var(--grad-gold);
+  margin-inline: auto;
+}
+.story__ring .ph { width: 100%; height: 100%; border-radius: 50%; border: 3px solid var(--navy-2); }
+.story__label { display: block; margin-top: .8rem; font-size: var(--fs-body-s); font-weight: 600; color: #fff; }
+.story__new { display: inline-block; font-size: var(--fs-body-xs); font-weight: 700; color: var(--brand-yellow); letter-spacing: .1em; }
+
+/* ---- Tienda --------------------------------------------------------- */
+.shop { background: var(--surface); color: var(--ink); }
+.shop__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-l); }
+.shop-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--grey-100);
+  border-radius: var(--radius-l);
+  overflow: hidden;
+  transition: transform .18s var(--ease), box-shadow .18s var(--ease);
+}
+.shop-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-2); }
+.shop-card__media { aspect-ratio: 16/10; }
+.shop-card__body { padding: var(--sp-l); display: flex; flex-direction: column; gap: var(--sp-xs); }
+.shop-card__body h3 { font-size: var(--fs-title-s); }
+.shop-card__body p { font-size: var(--fs-body-m); color: var(--ink-soft); }
+.shop-card__link { margin-top: var(--sp-s); color: var(--brand-blue); }
+
+/* ---- Promo destacada (Culer Premium / obras) ------------------------ */
+.feature-promo {
+  position: relative;
+  min-height: 34rem;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  overflow: hidden;
+}
+.feature-promo .ph { position: absolute; inset: 0; }
+.feature-promo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(0,5,40,.9) 0%, rgba(0,5,40,.5) 55%, transparent 100%); }
+.feature-promo__body { position: relative; z-index: 2; max-width: 52rem; }
+.feature-promo__body h2 { font-size: var(--fs-display-xs); }
+.feature-promo__body p { font-size: var(--fs-body-l); color: rgba(255,255,255,.88); margin-block: var(--sp-m) var(--sp-l); }
+.feature-promo--gold::after { background: linear-gradient(90deg, rgba(60,42,0,.86), rgba(60,42,0,.25) 60%, transparent); }
+
+.video-hero {
+  position: relative;
+  min-height: 40rem;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  overflow: hidden;
+  text-align: center;
+}
+.video-hero .ph { position: absolute; inset: 0; }
+.video-hero::after { content: ""; position: absolute; inset: 0; background: rgba(0,5,40,.45); }
+.video-hero__body { position: relative; z-index: 2; }
+.video-hero__play {
+  width: 8rem; height: 8rem;
+  border-radius: 50%;
+  display: grid; place-items: center;
+  margin: 0 auto var(--sp-m);
+  background: rgba(255,255,255,.16);
+  border: 2px solid #fff;
+  transition: transform .18s var(--ease), background-color .18s var(--ease);
+}
+.video-hero__play:hover { transform: scale(1.06); background: rgba(255,255,255,.28); }
+.video-hero__play svg { width: 2.8rem; height: 2.8rem; fill: #fff; margin-left: 4px; }
+.video-hero__body h2 { font-size: var(--fs-title-xl); }
+
+/* ---- Actualidad (grid de noticias) -------------------------------------- */
+.news { background: var(--navy-3); }
+.news__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-m); }
+.news-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--navy-2);
+  border-radius: var(--radius-m);
+  overflow: hidden;
+  color: #fff;
+  transition: transform .18s var(--ease);
+}
+.news-card:hover { transform: translateY(-4px); }
+.news-card--lead { grid-row: span 2; grid-column: span 2; }
+.news-card__media { aspect-ratio: 16/9; position: relative; }
+.news-card--lead .news-card__media { aspect-ratio: 16/10; }
+.news-card__body { padding: var(--sp-m); display: flex; flex-direction: column; gap: var(--sp-xs); flex: 1; }
+.news-card__body h3 { font-family: var(--font-body); font-weight: 700; text-transform: none; font-size: var(--fs-body-m); line-height: 1.3; }
+.news-card--lead .news-card__body h3 { font-size: var(--fs-title-s); font-family: var(--font-display); text-transform: uppercase; }
+.news-card__excerpt { font-size: var(--fs-body-s); color: rgba(255,255,255,.72); }
+.news-card__meta { margin-top: auto; display: flex; align-items: center; gap: .6rem; font-size: var(--fs-body-xs); color: rgba(255,255,255,.55); }
+
+/* ---- Rejilla de secciones / equipos ---------------------------------- */
+.teams-grid { background: var(--navy-2); }
+.teams-grid__list { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-m); }
+.team-tile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 18rem;
+  padding: var(--sp-m);
+  border-radius: var(--radius-m);
+  overflow: hidden;
+  color: #fff;
+}
+.team-tile .ph { position: absolute; inset: 0; }
+.team-tile::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 30%, rgba(0,5,40,.9)); }
+.team-tile__label { position: relative; z-index: 2; font-family: var(--font-display); font-size: var(--fs-title-s); text-transform: uppercase; }
+
+/* ---- Jugadores (slider) --------------------------------------------- */
+.players { background: var(--navy-3); }
+.players__track { display: flex; gap: var(--sp-m); overflow-x: auto; scrollbar-width: none; scroll-snap-type: x mandatory; padding-bottom: var(--sp-s); }
+.players__track::-webkit-scrollbar { display: none; }
+.player-card {
+  scroll-snap-align: start;
+  flex: 0 0 22rem;
+  position: relative;
+  min-height: 30rem;
+  border-radius: var(--radius-l);
+  overflow: hidden;
+  color: #fff;
+  display: flex;
+  align-items: flex-end;
+}
+.player-card .ph { position: absolute; inset: 0; }
+.player-card::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 40%, rgba(0,5,40,.95)); }
+.player-card__no {
+  position: absolute; top: var(--sp-s); right: var(--sp-m);
+  font-family: var(--font-display); font-size: var(--fs-display-xs);
+  color: rgba(255,255,255,.28); z-index: 2;
+}
+.player-card__body { position: relative; z-index: 2; padding: var(--sp-m); }
+.player-card__body small { font-size: var(--fs-body-xs); text-transform: uppercase; letter-spacing: .08em; color: var(--brand-yellow); }
+.player-card__body h3 { font-size: var(--fs-title-s); text-transform: uppercase; }
+.player-card__body span { font-size: var(--fs-body-s); color: rgba(255,255,255,.7); }
+
+/* ---- Franja de patrocinadores ------------------------------------------- */
+.sponsors {
+  background: var(--surface);
+  color: var(--ink);
+  padding-block: var(--sp-2xl);
+}
+.sponsors h2 { text-align: center; font-size: var(--fs-title-s); color: var(--ink-soft); margin-bottom: var(--sp-l); }
+.sponsors__row { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: var(--sp-2xl); }
+.sponsors__logo {
+  height: 3.2rem;
+  display: flex; align-items: center;
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  color: var(--ink-soft);
+  filter: grayscale(1);
+  opacity: .7;
+  transition: opacity .16s var(--ease), filter .16s var(--ease);
+}
+.sponsors__logo:hover { opacity: 1; filter: none; color: var(--brand-blue); }
+
+/* ---- Franja "Hazte Corredor" ---------------------------------------- */
+.join {
+  background: var(--grad-tight);
+  color: #fff;
+  text-align: center;
+  padding-block: var(--sp-4xl);
+}
+.join h2 { font-size: var(--fs-display-xs); }
+.join p { max-width: 52ch; margin: var(--sp-m) auto var(--sp-l); font-size: var(--fs-body-l); color: rgba(255,255,255,.9); }
+.join__actions { display: flex; gap: var(--sp-m); justify-content: center; flex-wrap: wrap; }
+
+/* ---- Modal de cookies ------------------------------------------------ */
+.cookie {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-modal);
+  display: grid;
+  place-items: center;
+  background: rgba(0,0,0,.8);
+  padding: var(--sp-l);
+}
+.cookie[hidden] { display: none; }
+.cookie__box {
+  background: #fff;
+  max-width: 60rem;
+  width: 100%;
+  border-radius: var(--radius-m);
+  padding: var(--sp-2xl);
+  text-align: center;
+}
+.cookie__box .brand { justify-content: center; margin-bottom: var(--sp-m); }
+.cookie__box .brand img { width: 15rem; height: auto; }
+.cookie__box p { font-size: var(--fs-body-m); color: var(--ink-soft); text-align: left; }
+.cookie__box a { color: var(--brand-blue); text-decoration: underline; }
+.cookie__actions { display: flex; gap: var(--sp-s); margin-top: var(--sp-l); }
+.cookie__actions .btn { flex: 1; justify-content: center; }
+
+/* ---- Botón volver arriba ---------------------------------------------- */
+.to-top {
+  position: fixed;
+  right: var(--sp-l);
+  bottom: var(--sp-l);
+  z-index: var(--z-header);
+  width: 4.8rem; height: 4.8rem;
+  display: grid; place-items: center;
+  border-radius: 50%;
+  background: var(--brand-blue);
+  color: #fff;
+  box-shadow: var(--shadow-2);
+  opacity: 0;
+  transform: translateY(12px);
+  pointer-events: none;
+  transition: opacity .2s var(--ease), transform .2s var(--ease);
+}
+.to-top.is-visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
+.to-top svg { width: 2rem; height: 2rem; fill: currentColor; }

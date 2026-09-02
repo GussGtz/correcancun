@@ -1,0 +1,83 @@
+/* ==========================================================================
+   Corre Cancún — Pie de página
+   ========================================================================== */
+
+.site-footer { background: var(--navy); color: rgba(255,255,255,.82); }
+
+/* ---- Palmarés / trofeos --------------------------------------------- */
+.footer-trophies {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--sp-m);
+  padding-block: var(--sp-2xl);
+  border-bottom: 1px solid rgba(255,255,255,.1);
+}
+.trophy { display: flex; align-items: center; gap: var(--sp-m); }
+.trophy__icon {
+  width: 4.8rem; height: 4.8rem;
+  display: grid; place-items: center;
+  border-radius: 50%;
+  background: rgba(255,255,255,.06);
+}
+.trophy__icon svg { width: 2.6rem; height: 2.6rem; fill: var(--brand-yellow); }
+.trophy__icon i { font-size: 2.4rem; line-height: 1; color: var(--brand-yellow); }
+.trophy__count { font-family: var(--font-display); font-size: var(--fs-title-l); color: #fff; line-height: 1; }
+.trophy__label { font-size: var(--fs-body-xs); text-transform: uppercase; letter-spacing: .08em; }
+
+/* ---- Redes ---------------------------------------------------------- */
+.footer-social {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sp-m);
+  padding-block: var(--sp-l);
+  border-bottom: 1px solid rgba(255,255,255,.1);
+}
+.footer-social p { font-family: var(--font-display); text-transform: uppercase; font-size: var(--fs-title-s); color: #fff; }
+.footer-social__links { display: flex; gap: var(--sp-s); margin-left: auto; }
+.footer-social__links a {
+  width: 4rem; height: 4rem;
+  display: grid; place-items: center;
+  border-radius: 50%;
+  background: rgba(255,255,255,.08);
+  transition: background-color .16s var(--ease);
+}
+.footer-social__links a:hover { background: var(--brand-blue); }
+.footer-social__links svg { width: 1.8rem; height: 1.8rem; fill: #fff; }
+
+/* ---- Columnas de enlaces ------------------------------------------- */
+.footer-cols {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--sp-2xl);
+  padding-block: var(--sp-2xl);
+  border-bottom: 1px solid rgba(255,255,255,.1);
+}
+.footer-col h3 {
+  font-size: var(--fs-label-s);
+  color: #fff;
+  letter-spacing: .08em;
+  margin-bottom: var(--sp-m);
+}
+.footer-col li { margin-bottom: .8rem; }
+.footer-col a { font-size: var(--fs-body-s); transition: color .14s var(--ease); }
+.footer-col a:hover { color: #fff; }
+
+.footer-squad h3 { margin-top: var(--sp-m); }
+.footer-squad__group { margin-bottom: var(--sp-m); }
+.footer-squad__group span { display: block; font-size: var(--fs-body-xs); text-transform: uppercase; letter-spacing: .1em; color: var(--brand-yellow); margin-bottom: .4rem; }
+.footer-squad__group a { display: inline-block; margin-right: .8rem; }
+
+/* ---- Legal -------------------------------------------------------- */
+.footer-legal {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sp-m);
+  padding-block: var(--sp-l);
+  font-size: var(--fs-body-xs);
+}
+.footer-legal__brand { display: flex; align-items: center; gap: var(--sp-s); }
+.footer-legal__brand svg { width: 3rem; }
+.footer-legal nav { display: flex; flex-wrap: wrap; gap: var(--sp-m); margin-left: auto; }
+.footer-legal nav a:hover { color: #fff; text-decoration: underline; }
