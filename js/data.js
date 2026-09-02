@@ -257,15 +257,16 @@ window.CorreData = (function () {
       desde: "2025", liga: "Liga Guillermo Cañedo, A. C.", nui: "1222933",
       cita: "Defensa aplicado que no pierde la marca y sabe salir jugando desde atrás.",
       bio: [
-        "Con solo siete años, Santi ya acumula una trayectoria poco habitual para su edad. Empezó en el fútbol federado en la temporada 2023-24 y desde entonces no ha dejado de competir.",
-        "En 2025 se incorporó al Corre Cancún, con el que juega en la Liga Guillermo Cañedo. Ese mismo año fue convocado por la selección de Quintana Roo para disputar el campeonato nacional en Playa del Carmen.",
-        "Juega sobre todo de defensa, aunque en distintas etapas también ha actuado de medio y de delantero. En la temporada 2024-25 fue capitán del equipo. Es tenaz en la marca y cada temporada mejora su salida de balón."
+        "Con solo siete años, Santi acumula una trayectoria poco habitual para su edad. Empezó en el fútbol federado en la temporada 2023-24 y desde entonces no ha dejado de competir.",
+        "En 2025 se incorporó al Corre Cancún y es de los pocos jugadores que están en el proyecto desde el principio. En 2026 fue convocado por la selección de Quintana Roo para disputar el campeonato nacional en Playa del Carmen.",
+        "Juega sobre todo de defensa, aunque en distintas etapas también ha actuado de medio y de delantero. En la temporada 2024-25 fue capitán de su equipo. Es tenaz en la marca y cada temporada mejora su salida de balón.",
+        "Lo que más lo distingue es que, siendo de 2018, compite en su categoría y también en una superior. En cada club destaca lo suficiente para alternar la 2018 y la 2017; de hecho, esta última temporada fue convocado por la selección de Quintana Roo 2017."
       ],
       palmares: [
         { titulo: "Campeón · Liga Guillermo Cañedo", nota: "Temporada 2025-26" },
-        { titulo: "Campeón · Copa ACO", nota: "Valladolid" },
-        { titulo: "Subcampeón · Copa Celta", nota: "Torneo internacional del RC Celta y su Celta Academy" },
-        { titulo: "Selección de Quintana Roo", nota: "Campeonato nacional en Playa del Carmen" },
+        { titulo: "Campeón · Copa ACO", nota: "Valladolid · 2026" },
+        { titulo: "Subcampeón · Copa Celta", nota: "Torneo internacional del RC Celta y su Celta Academy · 2026" },
+        { titulo: "Selección de Quintana Roo", nota: "Campeonato nacional en Playa del Carmen · 2026" },
         { titulo: "Copa Pioneros", nota: "Participación" }
       ],
       historial: [
