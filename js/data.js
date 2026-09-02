@@ -83,17 +83,25 @@ window.CorreData = (function () {
       ]
     },
     {
-      id: "horarios-benjamin-alevin",
-      titulo: "Nuevo horario de entrenamientos para Benjamín y Alevín",
+      id: "baby-corre",
+      titulo: "Baby Corre: sesiones abiertas para niños y niñas de 2 y 3 años",
       categoria: "Escuela",
-      fecha: "2025-08-31",
+      fecha: "2025-07-14",
       hace: "Hace 2 meses",
-      img: S + "news-escuela.svg",
-      resumen: "A partir de esta semana, benjamines y alevines entrenan martes y jueves de 17:30 a 19:00 para aprovechar mejor la luz natural.",
+      img: "assets/img/baby-corre.jpg",
+      imgAlt: "Grupo de niños y niñas muy pequeños posando en el campo tras una sesión de Baby Corre",
+      resumen: "El primer contacto con el balón, a partir de los 2 años. Lunes, martes y miércoles de 15:00 a 16:00.",
+      datos: [
+        { icon: "ri-emotion-happy-line", label: "Edad", valor: "Niños y niñas de 2 y 3 años" },
+        { icon: "ri-calendar-line", label: "Días", valor: "Lunes, martes y miércoles" },
+        { icon: "ri-time-line", label: "Hora", valor: "15:00 a 16:00 h" }
+      ],
+      cta: { texto: "Reservar una sesión de prueba", url: "inscripciones.html#escuela" },
       cuerpo: [
-        "El club ajusta los horarios de las categorías de fútbol base para el arranque de curso.",
-        "Benjamín y Alevín pasan a entrenar los martes y jueves de 17:30 a 19:00 en los campos 2 y 3. El resto de categorías mantienen su horario habitual.",
-        "Las familias pueden consultar el calendario completo en el área de familias o escribir a la coordinación si tienen cualquier duda."
+        "Baby Corre es el primer escalón del club: el primer contacto con el balón para los más pequeños de la casa.",
+        "A través del juego, la psicomotricidad y mucha imaginación, los niños y niñas de 2 y 3 años empiezan a moverse, a compartir y a disfrutar dentro de la cancha, siempre a su ritmo.",
+        "Las sesiones están abiertas los lunes, martes y miércoles de 15:00 a 16:00. La mejor forma de conocernos es venir a probar una: escríbenos y os contamos cómo funciona.",
+        "No hace falta esperar a que crezcan para empezar a formar su futuro. El mejor momento para dar los primeros pasos es ahora."
       ]
     },
     {
@@ -101,7 +109,7 @@ window.CorreData = (function () {
       titulo: "El femenino Sub-14 disputa su primer amistoso de la temporada",
       categoria: "Femenino",
       fecha: "2025-08-30",
-      hace: "Hace 2 meses",
+      hace: "Hace 3 meses",
       img: S + "news-femenino.svg",
       resumen: "El equipo estrenó la nueva equipación en un amistoso disputado en casa con muy buenas sensaciones colectivas.",
       cuerpo: [
@@ -129,7 +137,7 @@ window.CorreData = (function () {
       titulo: "Tres jugadores del Juvenil se incorporan al primer equipo amateur",
       categoria: "Sénior",
       fecha: "2025-08-28",
-      hace: "Hace 3 meses",
+      hace: "Hace 4 meses",
       img: S + "news-senior.svg",
       resumen: "Dan el salto tras varios años en la cantera y compaginarán entrenamientos con el juvenil durante las primeras semanas.",
       cuerpo: [
