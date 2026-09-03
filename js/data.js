@@ -252,7 +252,7 @@ window.CorreData = (function () {
   const P = (i) => S + "player-" + i + ".svg";
   const plantilla = [
     // Jugador real del club
-    { id: "santi-gutierrez", nombre: "Santiago «Santi» Gutiérrez", apellido: "Gutiérrez", dorsal: 131, pos: "Defensa", grupo: "Defensas",
+    { id: "santi-gutierrez", nombre: "Santiago «Santi» Gutiérrez", apellido: "Gutiérrez", dorsal: 103, pos: "Defensa", grupo: "Defensas",
       cat: "Prebenjamín", foto: "assets/img/jug-santi.jpg", retrato: "assets/img/jug-santi.png",
       nac: "2018-10-16", lugar: "Quintana Roo",
       desde: "2025", liga: "Liga Guillermo Cañedo, A. C.", nui: "1222933",

@@ -405,14 +405,14 @@
 .jficha__wm {
   position: absolute;
   left: -1.5rem;
-  bottom: 6%;
+  bottom: 16%;
   font-family: var(--font-display);
   font-weight: 700;
   text-transform: uppercase;
-  font-size: clamp(8rem, 19vw, 23rem);
+  font-size: clamp(8rem, 18vw, 22rem);
   line-height: .78;
   letter-spacing: -.02em;
-  color: rgba(255,255,255,.055);
+  color: rgba(255,255,255,.045);
   white-space: nowrap;
   pointer-events: none;
   z-index: 1;
@@ -476,18 +476,17 @@
 .jficha__photo {
   position: relative;
   align-self: end;
+  justify-self: end;
   margin: 0;
 }
 .jficha__photo img {
   display: block;
-  width: 100%;
-  height: auto;
-  max-height: 52rem;
+  height: 56rem;
+  width: auto;
+  max-width: 100%;
   object-fit: contain;
   object-position: bottom center;
-  filter: drop-shadow(0 30px 44px rgba(0,0,0,.55));
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 14%, #000 100%);
-  mask-image: linear-gradient(90deg, transparent, #000 14%, #000 100%);
+  filter: drop-shadow(0 24px 40px rgba(0,0,0,.5));
 }
 .jficha__plate {
   position: absolute;
@@ -516,14 +515,14 @@
 .jficha__bio { background: var(--surface); }
 .jficha__bio-grid {
   display: grid;
-  grid-template-columns: minmax(24rem, 34rem) 1fr;
+  grid-template-columns: minmax(22rem, 30rem) 1fr;
   gap: var(--sp-3xl);
   align-items: start;
 }
 .jficha__bio-photo {
   position: relative;
   aspect-ratio: 4 / 5;
-  max-height: 44rem;
+  max-height: 40rem;
   border-radius: var(--radius-l);
   overflow: hidden;
   background: linear-gradient(118deg, var(--brand-orange) 0 48%, var(--navy) 48% 100%);
@@ -725,9 +724,10 @@
 }
 
 @media (max-width: 900px) {
-  .jficha__hero-inner { grid-template-columns: 1fr; gap: var(--sp-l); }
+  .jficha__hero-inner { grid-template-columns: 1fr; gap: var(--sp-l); justify-items: center; }
   .jficha__hero-main { padding-bottom: var(--sp-l); }
-  .jficha__photo { max-width: 34rem; margin-inline: auto; }
+  .jficha__photo { justify-self: center; }
+  .jficha__photo img { height: auto; width: 100%; max-width: 32rem; max-height: 46rem; }
   .jficha__bio-grid { grid-template-columns: 1fr; gap: var(--sp-xl); }
   .jficha__bio-photo { max-width: 32rem; }
   .jnews__grid { grid-template-columns: repeat(2, 1fr); }
