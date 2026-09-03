@@ -58,6 +58,27 @@ window.CorreData = (function () {
       ]
     },
     {
+      id: "nueva-temporada-equipacion",
+      titulo: "Vuelve la actividad: nueva temporada y estreno de equipación",
+      categoria: "Club",
+      fecha: "2025-08-20",
+      hace: "Hace 2 semanas",
+      img: "assets/img/fb-companeros.jpg",
+      imgAlt: "Dos jugadores del Corre Cancún con la nueva equipación en azul y naranja",
+      resumen: "El club retoma los entrenamientos con el nuevo curso. Todas las categorías estrenan equipación EXEON y los jugadores de la filial arrancan competición con los Venados.",
+      galeria: [
+        { src: "assets/img/fb-entreno.jpg", alt: "Jugador del Corre Cancún en un entrenamiento por la tarde" },
+        { src: "assets/img/fb-venados.jpg", alt: "Jugador de la filial con la camiseta de los Venados" },
+        { src: "assets/img/fb-porteria.jpg", alt: "Jugador del Corre Cancún bajo palos en un entrenamiento nocturno" }
+      ],
+      cta: { texto: "Inscribe a tu hijo o hija", url: "inscripciones.html" },
+      cuerpo: [
+        "Con el nuevo curso escolar el Corre Cancún vuelve a la actividad. Los grupos ya entrenan por las tardes en la cancha y los más pequeños de Baby Corre retoman sus sesiones de psicomotricidad.",
+        "Todas las categorías estrenan equipación, confeccionada por EXEON Sportswear, en los colores del club y con el correcaminos en el pantalón. Los jugadores de la filial compiten esta temporada con los Venados en la Liga Guillermo Cañedo.",
+        "El club mantiene la inscripción abierta para niños y niñas de 2 a 12 años. Quien quiera probar una sesión puede escribirnos por el formulario de contacto o acercarse un día de entrenamiento."
+      ]
+    },
+    {
       id: "mundialito-3v3",
       titulo: "El Mundialito Corre 3v3 se despide con la cancha llena de sonrisas",
       categoria: "Club",
@@ -133,17 +154,18 @@ window.CorreData = (function () {
       ]
     },
     {
-      id: "juvenil-senior",
-      titulo: "Tres jugadores del Juvenil se incorporan al primer equipo amateur",
-      categoria: "Sénior",
-      fecha: "2025-08-28",
-      hace: "Hace 4 meses",
-      img: S + "news-senior.svg",
-      resumen: "Dan el salto tras varios años en la cantera y compaginarán entrenamientos con el juvenil durante las primeras semanas.",
+      id: "de-regreso-a-clases",
+      titulo: "De regreso a clases: mucho éxito a nuestros niños y niñas",
+      categoria: "Club",
+      fecha: "2025-08-25",
+      hace: "Hace 2 semanas",
+      img: "assets/img/fb-entreno.jpg",
+      imgAlt: "Jugador del Corre Cancún saludando en el campo",
+      resumen: "Arranca el ciclo escolar y desde el club deseamos un año lleno de aprendizajes, sueños y grandes logros, dentro y fuera de la cancha.",
       cuerpo: [
-        "El primer equipo amateur incorpora a tres jugadores formados en el club desde la categoría benjamín.",
-        "La transición se hará de forma progresiva: durante septiembre alternarán sesiones con el juvenil para adaptarse al ritmo del sénior.",
-        "Es el camino natural que el club quiere para sus jugadores: crecer dentro de casa."
+        "Empieza un nuevo curso escolar y toda la familia del Corre Cancún manda un mensaje a sus niños y niñas: que sea un año lleno de aprendizajes, de sueños y de grandes logros.",
+        "En el club insistimos en que el fútbol y el estudio van de la mano. Los horarios de entrenamiento están pensados para que ningún jugador tenga que elegir entre una cosa y la otra.",
+        "¡A darlo todo dentro y fuera de la cancha!"
       ]
     }
   ];
