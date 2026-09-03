@@ -391,33 +391,35 @@
 }
 .jficha .section-sub { color: var(--ink); }
 
-/* ---- Hero ---- */
+/* ---- Hero (azul profundo, estilo ficha de club) ---- */
 .jficha__hero {
   position: relative;
   overflow: hidden;
-  background: var(--ink-900);
   color: #fff;
   padding-top: var(--sp-2xl);
+  background:
+    radial-gradient(120% 92% at 24% -22%, var(--navy-hero-glow) 0%, var(--navy-hero) 44%, var(--navy-hero-lo) 100%);
 }
 .jficha__hero::before {
   content: "";
   position: absolute;
-  top: -20%; right: -10%;
-  width: 66rem; height: 66rem;
-  background: radial-gradient(circle, rgba(226,100,30,.42), transparent 62%);
+  inset: 0;
+  background:
+    radial-gradient(48% 90% at 100% 108%, rgba(226,100,30,.30), transparent 60%),
+    repeating-linear-gradient(115deg, rgba(255,255,255,.022) 0 2px, transparent 2px 30px);
   pointer-events: none;
 }
 .jficha__wm {
   position: absolute;
-  left: -1.5rem;
-  bottom: 16%;
+  left: -2rem;
+  bottom: 12%;
   font-family: var(--font-display);
   font-weight: 700;
   text-transform: uppercase;
-  font-size: clamp(8rem, 18vw, 22rem);
-  line-height: .78;
-  letter-spacing: -.02em;
-  color: rgba(255,255,255,.05);
+  font-size: clamp(9rem, 21vw, 26rem);
+  line-height: .74;
+  letter-spacing: -.03em;
+  color: rgba(255,255,255,.055);
   white-space: nowrap;
   pointer-events: none;
   z-index: 1;
@@ -428,9 +430,9 @@
   max-width: var(--wrapper-wide);
   margin-inline: auto;
   padding: 0 var(--sp-xl);
-  color: rgba(255,255,255,.6);
+  color: rgba(255,255,255,.55);
 }
-.jficha__hero .breadcrumb a { color: rgba(255,255,255,.6); }
+.jficha__hero .breadcrumb a { color: rgba(255,255,255,.55); }
 .jficha__hero .breadcrumb a:hover { color: #fff; }
 .jficha__hero-inner {
   position: relative;
@@ -439,46 +441,80 @@
   margin-inline: auto;
   padding: var(--sp-l) var(--sp-xl) 0;
   display: grid;
-  grid-template-columns: 1fr minmax(28rem, 42rem);
+  grid-template-columns: 1fr minmax(30rem, 46rem);
   gap: var(--sp-2xl);
   align-items: end;
-  min-height: 46rem;
+  min-height: 48rem;
 }
 .jficha__hero-main { padding-bottom: var(--sp-4xl); }
 .jficha__hero-main .eyebrow { color: var(--brand-amber); }
 .jficha__hero-main h1 {
   font-family: var(--font-display);
-  font-size: clamp(3.6rem, 6vw, 6.4rem);
-  line-height: .95;
+  font-size: clamp(3.6rem, 6.2vw, 7rem);
+  line-height: .92;
   text-transform: uppercase;
-  margin: var(--sp-xs) 0 var(--sp-xl);
+  margin: var(--sp-xs) 0 var(--sp-2xl);
 }
-.jficha__stats { display: flex; flex-wrap: wrap; gap: var(--sp-2xl); }
+
+/* Cifras — etiqueta arriba, número dorado grande, temporada debajo */
+.jficha__stats { display: flex; flex-wrap: wrap; gap: var(--sp-2xl) var(--sp-3xl); }
+.jficha__stat { min-width: 8rem; }
+.jficha__stat span {
+  display: block;
+  font-size: var(--fs-body-s);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: rgba(255,255,255,.78);
+}
 .jficha__stat strong {
   display: block;
   font-family: var(--font-display);
-  font-size: clamp(3.4rem, 5vw, 5.4rem);
-  line-height: 1;
-  color: var(--brand-amber);
+  font-size: clamp(4.2rem, 6vw, 6.8rem);
+  line-height: .96;
+  color: var(--gold);
   font-variant-numeric: tabular-nums;
-}
-.jficha__stat span {
-  display: block;
-  font-size: var(--fs-body-m);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: .04em;
-  color: #fff;
-  margin-top: .4rem;
+  margin: .2rem 0 .3rem;
 }
 .jficha__stat small {
   display: block;
   font-size: var(--fs-body-xs);
   text-transform: uppercase;
-  letter-spacing: .08em;
-  color: rgba(255,255,255,.5);
-  margin-top: .2rem;
+  letter-spacing: .06em;
+  color: rgba(255,255,255,.45);
 }
+
+/* Rail de navegación entre jugadores (arriba a la derecha) */
+.jficha__rail {
+  position: absolute;
+  z-index: 5;
+  top: var(--sp-l);
+  right: var(--sp-xl);
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+}
+.jficha__rail a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  height: 3.8rem;
+  padding: 0 1.2rem;
+  border: 1px solid rgba(255,255,255,.22);
+  border-radius: var(--radius-full);
+  font-size: var(--fs-body-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: rgba(255,255,255,.85);
+  transition: background-color .16s var(--ease), border-color .16s var(--ease), color .16s var(--ease);
+}
+.jficha__rail a:hover { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.4); color: #fff; }
+.jficha__rail a.is-disabled { opacity: .3; pointer-events: none; }
+.jficha__rail a i { font-size: 1.8rem; }
+.jficha__rail .jficha__rail-nav { width: 3.8rem; padding: 0; }
+
 .jficha__photo {
   position: relative;
   align-self: end;
@@ -487,35 +523,41 @@
 }
 .jficha__photo img {
   display: block;
-  height: 56rem;
+  height: 60rem;
   width: auto;
   max-width: 100%;
   object-fit: contain;
   object-position: bottom center;
-  filter: drop-shadow(0 26px 42px rgba(0,0,0,.5));
+  filter: drop-shadow(0 30px 50px rgba(0,0,0,.55));
 }
 .jficha__plate {
   position: absolute;
   right: 0;
   bottom: 0;
-  padding: var(--sp-s) var(--sp-m) var(--sp-m) 5rem;
+  padding: var(--sp-m) var(--sp-l) var(--sp-l) 6rem;
   text-align: right;
-  background: linear-gradient(90deg, transparent, rgba(12,12,14,.92) 34%);
+  background: linear-gradient(90deg, transparent, rgba(5,10,32,.94) 32%);
 }
 .jficha__plate span {
-  font-size: var(--fs-body-s);
+  font-size: var(--fs-body-xs);
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: .12em;
-  color: var(--brand-amber);
+  letter-spacing: .16em;
+  color: rgba(255,255,255,.6);
 }
 .jficha__plate strong {
   display: block;
   font-family: var(--font-display);
-  font-size: var(--fs-display-xs);
+  font-size: clamp(3rem, 4vw, 4.4rem);
   line-height: 1;
   text-transform: uppercase;
   color: #fff;
+  margin-top: .2rem;
+}
+.jficha__plate strong b {
+  font-weight: 700;
+  color: rgba(255,255,255,.45);
+  margin-right: .4rem;
 }
 
 /* ---- Biografía + ficha técnica ---- */
@@ -610,7 +652,7 @@
 /* ---- Palmarés (carrusel oscuro) ---- */
 .jficha__palmares {
   position: relative;
-  background: var(--ink-900);
+  background: linear-gradient(180deg, var(--navy-hero) 0%, var(--navy-hero-lo) 100%);
   color: #fff;
   padding: var(--sp-5xl) 0;
   overflow: hidden;
@@ -621,7 +663,7 @@
   left: 50%; top: -30%;
   width: 90rem; height: 60rem;
   transform: translateX(-50%);
-  background: radial-gradient(circle, rgba(226,100,30,.22), transparent 60%);
+  background: radial-gradient(circle, rgba(28,61,140,.55), transparent 60%);
   pointer-events: none;
 }
 .jhonors {
@@ -665,8 +707,8 @@
   min-height: 20rem;
   padding: var(--sp-l);
   border-radius: var(--radius-l);
-  background: var(--ink-800);
-  border: 1px solid rgba(255,255,255,.07);
+  background: var(--navy-card);
+  border: 1px solid rgba(255,255,255,.08);
 }
 .jhonor::after {
   content: "";
@@ -674,7 +716,7 @@
   right: -20%;
   bottom: -40%;
   width: 30rem; height: 30rem;
-  background: radial-gradient(circle, rgba(226,100,30,.5), transparent 62%);
+  background: radial-gradient(circle, rgba(226,100,30,.45), transparent 62%);
   pointer-events: none;
 }
 .jhonor__tag {
@@ -684,7 +726,7 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: .1em;
-  color: var(--brand-amber);
+  color: var(--gold);
 }
 .jhonor__title {
   position: relative;
@@ -708,9 +750,9 @@
   font-family: var(--font-display);
   font-size: var(--fs-display-s);
   line-height: 1;
-  color: var(--brand-amber);
+  color: var(--gold);
 }
-.jhonor__mark i { font-size: 2.8rem; color: var(--brand-amber); }
+.jhonor__mark i { font-size: 2.8rem; color: var(--gold); }
 .jhonor__sub {
   position: relative;
   z-index: 1;
@@ -723,7 +765,7 @@
 .jficha__news { background: var(--surface); }
 
 /* ---- Más jugadores de su posición (sobre oscuro para que las fichas resalten) ---- */
-.jficha__more { background: var(--ink-900); border-top: 1px solid rgba(255,255,255,.07); }
+.jficha__more { background: linear-gradient(180deg, var(--navy-hero-lo) 0%, var(--navy-hero) 100%); border-top: 1px solid rgba(255,255,255,.07); }
 .jficha__more .section-sub { color: #fff; }
 .jnews__grid {
   display: grid;
@@ -763,14 +805,16 @@
   .jficha__hero-inner { grid-template-columns: 1fr; gap: var(--sp-l); justify-items: center; }
   .jficha__hero-main { padding-bottom: var(--sp-l); }
   .jficha__photo { justify-self: center; }
-  .jficha__photo img { height: auto; width: 100%; max-width: 32rem; max-height: 46rem; }
+  .jficha__photo img { height: auto; width: 100%; max-width: 34rem; max-height: 48rem; }
+  .jficha__rail { position: static; justify-content: flex-end; margin: var(--sp-s) var(--sp-xl) 0; }
   .jficha__bio-grid { grid-template-columns: 1fr; gap: var(--sp-xl); }
   .jficha__bio-photo { max-width: 32rem; }
   .jnews__grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 520px) {
   .jficha__section { padding: var(--sp-2xl) var(--sp-m); }
-  .jficha__stats { gap: var(--sp-l); }
+  .jficha__stats { gap: var(--sp-l) var(--sp-xl); }
+  .jficha__rail .jficha__rail-label { display: none; }
   .jnews__grid { grid-template-columns: 1fr; }
 }
 

@@ -52,6 +52,13 @@
   --on-dark-soft:          rgba(255,255,255,.60);
   --on-dark-faint:         rgba(255,255,255,.12);
 
+  /* ---- Azul profundo de ficha de jugador (estilo ficha de club) ------- */
+  --navy-hero:             #0a1a45;
+  --navy-hero-lo:          #050d27;
+  --navy-hero-glow:        #1c3d8c;
+  --navy-card:             #101f47;
+  --gold:                  #ffc62e;   /* dorado de cifras */
+
   /* ---- Neutros --------------------------------------------------------------- */
   --grey-100:              #f6f4f2;
   --grey-300:              #d8d3cd;

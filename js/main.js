@@ -457,15 +457,27 @@
     ] : []);
     const stats = statList.map((s) => `
       <div class="jficha__stat">
-        <strong data-count="${s.num}">0</strong>
         <span>${s.label}</span>
+        <strong data-count="${s.num}">0</strong>
         ${s.sub ? `<small>${s.sub}</small>` : ""}
       </div>`).join("");
+
+    // navegación entre jugadores (rail estilo ficha de club)
+    const idx = D.plantilla.findIndex((x) => x.id === j.id);
+    const prev = idx > 0 ? D.plantilla[idx - 1] : null;
+    const next = idx >= 0 && idx < D.plantilla.length - 1 ? D.plantilla[idx + 1] : null;
+    const rail = `
+      <div class="jficha__rail">
+        <a class="jficha__rail-nav${prev ? "" : " is-disabled"}" ${prev ? `href="jugador.html?id=${prev.id}"` : ""} aria-label="Jugador anterior"><i class="ri-arrow-left-s-line" aria-hidden="true"></i></a>
+        <a href="jugadores.html"><i class="ri-team-line" aria-hidden="true"></i><span class="jficha__rail-label">Plantilla</span></a>
+        <a class="jficha__rail-nav${next ? "" : " is-disabled"}" ${next ? `href="jugador.html?id=${next.id}"` : ""} aria-label="Jugador siguiente"><i class="ri-arrow-right-s-line" aria-hidden="true"></i></a>
+      </div>`;
 
     /* ---- Hero ---- */
     const hero = `
       <section class="jficha__hero">
         <span class="jficha__wm" aria-hidden="true">${apellido}</span>
+        ${rail}
         <nav class="breadcrumb"><a href="index.html">Inicio</a> › <a href="jugadores.html">Jugadores</a> › <span>${j.cat}</span></nav>
         <div class="jficha__hero-inner">
           <div class="jficha__hero-main">
@@ -475,7 +487,7 @@
           </div>
           <figure class="jficha__photo">
             <img src="${retrato}" alt="${j.nombre}">
-            <figcaption class="jficha__plate"><span>${j.pos}</span><strong>${j.dorsal} ${apellido}</strong></figcaption>
+            <figcaption class="jficha__plate"><span>${j.pos}</span><strong><b>${j.dorsal}</b>${apellido}</strong></figcaption>
           </figure>
         </div>
       </section>`;
