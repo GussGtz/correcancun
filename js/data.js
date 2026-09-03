@@ -126,34 +126,6 @@ window.CorreData = (function () {
       ]
     },
     {
-      id: "femenino-primer-amistoso",
-      titulo: "El femenino Sub-14 disputa su primer amistoso de la temporada",
-      categoria: "Femenino",
-      fecha: "2025-08-30",
-      hace: "Hace 3 meses",
-      img: S + "news-femenino.svg",
-      resumen: "El equipo estrenó la nueva equipación en un amistoso disputado en casa con muy buenas sensaciones colectivas.",
-      cuerpo: [
-        "El femenino Sub-14 abrió la pretemporada con un amistoso en el Campo Municipal.",
-        "Más allá del marcador, el cuerpo técnico destacó la actitud y las ganas de un grupo que este año crece con seis incorporaciones nuevas.",
-        "El equipo seguirá preparando el inicio de liga con dos amistosos más antes de la primera jornada oficial."
-      ]
-    },
-    {
-      id: "puertas-abiertas",
-      titulo: "Jornada de puertas abiertas: ven a probar un entrenamiento gratis",
-      categoria: "Escuela",
-      fecha: "2025-08-29",
-      hace: "Hace 3 meses",
-      img: S + "news-puertas.svg",
-      resumen: "El sábado 13 de septiembre abrimos los campos para que niños y niñas de 4 a 12 años prueben un entrenamiento sin compromiso.",
-      cuerpo: [
-        "El club organiza una jornada de puertas abiertas para dar a conocer su forma de trabajar.",
-        "Será el sábado 13 de septiembre de 10:00 a 13:00 en la Ciudad Deportiva. Solo hace falta ropa cómoda, botas o zapatillas y una botella de agua.",
-        "No es necesario inscribirse previamente, aunque agradecemos que las familias avisen por el formulario de contacto para organizar los grupos por edad."
-      ]
-    },
-    {
       id: "de-regreso-a-clases",
       titulo: "De regreso a clases: mucho éxito a nuestros niños y niñas",
       categoria: "Club",

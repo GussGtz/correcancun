@@ -56,18 +56,17 @@
       { h: "El club día a día", links: [
         ["Noticias", "actualidad.html"],
         ["Calendario", "calendario.html"],
-        ["Resultados", "calendario.html#resultados"],
-        ["Crónicas de partido", "actualidad.html"] ] },
+        ["Resultados", "calendario.html#resultados"] ] },
       { h: "Equipos", links: [
         ["Todas las categorías", "categorias.html"],
         ["Jugadores de la cantera", "jugadores.html"],
         ["Fotos y vídeos", "corre-tv.html"] ] },
       { h: "Agenda", links: [
-        ["Puertas abiertas", "actualidad.html"],
-        ["Torneos y campus", "corre-tv.html"],
-        ["Charlas para familias", "actualidad.html"] ] },
-      { feature: { cls: "ph--blue", tag: "Agenda", h: "Puertas abiertas",
-        p: "Ven a probar un entrenamiento gratis, sin compromiso.", href: "actualidad.html" } }
+        ["Entrenamientos de porteros", "noticia.html?id=porteros-septiembre"],
+        ["Baby Corre (desde 2 años)", "inscripciones.html#escuela"],
+        ["Inscripciones abiertas", "inscripciones.html"] ] },
+      { feature: { cls: "ph--blue", tag: "Escuela de porteros", h: "Martes y miércoles, 17:00",
+        p: "Sesiones específicas de portería para todas las edades.", href: "noticia.html?id=porteros-septiembre" } }
     ] },
     { key: "metodologia", label: "Metodología", href: "metodologia.html", mega: [
       { h: "Nuestro modelo", links: [
