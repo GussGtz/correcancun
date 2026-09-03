@@ -31,15 +31,17 @@
   --brand-yellow-mid:      #e0951d;
   --brand-yellow-dark:     #c47f15;
 
-  /* ---- Superficies ----------------------------------------------------------- */
+  /* ---- Superficies (tema claro) ------------------------------------------ */
   --surface:               #ffffff;
-  --surface-dim:           #f6f4f2;
+  --surface-dim:           #f5f2ee;
   --surface-container:     #d8d3cd;
-  --navy:                  #101013;   /* superficie oscura principal (carbón) */
-  --navy-2:                #1a1a1f;
-  --navy-3:                #0b0b0d;   /* fondo del body (casi negro) */
+  /* Antes eran carbón; ahora el sitio es claro. Se conservan los nombres
+     navy/navy-2/navy-3 para no tocar cada archivo. */
+  --navy:                  #f2eee8;   /* franja neutra: cabecera, pie, menús */
+  --navy-2:                #ffffff;   /* tarjetas */
+  --navy-3:                #f7f4f0;   /* fondo de página y de secciones */
   --ink:                   #16130f;
-  --ink-soft:              #7a7269;
+  --ink-soft:              #6f665c;   /* gris de apoyo — contraste AA sobre blanco */
   --line:                  #e7e3de;
 
   /* ---- Neutros --------------------------------------------------------------- */
