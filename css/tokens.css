@@ -44,6 +44,14 @@
   --ink-soft:              #6f665c;   /* gris de apoyo — contraste AA sobre blanco */
   --line:                  #e7e3de;
 
+  /* ---- Tinta oscura: chrome (cabecera/pie) y secciones destacadas ------ */
+  --ink-900:               #0c0c0e;   /* casi negro — cabecera, pie, hero */
+  --ink-850:               #16161b;   /* franja secundaria (ribbon) */
+  --ink-800:               #1e1e26;   /* tarjetas sobre fondo oscuro */
+  --on-dark:               rgba(255,255,255,.92);
+  --on-dark-soft:          rgba(255,255,255,.60);
+  --on-dark-faint:         rgba(255,255,255,.12);
+
   /* ---- Neutros --------------------------------------------------------------- */
   --grey-100:              #f6f4f2;
   --grey-300:              #d8d3cd;

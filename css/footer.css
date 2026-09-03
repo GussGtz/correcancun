@@ -2,8 +2,8 @@
    Corre Cancún — Pie de página
    ========================================================================== */
 
-.site-footer { background: var(--surface-dim); color: var(--ink-soft); border-top: 1px solid var(--line); }
-.site-footer a { color: var(--ink-soft); }
+.site-footer { background: var(--ink-900); color: rgba(255,255,255,.72); }
+.site-footer a { color: rgba(255,255,255,.72); }
 
 /* ---- Palmarés / trofeos --------------------------------------------- */
 .footer-trophies {
@@ -11,18 +11,18 @@
   grid-template-columns: repeat(4, 1fr);
   gap: var(--sp-m);
   padding-block: var(--sp-2xl);
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid rgba(255,255,255,.1);
 }
 .trophy { display: flex; align-items: center; gap: var(--sp-m); }
 .trophy__icon {
   width: 4.8rem; height: 4.8rem;
   display: grid; place-items: center;
   border-radius: 50%;
-  background: var(--grey-100);
+  background: rgba(255,255,255,.06);
 }
-.trophy__icon svg { width: 2.6rem; height: 2.6rem; fill: var(--brand-orange); }
-.trophy__icon i { font-size: 2.4rem; line-height: 1; color: var(--brand-orange); }
-.trophy__count { font-family: var(--font-display); font-size: var(--fs-title-l); color: var(--ink); line-height: 1; }
+.trophy__icon svg { width: 2.6rem; height: 2.6rem; fill: var(--brand-amber); }
+.trophy__icon i { font-size: 2.4rem; line-height: 1; color: var(--brand-amber); }
+.trophy__count { font-family: var(--font-display); font-size: var(--fs-title-l); color: #fff; line-height: 1; }
 .trophy__label { font-size: var(--fs-body-xs); text-transform: uppercase; letter-spacing: .08em; }
 
 /* ---- Redes ---------------------------------------------------------- */
@@ -32,20 +32,19 @@
   align-items: center;
   gap: var(--sp-m);
   padding-block: var(--sp-l);
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid rgba(255,255,255,.1);
 }
-.footer-social p { font-family: var(--font-display); text-transform: uppercase; font-size: var(--fs-title-s); color: var(--ink); }
+.footer-social p { font-family: var(--font-display); text-transform: uppercase; font-size: var(--fs-title-s); color: #fff; }
 .footer-social__links { display: flex; gap: var(--sp-s); margin-left: auto; }
 .footer-social__links a {
   width: 4rem; height: 4rem;
   display: grid; place-items: center;
   border-radius: 50%;
-  background: var(--grey-100);
+  background: rgba(255,255,255,.08);
   transition: background-color .16s var(--ease);
 }
 .footer-social__links a:hover { background: var(--brand-blue); }
-.footer-social__links svg { width: 1.8rem; height: 1.8rem; fill: var(--ink); }
-.footer-social__links a:hover svg { fill: #fff; }
+.footer-social__links svg { width: 1.8rem; height: 1.8rem; fill: #fff; }
 
 /* ---- Columnas de enlaces ------------------------------------------- */
 .footer-cols {
@@ -53,21 +52,21 @@
   grid-template-columns: repeat(4, 1fr);
   gap: var(--sp-2xl);
   padding-block: var(--sp-2xl);
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid rgba(255,255,255,.1);
 }
 .footer-col h3 {
   font-size: var(--fs-label-s);
-  color: var(--ink);
+  color: #fff;
   letter-spacing: .08em;
   margin-bottom: var(--sp-m);
 }
 .footer-col li { margin-bottom: .8rem; }
 .footer-col a { font-size: var(--fs-body-s); transition: color .14s var(--ease); }
-.footer-col a:hover { color: var(--brand-orange-dark); }
+.footer-col a:hover { color: #fff; }
 
 .footer-squad h3 { margin-top: var(--sp-m); }
 .footer-squad__group { margin-bottom: var(--sp-m); }
-.footer-squad__group span { display: block; font-size: var(--fs-body-xs); text-transform: uppercase; letter-spacing: .1em; color: var(--brand-orange-dark); margin-bottom: .4rem; }
+.footer-squad__group span { display: block; font-size: var(--fs-body-xs); text-transform: uppercase; letter-spacing: .1em; color: var(--brand-amber); margin-bottom: .4rem; }
 .footer-squad__group a { display: inline-block; margin-right: .8rem; }
 
 /* ---- Legal -------------------------------------------------------- */
@@ -82,4 +81,4 @@
 .footer-legal__brand { display: flex; align-items: center; gap: var(--sp-s); }
 .footer-legal__brand svg { width: 3rem; }
 .footer-legal nav { display: flex; flex-wrap: wrap; gap: var(--sp-m); margin-left: auto; }
-.footer-legal nav a:hover { color: var(--brand-orange-dark); text-decoration: underline; }
+.footer-legal nav a:hover { color: #fff; text-decoration: underline; }
