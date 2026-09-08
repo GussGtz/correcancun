@@ -65,17 +65,16 @@ window.CorreData = (function () {
       hace: "Hace 2 semanas",
       img: "assets/img/fb-companeros.jpg",
       imgAlt: "Dos jugadores del Corre Cancún con la nueva equipación en azul y naranja",
-      resumen: "El club retoma los entrenamientos con el nuevo curso. Todas las categorías estrenan equipación EXEON y los jugadores de la filial arrancan competición con los Venados.",
+      resumen: "El club retoma los entrenamientos con el nuevo curso. Todas las categorías estrenan equipación EXEON y vuelven a la actividad, desde Baby Corre hasta Infantil Mayor.",
       galeria: [
         { src: "assets/img/fb-entreno.jpg", alt: "Jugador del Corre Cancún en un entrenamiento por la tarde" },
-        { src: "assets/img/fb-venados.jpg", alt: "Jugador de la filial con la camiseta de los Venados" },
         { src: "assets/img/fb-porteria.jpg", alt: "Jugador del Corre Cancún bajo palos en un entrenamiento nocturno" }
       ],
       cta: { texto: "Inscribe a tu hijo o hija", url: "inscripciones.html" },
       cuerpo: [
         "Con el nuevo curso escolar el Corre Cancún vuelve a la actividad. Los grupos ya entrenan por las tardes en la cancha y los más pequeños de Baby Corre retoman sus sesiones de psicomotricidad.",
-        "Todas las categorías estrenan equipación, confeccionada por EXEON Sportswear, en los colores del club y con el correcaminos en el pantalón. Los jugadores de la filial compiten esta temporada con los Venados en la Liga Guillermo Cañedo.",
-        "El club mantiene la inscripción abierta para niños y niñas de 2 a 12 años. Quien quiera probar una sesión puede escribirnos por el formulario de contacto o acercarse un día de entrenamiento."
+        "Todas las categorías estrenan equipación, confeccionada por EXEON Sportswear, en los colores del club y con el correcaminos en el pantalón.",
+        "El club mantiene la inscripción abierta para niños y niñas desde los 2 años. Quien quiera probar una sesión puede escribirnos por el formulario de contacto o acercarse un día de entrenamiento."
       ]
     },
     {
@@ -153,7 +152,7 @@ window.CorreData = (function () {
       dias: "Entre semana, por la tarde", pruebas: false },
     { id: "infantil-menor", nombre: "Infantil Menor", edad: "6-7 años", nac: "2019-2020", img: S + "cat-benjamin.svg",
       formato: "Fútbol 5",
-      desc: "Empezamos a entender los espacios, el pase y la ocupación del campo sin perder el disfrute. Primeros partidos en la Liga Guillermo Cañedo.",
+      desc: "Empezamos a entender los espacios, el pase y la ocupación del campo sin perder el disfrute. Primeros partidos de liga y encuentros amistosos.",
       dias: "Entre semana, por la tarde", pruebas: false },
     { id: "ninos-heroes", nombre: "Niños Héroes", edad: "8-9 años", nac: "2017-2018", img: S + "cat-alevin.svg",
       formato: "Fútbol 7",
@@ -170,19 +169,19 @@ window.CorreData = (function () {
   ];
 
   const calendario = [
-    { cat: "Niños Héroes", comp: "Liga Guillermo Cañedo", jornada: "Jornada 3", local: "Corre Cancún", visitante: "Filial Venados",
+    { cat: "Niños Héroes", comp: "Liga infantil", jornada: "Jornada 3", local: "Corre Cancún", visitante: "Delfines Cancún",
       fecha: "2025-09-07", hora: "12:00", campo: "Cancha del club", estado: "próximo" },
-    { cat: "Infantil Menor", comp: "Liga Guillermo Cañedo", jornada: "Jornada 2", local: "Corre Cancún", visitante: "Atlas Cancún",
+    { cat: "Infantil Menor", comp: "Liga infantil", jornada: "Jornada 2", local: "Corre Cancún", visitante: "Atlas Cancún",
       fecha: "2025-09-08", hora: "10:00", campo: "Cancha del club", estado: "próximo" },
-    { cat: "Infantil Mayor", comp: "Liga Guillermo Cañedo", jornada: "Jornada 3", local: "Deportivo Kabah", visitante: "Corre Cancún",
+    { cat: "Infantil Mayor", comp: "Liga infantil", jornada: "Jornada 3", local: "Deportivo Kabah", visitante: "Corre Cancún",
       fecha: "2025-09-14", hora: "11:30", campo: "Unidad Deportiva Kabah", estado: "próximo" },
     { cat: "Inicial", comp: "Encuentro amistoso", jornada: "Convivencia", local: "Corre Cancún", visitante: "Escuela invitada",
       fecha: "2025-09-14", hora: "09:30", campo: "Cancha del club", estado: "próximo" },
-    { cat: "Niños Héroes", comp: "Liga Guillermo Cañedo", jornada: "Jornada 2", local: "Pioneros Cancún", visitante: "Corre Cancún",
+    { cat: "Niños Héroes", comp: "Liga infantil", jornada: "Jornada 2", local: "Pioneros Cancún", visitante: "Corre Cancún",
       fecha: "2025-08-31", hora: "12:00", campo: "Cancha Pioneros", estado: "jugado", resultado: "1-3" },
-    { cat: "Infantil Mayor", comp: "Liga Guillermo Cañedo", jornada: "Jornada 2", local: "Corre Cancún", visitante: "Atlético Cancún",
+    { cat: "Infantil Mayor", comp: "Liga infantil", jornada: "Jornada 2", local: "Corre Cancún", visitante: "Atlético Cancún",
       fecha: "2025-08-30", hora: "10:30", campo: "Cancha del club", estado: "jugado", resultado: "2-2" },
-    { cat: "Infantil Menor", comp: "Liga Guillermo Cañedo", jornada: "Jornada 1", local: "Corre Cancún", visitante: "Filial Venados",
+    { cat: "Infantil Menor", comp: "Liga infantil", jornada: "Jornada 1", local: "Corre Cancún", visitante: "Delfines Cancún",
       fecha: "2025-08-24", hora: "10:00", campo: "Cancha del club", estado: "jugado", resultado: "4-0" }
   ];
 
@@ -239,7 +238,7 @@ window.CorreData = (function () {
   const cifras = [
     { icon: "ri-team-line", num: "5", label: "Categorías por año" },
     { icon: "ri-football-line", num: "F5 · F7", label: "Fútbol 5 y fútbol 7" },
-    { icon: "ri-shield-star-line", num: "1", label: "Liga Guillermo Cañedo" },
+    { icon: "ri-heart-add-line", num: "0", label: "Cuota para no dejar a nadie fuera" },
     { icon: "ri-heart-3-line", num: "100%", label: "Todos juegan" }
   ];
 
@@ -262,7 +261,7 @@ window.CorreData = (function () {
         "Lo que más lo distingue es que, siendo de 2018, compite en su categoría y también en una superior. En cada club destaca lo suficiente para alternar la 2018 y la 2017; de hecho, esta última temporada fue convocado por la selección de Quintana Roo 2017."
       ],
       palmares: [
-        { tag: "Liga", titulo: "Liga Guillermo Cañedo", mark: "1º", icon: "ri-trophy-fill", nota: "Campeón · Temporada 2025-26" },
+        { tag: "Liga", titulo: "Liga Guillermo Cañedo", mark: "1º", icon: "ri-trophy-fill", nota: "Campeón con Filial Venados N. Héroes · 2025-26" },
         { tag: "Torneo", titulo: "Copa ACO", mark: "1º", icon: "ri-trophy-fill", nota: "Campeón · Valladolid 2026" },
         { tag: "Internacional", titulo: "Copa Celta", mark: "2º", icon: "ri-medal-fill", nota: "Subcampeón · RC Celta y Celta Academy · 2026" },
         { tag: "Selección", titulo: "Quintana Roo 2017", mark: "★", icon: "ri-shield-star-fill", nota: "Campeonato nacional · Playa del Carmen 2026" },
@@ -283,7 +282,7 @@ window.CorreData = (function () {
     { titulo: "Jugadores del club", url: "jugadores.html", tipo: "Página", texto: "plantilla equipo porteros defensas fichas jugadores jugadoras dorsal posición santi" },
     { titulo: "Metodología", url: "metodologia.html", tipo: "Página", texto: "modelo de juego valores plan formativo por edades entrenamiento de porteros" },
     { titulo: "El Club", url: "club.html", tipo: "Página", texto: "historia correcaminos escudo valores compromiso con el menor instalaciones cancha staff" },
-    { titulo: "Calendario y resultados", url: "calendario.html", tipo: "Página", texto: "partidos jornada liga guillermo cañedo torneos resultados convocatoria" },
+    { titulo: "Calendario y resultados", url: "calendario.html", tipo: "Página", texto: "partidos jornada liga infantil torneos amistosos resultados convocatoria" },
     { titulo: "Actualidad", url: "actualidad.html", tipo: "Página", texto: "noticias crónicas club día a día" },
     { titulo: "Corre TV", url: "corre-tv.html", tipo: "Página", texto: "vídeos resúmenes entrevistas entrenamientos gol de la semana" },
     { titulo: "Tienda del club", url: "tienda.html", tipo: "Página", texto: "equipación camiseta chándal sudadera mochila botella accesorios ropa" },
