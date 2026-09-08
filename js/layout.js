@@ -31,22 +31,20 @@
         p: "Desde 2007 formando a niños y niñas dentro y fuera del campo.", href: "club.html#historia" } }
     ] },
     { key: "categorias", label: "Categorías", href: "categorias.html", mega: [
-      { h: "Fútbol base", links: [
-        ["Escuela (4-6 años)", "categorias.html#escuela"],
-        ["Prebenjamín", "categorias.html#prebenjamin"],
-        ["Benjamín", "categorias.html#benjamin"],
-        ["Alevín", "categorias.html#alevin"] ] },
-      { h: "Competición", links: [
-        ["Infantil", "categorias.html#infantil"],
-        ["Cadete", "categorias.html#cadete"],
-        ["Juvenil", "categorias.html#juvenil"],
-        ["Femenino", "categorias.html#femenino"] ] },
-      { h: "La plantilla", links: [
-        ["Jugadores de la cantera", "jugadores.html"],
-        ["Cuerpo técnico", "jugadores.html#cuerpo-tecnico"],
+      { h: "Categorías por año", links: [
+        ["Baby Corre · 2023-2024", "categorias.html#baby-corre"],
+        ["Inicial · 2021-2022", "categorias.html#inicial"],
+        ["Infantil Menor · 2019-2020", "categorias.html#infantil-menor"],
+        ["Niños Héroes · 2017-2018", "categorias.html#ninos-heroes"],
+        ["Infantil Mayor · 2015-2016", "categorias.html#infantil-mayor"] ] },
+      { h: "Programas", links: [
+        ["Entrenamiento de porteros", "categorias.html#porteros"],
         ["Calendario y resultados", "calendario.html"] ] },
-      { feature: { cls: "ph--blue", tag: "Jugadores", h: "Conoce a la cantera",
-        p: "Fichas de los jugadores y jugadoras de las categorías de competición.", href: "jugadores.html" } }
+      { h: "El equipo", links: [
+        ["Jugadores del club", "jugadores.html"],
+        ["Cuerpo técnico", "jugadores.html#cuerpo-tecnico"] ] },
+      { feature: { cls: "ph--blue", tag: "Jugadores", h: "Conoce al equipo",
+        p: "Fichas de los jugadores y jugadoras del club.", href: "jugadores.html" } }
     ] },
     { key: "tv", label: "Corre TV", href: "corre-tv.html" }
   ];
@@ -63,7 +61,7 @@
         ["Fotos y vídeos", "corre-tv.html"] ] },
       { h: "Agenda", links: [
         ["Entrenamientos de porteros", "noticia.html?id=porteros-septiembre"],
-        ["Baby Corre (desde 2 años)", "inscripciones.html#escuela"],
+        ["Baby Corre (2 y 3 años)", "categorias.html#baby-corre"],
         ["Inscripciones abiertas", "inscripciones.html"] ] },
       { feature: { cls: "ph--blue", tag: "Escuela de porteros", h: "Martes y miércoles, 17:00",
         p: "Sesiones específicas de portería para todas las edades.", href: "noticia.html?id=porteros-septiembre" } }
@@ -99,9 +97,8 @@
         ["Documentación", "inscripciones.html#como"],
         ["Preguntas frecuentes", "inscripciones.html#faq"] ] },
       { feature: { cls: "ph--gold", style: "color:#121212", tag: "25/26", tagCls: "tag--blue", h: "Plazas abiertas",
-        p: "Desde la escuela (4 años) hasta juvenil. Reserva la de tu hijo o hija.", href: "inscripciones.html" } }
-    ] },
-    { key: "femenino", label: "Femenino y Sénior", href: "categorias.html#femenino" }
+        p: "Categorías por año, de 2015 a 2024, y Baby Corre desde los 2 años. Reserva la plaza.", href: "inscripciones.html" } }
+    ] }
   ];
 
   const IDIOMAS = [["es", "Castellano"], ["ca", "Català"], ["en", "English"]];
@@ -247,10 +244,8 @@
     <div class="footer-cols">
       <div class="footer-col footer-squad">
         <h3>Categorías</h3>
-        <div class="footer-squad__group"><span>Fútbol base</span><a href="categorias.html#escuela">Escuela</a><a href="categorias.html#prebenjamin">Prebenjamín</a><a href="categorias.html#benjamin">Benjamín</a><a href="categorias.html#alevin">Alevín</a></div>
-        <div class="footer-squad__group"><span>Competición</span><a href="categorias.html#infantil">Infantil</a><a href="categorias.html#cadete">Cadete</a><a href="categorias.html#juvenil">Juvenil</a></div>
-        <div class="footer-squad__group"><span>Femenino</span><a href="categorias.html#femenino">Sub-12</a><a href="categorias.html#femenino">Sub-16</a></div>
-        <div class="footer-squad__group"><span>Sénior</span><a href="categorias.html">Primer equipo amateur</a></div>
+        <div class="footer-squad__group"><span>Por año de nacimiento</span><a href="categorias.html#baby-corre">Baby Corre · 2023-2024</a><a href="categorias.html#inicial">Inicial · 2021-2022</a><a href="categorias.html#infantil-menor">Infantil Menor · 2019-2020</a><a href="categorias.html#ninos-heroes">Niños Héroes · 2017-2018</a><a href="categorias.html#infantil-mayor">Infantil Mayor · 2015-2016</a></div>
+        <div class="footer-squad__group"><span>Programas</span><a href="categorias.html#porteros">Entrenamiento de porteros</a></div>
       </div>
       <div class="footer-col">
         <h3>El club</h3>
@@ -258,8 +253,7 @@
           <li><a href="inscripciones.html">Inscripciones</a></li>
           <li><a href="inscripciones.html#cuotas">Cuotas y becas</a></li>
           <li><a href="metodologia.html">Metodología</a></li>
-          <li><a href="metodologia.html#programas">Escuela de porteros</a></li>
-          <li><a href="metodologia.html#programas">Campus de vacaciones</a></li>
+          <li><a href="categorias.html#porteros">Entrenamiento de porteros</a></li>
           <li><a href="corre-tv.html">Corre TV</a></li>
           <li><a href="tienda.html">Tienda del club</a></li>
         </ul>
@@ -278,11 +272,10 @@
       <div class="footer-col">
         <h3>Historia</h3>
         <ul>
-          <li><a href="club.html#historia">Nuestros orígenes (2007)</a></li>
-          <li><a href="club.html#historia">El primer campo</a></li>
-          <li><a href="club.html#historia">La llegada del femenino</a></li>
-          <li><a href="club.html#historia">18 años de cantera</a></li>
-          <li><a href="club.html#historia">Exjugadores del club</a></li>
+          <li><a href="club.html#historia">Quiénes somos</a></li>
+          <li><a href="club.html#valores">Escudo y valores</a></li>
+          <li><a href="club.html#compromiso">Compromiso con el menor</a></li>
+          <li><a href="noticia.html?id=nueva-temporada-equipacion">La nueva equipación</a></li>
         </ul>
       </div>
     </div>

@@ -17,7 +17,7 @@ window.CorreData = (function () {
       img: "assets/img/porteros.jpg",
       imgPortrait: true,
       imgAlt: "Portero del Corre Cancún con guantes y brazos cruzados frente al cielo azul",
-      resumen: "Sesiones específicas para todos los porteros del club, de benjamín a juvenil. Enfoque, técnica, disciplina y seguridad bajo los tres palos.",
+      resumen: "Sesiones específicas para todos los porteros del club, de cualquier categoría. Enfoque, técnica, disciplina y seguridad bajo los tres palos.",
       datos: [
         { icon: "ri-calendar-line", label: "Días", valor: "Martes y miércoles" },
         { icon: "ri-time-line", label: "Hora", valor: "17:00 h" },
@@ -26,7 +26,7 @@ window.CorreData = (function () {
       cta: { texto: "Apuntar a un portero", url: "inscripciones.html" },
       cuerpo: [
         "Arranca septiembre y con él la nueva temporada de la escuela de porteros del Corre Cancún. Empezamos con ganas y con retos nuevos para cada edad.",
-        "Las sesiones son específicas para todos los porteros del club, de benjamín a juvenil. Trabajamos el juego de pies, el blocaje, las salidas, el juego aéreo y, sobre todo, la toma de decisiones y la comunicación con la defensa.",
+        "Las sesiones son específicas para todos los porteros del club, de cualquier categoría. Trabajamos el juego de pies, el blocaje, las salidas, el juego aéreo y, sobre todo, la toma de decisiones y la comunicación con la defensa.",
         "Más allá de la técnica, insistimos en cuatro cosas: enfoque para mantener la concentración los 90 minutos, técnica para repetir bien los gestos, disciplina para no fallar en los detalles y seguridad para transmitir calma al equipo.",
         "¡Prepárate para darlo todo bajo los tres palos! Si tu hijo o hija quiere probar una sesión, habla con su entrenador o escríbenos desde la página de contacto."
       ]
@@ -143,58 +143,56 @@ window.CorreData = (function () {
   ];
 
   const categorias = [
-    { id: "escuela", nombre: "Escuela", edad: "4-6 años", img: S + "cat-escuela.svg",
-      desc: "Primer contacto con el balón a través del juego. Psicomotricidad, coordinación y, sobre todo, pasarlo bien.",
-      dias: "Martes y jueves · 17:15-18:15", pruebas: false, equipos: 2 },
-    { id: "prebenjamin", nombre: "Prebenjamín", edad: "7-8 años", img: S + "cat-base.svg",
-      desc: "Fútbol 5. Empezamos a entender los espacios, el pase y la ocupación del campo sin perder el disfrute.",
-      dias: "Martes y jueves · 17:30-19:00", pruebas: false, equipos: 2 },
-    { id: "benjamin", nombre: "Benjamín", edad: "9-10 años", img: S + "cat-benjamin.svg",
-      desc: "Fútbol 7. Se consolidan los fundamentos técnicos y aparecen las primeras nociones tácticas por líneas.",
-      dias: "Martes y jueves · 17:30-19:00", pruebas: false, equipos: 2 },
-    { id: "alevin", nombre: "Alevín", edad: "11-12 años", img: S + "cat-alevin.svg",
-      desc: "Fútbol 7. Última etapa antes del campo grande: velocidad de decisión, cambios de orientación y roles.",
-      dias: "Lunes, miércoles y viernes · 17:30-19:00", pruebas: true, equipos: 2 },
-    { id: "infantil", nombre: "Infantil", edad: "13-14 años", img: S + "cat-infantil.svg",
-      desc: "Fútbol 11. Adaptación al campo grande, al fuera de juego y a un modelo de juego con más matices.",
-      dias: "Lunes, miércoles y viernes · 18:00-19:30", pruebas: true, equipos: 2 },
-    { id: "cadete", nombre: "Cadete", edad: "15-16 años", img: S + "cat-cadete.svg",
-      desc: "Fútbol 11. Se exige más en lo físico y lo táctico, con trabajo específico por puestos.",
-      dias: "Martes, jueves y viernes · 19:00-20:30", pruebas: true, equipos: 2 },
-    { id: "juvenil", nombre: "Juvenil", edad: "17-19 años", img: S + "cat-juvenil.svg",
-      desc: "Última categoría de la formación. Puente hacia el sénior amateur y hacia otros clubes de la zona.",
-      dias: "Lunes, miércoles y viernes · 20:00-21:30", pruebas: true, equipos: 2 },
-    { id: "femenino", nombre: "Femenino", edad: "Sub-12 y Sub-16", img: S + "cat-femenino.svg",
-      desc: "Dos equipos femeninos en crecimiento. Mismo proyecto formativo, mismos valores, mismas oportunidades.",
-      dias: "Martes y jueves · 18:00-19:30", pruebas: false, equipos: 2 }
+    { id: "baby-corre", nombre: "Baby Corre", edad: "2-3 años", nac: "2023-2024", img: S + "cat-escuela.svg",
+      formato: "Baby Corre · psicomotricidad y juego",
+      desc: "El primer escalón del club. A través del juego, la psicomotricidad y mucha imaginación, los más pequeños empiezan a moverse, a compartir y a disfrutar del balón, siempre a su ritmo.",
+      dias: "Lunes, martes y miércoles · 15:00-16:00", pruebas: false },
+    { id: "inicial", nombre: "Inicial", edad: "4-5 años", nac: "2021-2022", img: S + "cat-base.svg",
+      formato: "Iniciación · juego y primeras reglas",
+      desc: "El primer contacto con el fútbol de verdad: correr, driblar, tirar a portería y aprender a jugar en equipo. Se compite, pero el resultado no manda.",
+      dias: "Entre semana, por la tarde", pruebas: false },
+    { id: "infantil-menor", nombre: "Infantil Menor", edad: "6-7 años", nac: "2019-2020", img: S + "cat-benjamin.svg",
+      formato: "Fútbol 5",
+      desc: "Empezamos a entender los espacios, el pase y la ocupación del campo sin perder el disfrute. Primeros partidos en la Liga Guillermo Cañedo.",
+      dias: "Entre semana, por la tarde", pruebas: false },
+    { id: "ninos-heroes", nombre: "Niños Héroes", edad: "8-9 años", nac: "2017-2018", img: S + "cat-alevin.svg",
+      formato: "Fútbol 7",
+      desc: "Se consolidan los fundamentos técnicos y aparecen las primeras nociones tácticas por líneas. Compiten en liga y en torneos de la zona.",
+      dias: "Entre semana, por la tarde", pruebas: false },
+    { id: "infantil-mayor", nombre: "Infantil Mayor", edad: "10-11 años", nac: "2015-2016", img: S + "cat-infantil.svg",
+      formato: "Fútbol 7",
+      desc: "La categoría mayor del club. Más ritmo, más velocidad de decisión y trabajo por puestos, siempre dentro del proyecto formativo.",
+      dias: "Entre semana, por la tarde", pruebas: false },
+    { id: "porteros", nombre: "Entrenamiento de porteros", edad: "Todas", nac: "cualquier categoría", img: S + "promo-porteros.svg",
+      formato: "Sesión específica de portería", programa: true,
+      desc: "Sesiones específicas para los porteros del club: juego de pies, blocaje, salidas, juego aéreo y toma de decisiones. Enfoque, técnica, disciplina y seguridad.",
+      dias: "Martes y miércoles · 17:00", pruebas: false }
   ];
 
   const calendario = [
-    { cat: "Juvenil A", comp: "Liga Comarcal", jornada: "Jornada 3", local: "Corre Cancún", visitante: "Costa CF",
-      fecha: "2025-09-07", hora: "12:00", campo: "Campo Municipal", estado: "próximo" },
-    { cat: "Cadete B", comp: "Liga Local", jornada: "Jornada 2", local: "Corre Cancún", visitante: "Nord CF",
-      fecha: "2025-09-08", hora: "10:00", campo: "Ciudad Deportiva Corre", estado: "próximo" },
-    { cat: "Infantil A", comp: "Copa Federación", jornada: "1ª ronda", local: "Vall UD", visitante: "Corre Cancún",
-      fecha: "2025-09-14", hora: "11:30", campo: "Campo de la Vall", estado: "próximo" },
-    { cat: "Alevín A", comp: "Liga Local", jornada: "Jornada 2", local: "Corre Cancún", visitante: "Mar CF",
-      fecha: "2025-09-14", hora: "09:30", campo: "Ciudad Deportiva Corre", estado: "próximo" },
-    { cat: "Femenino Sub-16", comp: "Liga Comarcal", jornada: "Jornada 1", local: "Sur FC", visitante: "Corre Cancún",
-      fecha: "2025-09-15", hora: "12:00", campo: "Campo del Sur", estado: "próximo" },
-    { cat: "Juvenil A", comp: "Liga Comarcal", jornada: "Jornada 2", local: "Riu CF", visitante: "Corre Cancún",
-      fecha: "2025-08-31", hora: "12:00", campo: "Camp del Riu", estado: "jugado", resultado: "1-3" },
-    { cat: "Cadete A", comp: "Liga Comarcal", jornada: "Jornada 1", local: "Corre Cancún", visitante: "Costa CF",
-      fecha: "2025-08-30", hora: "10:30", campo: "Campo Municipal", estado: "jugado", resultado: "2-2" },
-    { cat: "Infantil A", comp: "Liga Local", jornada: "Jornada 1", local: "Corre Cancún", visitante: "Nord CF",
-      fecha: "2025-08-24", hora: "10:00", campo: "Ciudad Deportiva Corre", estado: "jugado", resultado: "4-0" }
+    { cat: "Niños Héroes", comp: "Liga Guillermo Cañedo", jornada: "Jornada 3", local: "Corre Cancún", visitante: "Filial Venados",
+      fecha: "2025-09-07", hora: "12:00", campo: "Cancha del club", estado: "próximo" },
+    { cat: "Infantil Menor", comp: "Liga Guillermo Cañedo", jornada: "Jornada 2", local: "Corre Cancún", visitante: "Atlas Cancún",
+      fecha: "2025-09-08", hora: "10:00", campo: "Cancha del club", estado: "próximo" },
+    { cat: "Infantil Mayor", comp: "Liga Guillermo Cañedo", jornada: "Jornada 3", local: "Deportivo Kabah", visitante: "Corre Cancún",
+      fecha: "2025-09-14", hora: "11:30", campo: "Unidad Deportiva Kabah", estado: "próximo" },
+    { cat: "Inicial", comp: "Encuentro amistoso", jornada: "Convivencia", local: "Corre Cancún", visitante: "Escuela invitada",
+      fecha: "2025-09-14", hora: "09:30", campo: "Cancha del club", estado: "próximo" },
+    { cat: "Niños Héroes", comp: "Liga Guillermo Cañedo", jornada: "Jornada 2", local: "Pioneros Cancún", visitante: "Corre Cancún",
+      fecha: "2025-08-31", hora: "12:00", campo: "Cancha Pioneros", estado: "jugado", resultado: "1-3" },
+    { cat: "Infantil Mayor", comp: "Liga Guillermo Cañedo", jornada: "Jornada 2", local: "Corre Cancún", visitante: "Atlético Cancún",
+      fecha: "2025-08-30", hora: "10:30", campo: "Cancha del club", estado: "jugado", resultado: "2-2" },
+    { cat: "Infantil Menor", comp: "Liga Guillermo Cañedo", jornada: "Jornada 1", local: "Corre Cancún", visitante: "Filial Venados",
+      fecha: "2025-08-24", hora: "10:00", campo: "Cancha del club", estado: "jugado", resultado: "4-0" }
   ];
 
   const videos = [
-    { id: "metodologia", titulo: "Así entrenamos: un día en la escuela Corre", dur: "4:12", cat: "Club", img: S + "video-metodologia.svg" },
-    { id: "gol-semana", titulo: "El gol de la semana · Juvenil A", dur: "0:38", cat: "Juvenil", img: S + "story-3.svg" },
-    { id: "porteros", titulo: "Sesión de la escuela de porteros", dur: "3:05", cat: "Formación", img: S + "promo-porteros.svg" },
-    { id: "puertas-abiertas", titulo: "Puertas abiertas: un sábado en el club", dur: "2:47", cat: "Escuela", img: S + "news-puertas.svg" },
+    { id: "metodologia", titulo: "Así entrenamos: un día en el Corre Cancún", dur: "4:12", cat: "Club", img: S + "video-metodologia.svg" },
+    { id: "gol-semana", titulo: "El gol de la semana · Niños Héroes", dur: "0:38", cat: "Niños Héroes", img: S + "story-3.svg" },
+    { id: "porteros", titulo: "Sesión del entrenamiento de porteros", dur: "3:05", cat: "Porteros", img: S + "promo-porteros.svg" },
+    { id: "sabado-partido", titulo: "Un sábado de partido en la cancha", dur: "2:47", cat: "Club", img: S + "news-puertas.svg" },
     { id: "valores", titulo: "Qué significa jugar en el Corre Cancún", dur: "1:59", cat: "Club", img: S + "story-5.svg" },
-    { id: "cadete-viaje", titulo: "El viaje del Cadete al torneo de la costa", dur: "5:20", cat: "Cadete", img: S + "story-4.svg" }
+    { id: "torneo", titulo: "El equipo en un torneo de la zona", dur: "5:20", cat: "Torneos", img: S + "story-4.svg" }
   ];
 
   const tienda = [
@@ -213,10 +211,12 @@ window.CorreData = (function () {
   ];
 
   const cuotas = [
-    { cat: "Escuela", matricula: "60 €", mensual: "28 €" },
-    { cat: "Prebenjamín · Benjamín · Alevín", matricula: "80 €", mensual: "34 €" },
-    { cat: "Infantil · Cadete · Juvenil", matricula: "90 €", mensual: "38 €" },
-    { cat: "Femenino (todas las edades)", matricula: "70 €", mensual: "30 €" }
+    { cat: "Baby Corre · 2023-2024", matricula: "Consultar", mensual: "Consultar" },
+    { cat: "Inicial · 2021-2022", matricula: "Consultar", mensual: "Consultar" },
+    { cat: "Infantil Menor · 2019-2020", matricula: "Consultar", mensual: "Consultar" },
+    { cat: "Niños Héroes · 2017-2018", matricula: "Consultar", mensual: "Consultar" },
+    { cat: "Infantil Mayor · 2015-2016", matricula: "Consultar", mensual: "Consultar" },
+    { cat: "Entrenamiento de porteros", matricula: "—", mensual: "Consultar" }
   ];
 
   const valores = [
@@ -227,27 +227,26 @@ window.CorreData = (function () {
   ];
 
   const staff = [
-    { nombre: "Laura Ferrán", rol: "Coordinación de fútbol base" },
-    { nombre: "Míriam Cano", rol: "Entrenadora Juvenil A" },
-    { nombre: "Dídac Roure", rol: "Coordinación de competición" },
-    { nombre: "Sergi Vall", rol: "Escuela de porteros" },
-    { nombre: "Nadia El Amrani", rol: "Preparación física" },
-    { nombre: "Toni Bosch", rol: "Fisioterapia" }
+    { nombre: "Cuerpo Técnico", rol: "Coordinación deportiva del club" },
+    { nombre: "Baby Corre", rol: "Entrenador · 2 y 3 años (2023-2024)" },
+    { nombre: "Categoría Inicial", rol: "Entrenador · nacidos en 2021-2022" },
+    { nombre: "Infantil Menor", rol: "Entrenador · nacidos en 2019-2020" },
+    { nombre: "Niños Héroes", rol: "Entrenador · nacidos en 2017-2018" },
+    { nombre: "Infantil Mayor", rol: "Entrenador · nacidos en 2015-2016" },
+    { nombre: "Escuela Porteros", rol: "Entrenamiento específico de portería" }
   ];
 
   const cifras = [
-    { icon: "ri-group-line", num: "14", label: "Equipos" },
-    { icon: "ri-football-line", num: "280", label: "Jugadores y jugadoras" },
-    { icon: "ri-calendar-line", num: "18", label: "Años formando" },
-    { icon: "ri-award-line", num: "9", label: "Categorías" }
+    { icon: "ri-team-line", num: "5", label: "Categorías por año" },
+    { icon: "ri-football-line", num: "F5 · F7", label: "Fútbol 5 y fútbol 7" },
+    { icon: "ri-shield-star-line", num: "1", label: "Liga Guillermo Cañedo" },
+    { icon: "ri-heart-3-line", num: "100%", label: "Todos juegan" }
   ];
 
-  // Jugadores destacados de la cantera (fichas de ejemplo)
-  const P = (i) => S + "player-" + i + ".svg";
+  // Jugadores del club
   const plantilla = [
-    // Jugador real del club
     { id: "santi-gutierrez", nombre: "Santiago «Santi» Gutiérrez", apellido: "Gutiérrez", dorsal: 103, pos: "Defensa", grupo: "Defensas",
-      cat: "Prebenjamín", foto: "assets/img/jug-santi.jpg", retrato: "assets/img/jug-santi.png",
+      cat: "Niños Héroes", foto: "assets/img/jug-santi.jpg", retrato: "assets/img/jug-santi.png",
       nac: "2018-10-16", lugar: "Quintana Roo",
       desde: "2025", liga: "Liga Guillermo Cañedo, A. C.", nui: "1222933",
       cita: "Defensa aplicado que no pierde la marca y sabe salir jugando desde atrás.",
@@ -275,111 +274,16 @@ window.CorreData = (function () {
         { temporada: "2024-25", torneo: "Liga Guillermo Cañedo", club: "Atlas Cancún Infantil Menor", pos: "Delantero", dorsal: "19", cap: true },
         { temporada: "2023-24", torneo: "Liga Guillermo Cañedo", club: "Atlas Cancún Infantil Inicial", pos: "Defensa", dorsal: "74" }
       ] },
-    // Porteros
-    { id: "jan-ferrer", nombre: "Jan Ferrer", dorsal: 1, pos: "Portero", grupo: "Porteros", cat: "Juvenil A",
-      foto: P(6), pie: "Diestro", nac: "2007-02-18", lugar: "Cancún, Q. Roo", altura: "1,82 m", desde: "2016",
-      cita: "Un portero tranquilo que ordena a la defensa y sale con el balón jugado.",
-      bio: [
-        "Jan llegó al club con nueve años y ha pasado por casi todas las categorías bajo palos. Destaca por el juego de pies y por la lectura de las salidas.",
-        "Es el capitán del Juvenil A y una de las voces del vestuario. El club lo tiene como referente para los porteros más pequeños en la escuela de porteros."
-      ], temp: { pj: 6, g: 0, a: 1 } },
-    { id: "alex-prieto", nombre: "Àlex Prieto", dorsal: 13, pos: "Portero", grupo: "Porteros", cat: "Cadete A",
-      foto: P(2), pie: "Zurdo", nac: "2009-09-30", lugar: "Playa del Carmen", altura: "1,76 m", desde: "2019",
-      cita: "Reflejos rápidos y mucho carácter en el uno contra uno.",
-      bio: [
-        "Àlex compagina la portería con el trabajo específico de los viernes. Ha mejorado mucho el juego aéreo en el último año.",
-        "Es de los que llega antes a entrenar y se queda a recoger el material. Ejemplo de compromiso para su categoría."
-      ], temp: { pj: 5, g: 0, a: 0 } },
-    // Defensas
-    { id: "nil-fontana", nombre: "Nil Fontana", dorsal: 4, pos: "Central", grupo: "Defensas", cat: "Cadete A",
-      foto: P(4), pie: "Diestro", nac: "2009-05-04", lugar: "Cancún, Q. Roo", altura: "1,80 m", desde: "2017",
-      cita: "Fuerte en el duelo y con buena salida de balón desde atrás.",
-      bio: [
-        "Nil manda en la última línea del Cadete A. Gana casi todos los duelos aéreos y ha aprendido a defender el espacio, no solo al rival.",
-        "El cuerpo técnico trabaja con él la orientación del cuerpo para iniciar el juego hacia adelante."
-      ], temp: { pj: 4, g: 1, a: 0 } },
-    { id: "aleix-roca", nombre: "Aleix Roca", dorsal: 2, pos: "Lateral", grupo: "Defensas", cat: "Infantil A",
-      foto: P(5), pie: "Diestro", nac: "2011-01-22", lugar: "Cancún, Q. Roo", altura: "1,66 m", desde: "2018",
-      cita: "Un lateral que no para de subir y bajar la banda los 60 minutos.",
-      bio: [
-        "Aleix aporta profundidad por la derecha del Infantil A. Su recorrido y su ida y vuelta son señas de identidad del equipo.",
-        "Está puliendo la toma de decisiones en el último tercio: cuándo centrar y cuándo esperar."
-      ], temp: { pj: 5, g: 0, a: 2 } },
-    { id: "bruno-gil", nombre: "Bruno Gil", dorsal: 5, pos: "Central", grupo: "Defensas", cat: "Juvenil A",
-      foto: P(3), pie: "Zurdo", nac: "2007-07-11", lugar: "Mérida", altura: "1,84 m", desde: "2020",
-      cita: "Zurdo, alto y con una zancada larga para tapar espacios.",
-      bio: [
-        "Bruno se incorporó desde otro club de la zona y encajó rápido en el modelo del Juvenil A por su comodidad con el balón.",
-        "Forma pareja de centrales con jugadores más agresivos: él aporta el equilibrio y la salida limpia."
-      ], temp: { pj: 6, g: 0, a: 1 } },
-    { id: "marc-terol", nombre: "Marc Terol", dorsal: 3, pos: "Lateral", grupo: "Defensas", cat: "Cadete B",
-      foto: P(1), pie: "Zurdo", nac: "2010-03-19", lugar: "Cancún, Q. Roo", altura: "1,70 m", desde: "2019",
-      cita: "Marca al hombre como nadie y no se le escapa un balón dividido.",
-      bio: [
-        "Marc es puro carácter en la izquierda del Cadete B. Defiende hacia adelante y contagia intensidad al resto.",
-        "Trabaja la salida de balón para ser también una opción cuando el equipo tiene la pelota."
-      ], temp: { pj: 5, g: 0, a: 0 } },
-    // Centrocampistas
-    { id: "iker-sanz", nombre: "Iker Sanz", dorsal: 8, pos: "Mediapunta", grupo: "Centrocampistas", cat: "Juvenil A",
-      foto: P(2), pie: "Diestro", nac: "2007-11-02", lugar: "Cancún, Q. Roo", altura: "1,73 m", desde: "2016",
-      cita: "Aparece entre líneas y siempre encuentra el pase que rompe.",
-      bio: [
-        "Iker es el cerebro del Juvenil A. Juega de cara, gira bien y tiene el último pase para los delanteros.",
-        "Ha crecido en la parte física para poder sostener el nivel los 90 minutos y ayudar también sin balón."
-      ], temp: { pj: 6, g: 2, a: 5 } },
-    { id: "pau-miralles", nombre: "Pau Miralles", dorsal: 7, pos: "Interior", grupo: "Centrocampistas", cat: "Cadete A",
-      foto: P(3), pie: "Diestro", nac: "2009-04-27", lugar: "Chetumal", altura: "1,71 m", desde: "2018",
-      cita: "Llegada desde segunda línea y mucho gol para ser centrocampista.",
-      bio: [
-        "Pau es el interior que aparece en el área rival. Tiene timing para las llegadas y un buen disparo desde la frontal.",
-        "El reto de esta temporada es equilibrar esas llegadas con el trabajo defensivo del mediocampo."
-      ], temp: { pj: 5, g: 4, a: 2 } },
-    { id: "guillem-prat", nombre: "Guillem Prat", dorsal: 6, pos: "Pivote", grupo: "Centrocampistas", cat: "Infantil A",
-      foto: P(8), pie: "Diestro", nac: "2011-08-15", lugar: "Cancún, Q. Roo", altura: "1,64 m", desde: "2018",
-      cita: "El ancla del equipo: recupera, orienta y da el primer pase.",
-      bio: [
-        "Guillem juega por delante de la defensa del Infantil A. Ve el peligro antes de que llegue y distribuye con criterio.",
-        "Es un jugador poco vistoso pero imprescindible: cuando él está bien, el equipo está ordenado."
-      ], temp: { pj: 5, g: 0, a: 1 } },
-    { id: "ona-grau", nombre: "Ona Grau", dorsal: 10, pos: "Pivote", grupo: "Centrocampistas", cat: "Femenino Sub-16",
-      foto: P(7), pie: "Diestra", nac: "2010-06-08", lugar: "Cancún, Q. Roo", altura: "1,68 m", desde: "2017",
-      cita: "Marca el ritmo del equipo y no pierde un balón bajo presión.",
-      bio: [
-        "Ona es la capitana del femenino Sub-16 y la jugadora que ordena el juego desde el centro del campo.",
-        "Su lectura del partido y su temple con balón la convierten en un referente para las categorías femeninas más jóvenes."
-      ], temp: { pj: 4, g: 1, a: 3 } },
-    // Delanteros
-    { id: "marc-vidal", nombre: "Marc Vidal", dorsal: 10, pos: "Delantero", grupo: "Delanteros", cat: "Juvenil A",
-      foto: P(1), pie: "Diestro", nac: "2007-03-12", lugar: "Cancún, Q. Roo", altura: "1,76 m", desde: "2016",
-      cita: "Le gusta encarar, buscar el uno contra uno y no tiene miedo a fallar.",
-      bio: [
-        "Marc es el referente ofensivo del Juvenil A. Combina el desborde por fuera con la aparición dentro del área.",
-        "Ha estado en el club desde prebenjamín. Trabaja la definición con la escuela de tecnificación una tarde a la semana."
-      ], temp: { pj: 6, g: 5, a: 2 } },
-    { id: "eric-sola", nombre: "Èric Solà", dorsal: 11, pos: "Extremo", grupo: "Delanteros", cat: "Cadete B",
-      foto: P(7), pie: "Zurdo", nac: "2010-10-01", lugar: "Cancún, Q. Roo", altura: "1,69 m", desde: "2019",
-      cita: "Velocidad pura por la banda y peligro cada vez que arranca.",
-      bio: [
-        "Èric es el extremo más rápido del Cadete B. En espacios abiertos es casi imparable y genera muchas faltas y córners.",
-        "Está mejorando el último pase para que su velocidad se traduzca en más asistencias."
-      ], temp: { pj: 5, g: 3, a: 1 } },
-    { id: "hugo-leon", nombre: "Hugo León", dorsal: 9, pos: "Delantero", grupo: "Delanteros", cat: "Juvenil A",
-      foto: P(4), pie: "Diestro", nac: "2008-01-25", lugar: "Cancún, Q. Roo", altura: "1,83 m", desde: "2021",
-      cita: "Un '9' de área que la baja de espaldas y aguanta a los centrales.",
-      bio: [
-        "Hugo es el delantero de referencia del Juvenil A. Juega bien de espaldas, fija a los centrales y libera a los interiores.",
-        "El club valora especialmente su generosidad: presiona el primero y celebra los goles del equipo como propios."
-      ], temp: { pj: 6, g: 4, a: 3 } }
   ];
 
   // Índice de búsqueda (páginas + contenidos)
   const paginas = [
     { titulo: "Inscripciones 25/26", url: "inscripciones.html", tipo: "Página", texto: "cómo inscribirse plazas cuotas becas pruebas de acceso área de familias temporada" },
-    { titulo: "Nuestras categorías", url: "categorias.html", tipo: "Página", texto: "escuela prebenjamín benjamín alevín infantil cadete juvenil femenino edades horarios" },
-    { titulo: "Jugadores de la cantera", url: "jugadores.html", tipo: "Página", texto: "plantilla porteros defensas centrocampistas delanteros fichas jugadores jugadoras dorsal posición" },
-    { titulo: "Metodología", url: "metodologia.html", tipo: "Página", texto: "modelo de juego valores plan formativo por edades tecnificación escuela de porteros" },
-    { titulo: "El Club", url: "club.html", tipo: "Página", texto: "historia orígenes 2007 escudo valores junta directiva instalaciones campo municipal ciudad deportiva staff" },
-    { titulo: "Calendario y resultados", url: "calendario.html", tipo: "Página", texto: "partidos jornada liga comarcal copa federación resultados convocatoria" },
+    { titulo: "Nuestras categorías", url: "categorias.html", tipo: "Página", texto: "baby corre inicial infantil menor niños héroes infantil mayor 2015 2016 2017 2018 2019 2020 2021 2022 2023 2024 porteros edades año de nacimiento" },
+    { titulo: "Jugadores del club", url: "jugadores.html", tipo: "Página", texto: "plantilla equipo porteros defensas fichas jugadores jugadoras dorsal posición santi" },
+    { titulo: "Metodología", url: "metodologia.html", tipo: "Página", texto: "modelo de juego valores plan formativo por edades entrenamiento de porteros" },
+    { titulo: "El Club", url: "club.html", tipo: "Página", texto: "historia correcaminos escudo valores compromiso con el menor instalaciones cancha staff" },
+    { titulo: "Calendario y resultados", url: "calendario.html", tipo: "Página", texto: "partidos jornada liga guillermo cañedo torneos resultados convocatoria" },
     { titulo: "Actualidad", url: "actualidad.html", tipo: "Página", texto: "noticias crónicas club día a día" },
     { titulo: "Corre TV", url: "corre-tv.html", tipo: "Página", texto: "vídeos resúmenes entrevistas entrenamientos gol de la semana" },
     { titulo: "Tienda del club", url: "tienda.html", tipo: "Página", texto: "equipación camiseta chándal sudadera mochila botella accesorios ropa" },

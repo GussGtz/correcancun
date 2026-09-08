@@ -240,11 +240,11 @@
           <h3>${c.nombre}</h3>
           <p>${c.desc}</p>
           <ul class="cat-card__meta">
+            <li><i class="ri-calendar-event-line" aria-hidden="true"></i> ${c.programa ? "Abierto a todas las categorías" : "Nacidos en " + c.nac}</li>
+            <li><i class="ri-football-line" aria-hidden="true"></i> ${c.formato}</li>
             <li><i class="ri-time-line" aria-hidden="true"></i> ${c.dias}</li>
-            <li><i class="ri-group-line" aria-hidden="true"></i> ${c.equipos} equipos</li>
-            <li><i class="ri-${c.pruebas ? "user-search-line" : "check-line"}" aria-hidden="true"></i> ${c.pruebas ? "Con pruebas de acceso" : "Sin pruebas — plaza directa"}</li>
           </ul>
-          <a class="btn btn--gold" href="inscripciones.html?cat=${c.id}">Inscribir en ${c.nombre}</a>
+          <a class="btn btn--gold" href="inscripciones.html?cat=${c.id}">${c.programa ? "Apuntar a un portero" : "Inscribir en " + c.nombre}</a>
         </div>
       </article>`).join("");
     if (location.hash) {
@@ -380,35 +380,35 @@
   function renderPlantilla() {
     const wrap = $("[data-plantilla]");
     if (!wrap || !D) return;
-    const grupos = ["Porteros", "Defensas", "Centrocampistas", "Delanteros"];
-    const opts = ["Todos", ...grupos, "Cuerpo técnico"];
+    const orden = ["Porteros", "Defensas", "Centrocampistas", "Delanteros"];
+    // solo los grupos que tienen jugadores
+    const grupos = orden.filter((g) => D.plantilla.some((j) => j.grupo === g));
+    const opts = grupos.length > 1 ? ["Todos", ...grupos, "Cuerpo técnico"] : ["Jugadores", "Cuerpo técnico"];
     const chips = el("div", "chips");
     chips.innerHTML = opts.map((g, i) =>
       `<button class="chip${i === 0 ? " is-active" : ""}" data-g="${g}">${g}</button>`).join("");
     const body = el("div", "squad");
+
+    const jugadoresHTML = () => grupos.map((grp) => {
+      const js = D.plantilla.filter((j) => j.grupo === grp);
+      const titulo = grupos.length > 1 ? grp : "Jugadores";
+      return `<h2 class="section-sub">${titulo}</h2>
+        <div class="squad__grid">${js.map((j, i) => playerCardHTML(j, i)).join("")}</div>`;
+    }).join("");
+    const staffHTML = () => `<h2 class="section-sub" id="cuerpo-tecnico">Cuerpo técnico</h2>
+      <div class="squad__grid">${D.staff.map((s, i) => staffCardHTML(s, i)).join("")}</div>`;
+
+    const build = (g) => {
+      if (g === "Todos" || g === "Jugadores") return jugadoresHTML();
+      if (g === "Cuerpo técnico") return staffHTML();
+      const js = D.plantilla.filter((j) => j.grupo === g);
+      return `<h2 class="section-sub">${g}</h2>
+        <div class="squad__grid">${js.map((j, i) => playerCardHTML(j, i)).join("")}</div>`;
+    };
+    const setStagger = () => body.querySelectorAll(".squad__grid .player-card").forEach((c, i) => c.style.setProperty("--i", i));
     const paint = (g) => {
-      let html = "";
-      if (g === "Todos" || g === "Cuerpo técnico") {
-        if (g === "Todos") {
-          html += grupos.map((grp) => {
-            const js = D.plantilla.filter((j) => j.grupo === grp);
-            return `<h2 class="section-sub">${grp}</h2>
-              <div class="squad__grid">${js.map((j, i) => playerCardHTML(j, i)).join("")}</div>`;
-          }).join("");
-        }
-        html += `<h2 class="section-sub" id="cuerpo-tecnico">Cuerpo técnico</h2>
-          <div class="squad__grid">${D.staff.map((s, i) => staffCardHTML(s, i)).join("")}</div>`;
-      } else {
-        const js = D.plantilla.filter((j) => j.grupo === g);
-        html = `<h2 class="section-sub">${g}</h2>
-          <div class="squad__grid">${js.map((j, i) => playerCardHTML(j, i)).join("")}</div>`;
-      }
       body.classList.add("is-swapping");
-      setTimeout(() => {
-        body.innerHTML = html;
-        body.querySelectorAll(".squad__grid .player-card").forEach((c, i) => (c.style.setProperty("--i", i)));
-        body.classList.remove("is-swapping");
-      }, 180);
+      setTimeout(() => { body.innerHTML = build(g); setStagger(); body.classList.remove("is-swapping"); }, 180);
     };
     chips.addEventListener("click", (e) => {
       const b = e.target.closest(".chip"); if (!b || b.classList.contains("is-active")) return;
@@ -416,14 +416,9 @@
       paint(b.dataset.g);
     });
     wrap.append(chips, body);
-    // pintado inicial sin la animación de "swap"
-    body.innerHTML = grupos.map((grp) => {
-      const js = D.plantilla.filter((j) => j.grupo === grp);
-      return `<h2 class="section-sub">${grp}</h2>
-        <div class="squad__grid">${js.map((j, i) => playerCardHTML(j, i)).join("")}</div>`;
-    }).join("") + `<h2 class="section-sub" id="cuerpo-tecnico">Cuerpo técnico</h2>
-      <div class="squad__grid">${D.staff.map((s, i) => staffCardHTML(s, i)).join("")}</div>`;
-    body.querySelectorAll(".squad__grid .player-card").forEach((c, i) => c.style.setProperty("--i", i));
+    // pintado inicial: jugadores + cuerpo técnico
+    body.innerHTML = jugadoresHTML() + staffHTML();
+    setStagger();
   }
 
   // jugador.html: ficha completa (estilo ficha de club — hero + bio + palmarés + actualidad)
@@ -442,7 +437,7 @@
     const retrato = j.retrato || j.foto;
 
     // trayectoria por el club, derivada del año de entrada y la categoría actual
-    const escala = ["Prebenjamín", "Benjamín", "Alevín", "Infantil", "Cadete", "Juvenil"];
+    const escala = ["Baby Corre", "Inicial", "Infantil Menor", "Niños Héroes", "Infantil Mayor"];
     const actual = escala.findIndex((e) => (j.cat || "").startsWith(e));
     const inicio = Math.max(0, actual - Math.min(actual, new Date().getFullYear() - Number(j.desde)));
     const paso = actual >= 0 ? escala.slice(inicio, actual + 1) : [];
@@ -593,8 +588,15 @@
 
     const rel = $("[data-jugador-rel]");
     if (rel) {
-      rel.innerHTML = D.plantilla.filter((x) => x.grupo === j.grupo && x.id !== j.id).slice(0, 4)
-        .map((x, i) => playerCardHTML(x, i)).join("");
+      const otros = D.plantilla.filter((x) => x.id !== j.id).slice(0, 4);
+      const sec = rel.closest("section");
+      if (!otros.length) {
+        if (sec) sec.hidden = true;
+      } else {
+        const h = sec && sec.querySelector(".section-sub");
+        if (h) h.textContent = "Otros jugadores del club";
+        rel.innerHTML = otros.map((x, i) => playerCardHTML(x, i)).join("");
+      }
     }
     countUp(wrap);
   }
