@@ -246,6 +246,7 @@ window.CorreData = (function () {
   const plantilla = [
     { id: "santi-gutierrez", nombre: "Santiago «Santi» Gutiérrez", apellido: "Gutiérrez", dorsal: 103, pos: "Defensa", grupo: "Defensas",
       cat: "Niños Héroes", foto: "assets/img/jug-santi.jpg", retrato: "assets/img/jug-santi.png",
+      heroBg: "assets/img/jficha-hero-bg.jpg",
       nac: "2018-10-16", lugar: "Quintana Roo",
       desde: "2025", liga: "Liga Guillermo Cañedo, A. C.", nui: "1222933",
       cita: "Defensa aplicado que no pierde la marca y sabe salir jugando desde atrás.",

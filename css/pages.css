@@ -409,6 +409,21 @@
     repeating-linear-gradient(115deg, rgba(255,255,255,.022) 0 2px, transparent 2px 30px);
   pointer-events: none;
 }
+
+/* Con foto de fondo: la imagen se pone por inline-style; aquí el encuadre
+   y un velo oscuro para que el texto y las cifras se lean bien. */
+.jficha__hero--photo {
+  background-color: var(--navy-hero);
+  background-size: cover;
+  background-position: center 28%;
+  background-repeat: no-repeat;
+}
+.jficha__hero--photo::before {
+  background:
+    linear-gradient(180deg, rgba(7,13,36,.72) 0%, rgba(6,11,30,.86) 60%, rgba(5,10,26,.94) 100%),
+    radial-gradient(60% 100% at 20% 0%, rgba(226,100,30,.20), transparent 62%),
+    linear-gradient(95deg, rgba(6,11,30,.55) 0%, transparent 55%);
+}
 .jficha__wm {
   position: absolute;
   left: -2rem;

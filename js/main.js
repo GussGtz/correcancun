@@ -470,7 +470,7 @@
 
     /* ---- Hero ---- */
     const hero = `
-      <section class="jficha__hero">
+      <section class="jficha__hero${j.heroBg ? " jficha__hero--photo" : ""}"${j.heroBg ? ` style="background-image:url('${j.heroBg}')"` : ""}>
         <span class="jficha__wm" aria-hidden="true">${apellido}</span>
         ${rail}
         <nav class="breadcrumb"><a href="index.html">Inicio</a> › <a href="jugadores.html">Jugadores</a> › <span>${j.cat}</span></nav>
