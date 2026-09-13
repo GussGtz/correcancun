@@ -11,17 +11,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: var(--sp-m);
-  padding-block: var(--sp-l);
+  gap: var(--sp-l);
+  padding-block: var(--sp-xl);
 }
 .footer-sponsors__label {
-  font-size: var(--fs-label-s);
+  font-size: var(--fs-body-m);
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: .06em;
   color: rgba(255,255,255,.5);
 }
-.footer-sponsors__inner img { display: block; height: 4rem; width: auto; transition: opacity .16s var(--ease); }
+.footer-sponsors__inner img { display: block; height: 6.4rem; width: auto; transition: opacity .16s var(--ease); }
 .footer-sponsors__inner a:hover img { opacity: .8; }
 
 /* ---- Palmarés / trofeos --------------------------------------------- */
@@ -46,24 +46,31 @@
 
 /* ---- Redes ---------------------------------------------------------- */
 .footer-social {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: var(--sp-m);
+  max-width: 34rem;
   padding-block: var(--sp-l);
   border-bottom: 1px solid rgba(255,255,255,.1);
 }
-.footer-social p { font-family: var(--font-display); text-transform: uppercase; font-size: var(--fs-title-s); color: #fff; }
-.footer-social__links { display: flex; gap: var(--sp-s); margin-left: auto; }
+.footer-social h3 {
+  font-size: var(--fs-label-s);
+  color: #fff;
+  letter-spacing: .08em;
+  margin-bottom: var(--sp-m);
+}
+.footer-social__links { display: flex; flex-direction: column; gap: var(--sp-s); }
 .footer-social__links a {
-  width: 4rem; height: 4rem;
-  display: grid; place-items: center;
-  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  gap: var(--sp-s);
+  padding: 1.2rem 1.6rem;
+  border-radius: var(--radius-m);
   background: rgba(255,255,255,.08);
+  font-size: var(--fs-body-m);
+  font-weight: 600;
+  color: #fff;
   transition: background-color .16s var(--ease);
 }
 .footer-social__links a:hover { background: var(--brand-blue); }
-.footer-social__links svg { width: 1.8rem; height: 1.8rem; fill: #fff; }
+.footer-social__links i { font-size: 1.8rem; }
 
 /* ---- Columnas de enlaces ------------------------------------------- */
 .footer-cols {
