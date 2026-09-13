@@ -15,10 +15,14 @@ No se incluye ningún activo, texto, fotografía, vídeo ni marca del FC Barcelo
 Sitio estático, sin build:
 
 ```bash
-cd "Corre Cancún"
-python3 -m http.server 4599
+cd "Corre FC"
+python3 serve.py
 # abrir http://localhost:4599
 ```
+
+`serve.py` es como `python3 -m http.server` pero manda `Cache-Control: no-store`,
+así que un refresco normal siempre trae los cambios (con `http.server` a secas
+el navegador cachea data.js/css/imágenes y hay que forzar el refresco).
 
 ## Estructura
 
