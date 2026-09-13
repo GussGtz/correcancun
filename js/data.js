@@ -186,12 +186,12 @@ window.CorreData = (function () {
   ];
 
   const videos = [
-    { id: "metodologia", titulo: "Así entrenamos: un día en el Corre Cancún", dur: "4:12", cat: "Club", img: S + "video-metodologia.svg" },
-    { id: "gol-semana", titulo: "El gol de la semana · Niños Héroes", dur: "0:38", cat: "Niños Héroes", img: S + "story-3.svg" },
-    { id: "porteros", titulo: "Sesión del entrenamiento de porteros", dur: "3:05", cat: "Porteros", img: S + "promo-porteros.svg" },
-    { id: "sabado-partido", titulo: "Un sábado de partido en la cancha", dur: "2:47", cat: "Club", img: S + "news-puertas.svg" },
-    { id: "valores", titulo: "Qué significa jugar en el Corre Cancún", dur: "1:59", cat: "Club", img: S + "story-5.svg" },
-    { id: "torneo", titulo: "El equipo en un torneo de la zona", dur: "5:20", cat: "Torneos", img: S + "story-4.svg" }
+    { id: "metodologia", titulo: "Así entrenamos: un día en el Corre Cancún", dur: "4:12", cat: "Club", img: "assets/img/story-metodologia.jpg" },
+    { id: "gol-semana", titulo: "El gol de la semana · Niños Héroes", dur: "0:38", cat: "Niños Héroes", img: "assets/img/story-gol-semana.jpg" },
+    { id: "porteros", titulo: "Sesión del entrenamiento de porteros", dur: "3:05", cat: "Porteros", img: "assets/img/story-porteros.jpg" },
+    { id: "sabado-partido", titulo: "Un sábado de partido en la cancha", dur: "2:47", cat: "Club", img: "assets/img/story-partido.jpg" },
+    { id: "valores", titulo: "Qué significa jugar en el Corre Cancún", dur: "1:59", cat: "Club", img: "assets/img/story-valores.jpg" },
+    { id: "torneo", titulo: "El equipo en un torneo de la zona", dur: "5:20", cat: "Torneos", img: "assets/img/story-torneo.jpg" }
   ];
 
   const tienda = [
