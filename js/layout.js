@@ -409,15 +409,25 @@
     // Con un único valor, al ocultarse el ribbon la página pierde esa altura,
     // scrollY cae justo por debajo del umbral, la clase se quita, el ribbon
     // vuelve, scrollY sube de nuevo... y la cabecera parpadea sin parar.
+    // Además, justo al cambiar de alto, el navegador puede "recompensar" el
+    // scroll (scroll anchoring / inercia del trackpad) y disparar el evento
+    // scroll otra vez con un valor raro antes de asentarse — sobre todo al
+    // subir. Por eso, tras cada cambio de estado, se ignoran los eventos de
+    // scroll durante un instante corto para dejar que la página se asiente.
     const header = $(".site-header");
     const toTop = $(".to-top");
     let compact = false;
+    let settleUntil = 0;
     const onScroll = () => {
       const y = window.scrollY;
-      if (!compact && y > 90) compact = true;
-      else if (compact && y < 20) compact = false;
-      header.classList.toggle("is-scrolled", compact);
       toTop?.classList.toggle("is-visible", y > 600);
+      if (performance.now() < settleUntil) return;
+      const next = compact ? y >= 20 : y > 90;
+      if (next !== compact) {
+        compact = next;
+        header.classList.toggle("is-scrolled", compact);
+        settleUntil = performance.now() + 250;
+      }
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();

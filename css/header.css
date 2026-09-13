@@ -8,6 +8,12 @@
   z-index: var(--z-header);
   background: var(--ink-900);
   box-shadow: 0 10px 30px rgba(0,0,0,.28);
+  /* Al ocultar el ribbon con display:none, la cabecera sticky cambia de
+     altura y Chrome intenta "anclar" el scroll compensando scrollY para
+     que el contenido no salte — esa compensación es la que retriggeraba
+     el listener y producía el parpadeo (sobre todo subiendo, con inercia
+     del trackpad). Se desactiva el scroll anchoring en toda esta zona. */
+  overflow-anchor: none;
 }
 .site-header.is-scrolled .ribbon { display: none; }
 .site-header.is-scrolled .navbar__inner { min-height: 5.4rem; }
