@@ -46,31 +46,24 @@
 
 /* ---- Redes ---------------------------------------------------------- */
 .footer-social {
-  max-width: 34rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sp-m);
   padding-block: var(--sp-l);
   border-bottom: 1px solid rgba(255,255,255,.1);
 }
-.footer-social h3 {
-  font-size: var(--fs-label-s);
-  color: #fff;
-  letter-spacing: .08em;
-  margin-bottom: var(--sp-m);
-}
-.footer-social__links { display: flex; flex-direction: column; gap: var(--sp-s); }
+.footer-social p { font-family: var(--font-display); text-transform: uppercase; font-size: var(--fs-title-s); color: #fff; }
+.footer-social__links { display: flex; gap: var(--sp-s); margin-left: auto; }
 .footer-social__links a {
-  display: flex;
-  align-items: center;
-  gap: var(--sp-s);
-  padding: 1.2rem 1.6rem;
-  border-radius: var(--radius-m);
+  width: 4rem; height: 4rem;
+  display: grid; place-items: center;
+  border-radius: 50%;
   background: rgba(255,255,255,.08);
-  font-size: var(--fs-body-m);
-  font-weight: 600;
-  color: #fff;
   transition: background-color .16s var(--ease);
 }
 .footer-social__links a:hover { background: var(--brand-blue); }
-.footer-social__links i { font-size: 1.8rem; }
+.footer-social__links svg { width: 1.8rem; height: 1.8rem; fill: #fff; }
 
 /* ---- Columnas de enlaces ------------------------------------------- */
 .footer-cols {
