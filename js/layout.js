@@ -226,6 +226,14 @@
     ];
     return `
 <footer class="site-footer">
+  <div class="footer-sponsors">
+    <div class="wrapper wrapper--wide footer-sponsors__inner">
+      <span class="footer-sponsors__label">Patrocinador oficial</span>
+      <a href="https://atomyko.com" target="_blank" rel="noopener noreferrer" aria-label="Atomyko — sitio web (se abre en una pestaña nueva)">
+        <img src="assets/img/sponsor-atomyko.png" alt="Atomyko" height="40">
+      </a>
+    </div>
+  </div>
   <div class="wrapper wrapper--wide">
     <div class="footer-trophies">
       ${window.CorreData.cifras.map((c) => `<div class="trophy">

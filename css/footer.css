@@ -5,6 +5,25 @@
 .site-footer { background: var(--ink-900); color: rgba(255,255,255,.72); }
 .site-footer a { color: rgba(255,255,255,.72); }
 
+/* ---- Patrocinadores ---------------------------------------------------- */
+.footer-sponsors { background: var(--ink-850); border-bottom: 1px solid rgba(255,255,255,.1); }
+.footer-sponsors__inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-m);
+  padding-block: var(--sp-l);
+}
+.footer-sponsors__label {
+  font-size: var(--fs-label-s);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: rgba(255,255,255,.5);
+}
+.footer-sponsors__inner img { display: block; height: 4rem; width: auto; transition: opacity .16s var(--ease); }
+.footer-sponsors__inner a:hover img { opacity: .8; }
+
 /* ---- Palmarés / trofeos --------------------------------------------- */
 .footer-trophies {
   display: grid;
