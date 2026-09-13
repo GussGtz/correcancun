@@ -405,11 +405,18 @@
     });
 
     // Cabecera compacta
+    // OJO: el umbral de entrada y salida debe ser distinto (histéresis).
+    // Con un único valor, al ocultarse el ribbon la página pierde esa altura,
+    // scrollY cae justo por debajo del umbral, la clase se quita, el ribbon
+    // vuelve, scrollY sube de nuevo... y la cabecera parpadea sin parar.
     const header = $(".site-header");
     const toTop = $(".to-top");
+    let compact = false;
     const onScroll = () => {
       const y = window.scrollY;
-      header.classList.toggle("is-scrolled", y > 40);
+      if (!compact && y > 90) compact = true;
+      else if (compact && y < 20) compact = false;
+      header.classList.toggle("is-scrolled", compact);
       toTop?.classList.toggle("is-visible", y > 600);
     };
     window.addEventListener("scroll", onScroll, { passive: true });
