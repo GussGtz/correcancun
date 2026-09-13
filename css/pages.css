@@ -896,7 +896,8 @@
 /* ---- Tienda (prod) ------------------------------------------- */
 .prod-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-l); }
 .prod { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-l); overflow: hidden; display: flex; flex-direction: column; }
-.prod__media { position: relative; aspect-ratio: 4/3; }
+.prod__media { position: relative; aspect-ratio: 4/3; background: var(--surface-dim); }
+.prod__media img { object-fit: contain; padding: var(--sp-m); box-sizing: border-box; }
 .prod__body { padding: var(--sp-l); display: flex; flex-direction: column; gap: var(--sp-xs); flex: 1; }
 .prod__body h3 { font-size: var(--fs-title-s); }
 .prod__body p { color: var(--ink-soft); font-size: var(--fs-body-m); flex: 1; }

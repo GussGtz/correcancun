@@ -195,18 +195,14 @@ window.CorreData = (function () {
   ];
 
   const tienda = [
-    { id: "kit", nombre: "Equipación oficial 25/26", precio: "45 €", img: S + "shop-kit.svg",
-      desc: "Camiseta, pantalón y medias de juego. Tallas desde 4 años hasta adulto." },
-    { id: "training", nombre: "Chándal de paseo", precio: "52 €", img: S + "shop-training.svg",
-      desc: "Chaqueta y pantalón con el escudo bordado. El que llevan los equipos en los desplazamientos." },
-    { id: "sudadera", nombre: "Sudadera con capucha", precio: "34 €", img: S + "shop-training.svg",
-      desc: "Algodón cepillado, unisex, con el escudo en el pecho." },
-    { id: "mochila", nombre: "Mochila del club", precio: "26 €", img: S + "shop-accesorios.svg",
-      desc: "Compartimento para botas, portátil y botella. Resistente al agua." },
-    { id: "botella", nombre: "Botella 750 ml", precio: "9 €", img: S + "shop-accesorios.svg",
-      desc: "Sin BPA, apta para lavavajillas, con el escudo grabado." },
-    { id: "bufanda", nombre: "Bufanda del club", precio: "14 €", img: S + "shop-accesorios.svg",
-      desc: "Doble cara, tejida, para los partidos de invierno." }
+    { id: "local", nombre: "Uniforme Local", precio: "Consultar", img: "assets/img/shop-local.png",
+      desc: "Camiseta oficial de local del club. Tallas desde 4 años hasta adulto." },
+    { id: "visita", nombre: "Uniforme de Visita", precio: "Consultar", img: "assets/img/shop-visita.png",
+      desc: "Camiseta oficial de visita del club. Tallas desde 4 años hasta adulto." },
+    { id: "viaje", nombre: "Playera de Viaje", precio: "Consultar", img: "assets/img/shop-viaje.png",
+      desc: "Con el escudo del club. La que llevan los equipos en los desplazamientos." },
+    { id: "entrenamiento", nombre: "Playera de Entrenamiento", precio: "Consultar", img: "assets/img/shop-entrenamiento.png",
+      desc: "Playera para las sesiones de entrenamiento del club." }
   ];
 
   const cuotas = [
@@ -286,7 +282,7 @@ window.CorreData = (function () {
     { titulo: "Calendario y resultados", url: "calendario.html", tipo: "Página", texto: "partidos jornada liga infantil torneos amistosos resultados convocatoria" },
     { titulo: "Actualidad", url: "actualidad.html", tipo: "Página", texto: "noticias crónicas club día a día" },
     { titulo: "Corre TV", url: "corre-tv.html", tipo: "Página", texto: "vídeos resúmenes entrevistas entrenamientos gol de la semana" },
-    { titulo: "Tienda del club", url: "tienda.html", tipo: "Página", texto: "equipación camiseta chándal sudadera mochila botella accesorios ropa" },
+    { titulo: "Tienda del club", url: "tienda.html", tipo: "Página", texto: "equipación camiseta uniforme local visita playera de viaje entrenamiento ropa" },
     { titulo: "Contacto", url: "contacto.html", tipo: "Página", texto: "teléfono email dirección campo municipal escríbenos formulario" }
   ];
 
