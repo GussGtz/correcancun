@@ -405,32 +405,36 @@
     });
 
     // Cabecera compacta
-    // OJO: el umbral de entrada y salida debe ser distinto (histéresis).
-    // Con un único valor, al ocultarse el ribbon la página pierde esa altura,
-    // scrollY cae justo por debajo del umbral, la clase se quita, el ribbon
-    // vuelve, scrollY sube de nuevo... y la cabecera parpadea sin parar.
-    // Además, justo al cambiar de alto, el navegador puede "recompensar" el
-    // scroll (scroll anchoring / inercia del trackpad) y disparar el evento
-    // scroll otra vez con un valor raro antes de asentarse — sobre todo al
-    // subir. Por eso, tras cada cambio de estado, se ignoran los eventos de
-    // scroll durante un instante corto para dejar que la página se asiente.
+    // Antes esto se calculaba leyendo window.scrollY en el evento "scroll".
+    // El problema: al ocultar el ribbon con display:none, la cabecera
+    // sticky cambia de altura, el navegador "recompensa" el scroll para
+    // que el contenido no salte (scroll anchoring / inercia del trackpad),
+    // eso dispara el evento scroll otra vez con un valor distinto, y la
+    // cabecera entraba en un bucle de parpadeo. La histéresis + una ventana
+    // de asentamiento ayudaban pero no lo eliminaban del todo en todos los
+    // trackpads. La solución robusta es no depender de scrollY en absoluto:
+    // un IntersectionObserver sobre un centinela fijo en el documento no se
+    // ve afectado por el cambio de altura de la cabecera, así que no hay
+    // realimentación posible.
     const header = $(".site-header");
     const toTop = $(".to-top");
-    let compact = false;
-    let settleUntil = 0;
-    const onScroll = () => {
-      const y = window.scrollY;
-      toTop?.classList.toggle("is-visible", y > 600);
-      if (performance.now() < settleUntil) return;
-      const next = compact ? y >= 20 : y > 90;
-      if (next !== compact) {
-        compact = next;
-        header.classList.toggle("is-scrolled", compact);
-        settleUntil = performance.now() + 250;
-      }
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
+    const HEADER_THRESHOLD = 90;
+    let sentinel = document.getElementById("hdr-sentinel");
+    if (!sentinel) {
+      sentinel = document.createElement("div");
+      sentinel.id = "hdr-sentinel";
+      sentinel.setAttribute("aria-hidden", "true");
+      sentinel.style.cssText =
+        `position:absolute; top:${HEADER_THRESHOLD}px; left:0; width:1px; height:1px; pointer-events:none;`;
+      document.body.prepend(sentinel);
+    }
+    const setCompact = (v) => header.classList.toggle("is-scrolled", v);
+    setCompact(window.scrollY > HEADER_THRESHOLD); // estado inicial sin esperar al observer
+    new IntersectionObserver(([entry]) => setCompact(!entry.isIntersecting), { threshold: 0 })
+      .observe(sentinel);
+    window.addEventListener("scroll", () => {
+      toTop?.classList.toggle("is-visible", window.scrollY > 600);
+    }, { passive: true });
     toTop?.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
 
     // Selector de idioma
